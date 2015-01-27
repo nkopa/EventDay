@@ -1,0 +1,19 @@
+﻿@model IEnumerable<EventDay.Models.Comment>
+
+
+<h3>Komentarze:</h3>
+
+@foreach (var item in Model) {
+     <div id="comment">
+        <div id="username">             
+                 @Html.DisplayFor(modelItem => item.DateCreated)
+            <br />
+            User:  @Html.DisplayFor(modelItem => item.Username)
+        </div>
+                    @Html.DisplayFor(modelItem => item.Content)       
+         </div>
+       
+      
+   
+}
+

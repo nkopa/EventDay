@@ -1,0 +1,103 @@
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\EventDay.dll
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\EventDay.pdb
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\EntityFramework.dll
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\System.Web.Helpers.dll
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\System.Web.Mvc.dll
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\System.Web.Providers.dll
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\System.Web.Razor.dll
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\System.Web.WebPages.dll
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\System.Web.WebPages.Razor.dll
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\EntityFramework.xml
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\System.Web.Helpers.xml
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\System.Web.Mvc.xml
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\System.Web.Razor.xml
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\System.Web.WebPages.xml
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\System.Web.WebPages.Razor.xml
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\bin\pl\System.Web.Providers.resources.dll
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\obj\Debug\EventDay.csprojResolveAssemblyReference.cache
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\obj\Debug\EventDay.dll
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\obj\Debug\EventDay.pdb
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.initial.resources
+C:\Users\Natalia\Documents\Studia\EventDay\PROJEKTNEW\EventDay\EventDay\EventDay\obj\Debug\EventDay.csproj.GenerateResource.Cache
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\EventDay.dll
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\EventDay.pdb
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\EntityFramework.dll
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\Microsoft.Web.Infrastructure.dll
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\System.Web.Helpers.dll
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\System.Web.Mvc.dll
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\System.Web.Providers.dll
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\System.Web.Razor.dll
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\System.Web.WebPages.Deployment.dll
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\System.Web.WebPages.dll
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\System.Web.WebPages.Razor.dll
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\EntityFramework.xml
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\System.Web.Helpers.xml
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\System.Web.Mvc.xml
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\System.Web.Razor.xml
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\System.Web.WebPages.xml
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\System.Web.WebPages.Deployment.xml
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\System.Web.WebPages.Razor.xml
+D:\!!Studia\!UG\NET\EventDay\EventDay\bin\pl\System.Web.Providers.resources.dll
+D:\!!Studia\!UG\NET\EventDay\EventDay\obj\Debug\EventDay.csprojResolveAssemblyReference.cache
+D:\!!Studia\!UG\NET\EventDay\EventDay\obj\Debug\EventDay.Migrations.initial.resources
+D:\!!Studia\!UG\NET\EventDay\EventDay\obj\Debug\EventDay.csproj.GenerateResource.Cache
+D:\!!Studia\!UG\NET\EventDay\EventDay\obj\Debug\EventDay.dll
+D:\!!Studia\!UG\NET\EventDay\EventDay\obj\Debug\EventDay.pdb
+D:\!!Studia\!UG\NET\EventDay\EventDay\obj\Debug\EventDay.Migrations.addcomment.resources
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\EventDay.dll
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\EventDay.pdb
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\EntityFramework.dll
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\Microsoft.Web.Infrastructure.dll
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\System.Web.Helpers.dll
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\System.Web.Mvc.dll
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\System.Web.Providers.dll
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\System.Web.Razor.dll
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\System.Web.WebPages.Deployment.dll
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\System.Web.WebPages.dll
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\System.Web.WebPages.Razor.dll
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\EntityFramework.xml
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\System.Web.Helpers.xml
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\System.Web.Mvc.xml
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\System.Web.Razor.xml
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\System.Web.WebPages.xml
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\System.Web.WebPages.Deployment.xml
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\System.Web.WebPages.Razor.xml
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\bin\pl\System.Web.Providers.resources.dll
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\obj\Debug\EventDay.csprojResolveAssemblyReference.cache
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\obj\Debug\EventDay.Migrations.initial.resources
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\obj\Debug\EventDay.Migrations.addcomment.resources
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\obj\Debug\EventDay.csproj.GenerateResource.Cache
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\obj\Debug\EventDay.dll
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\obj\Debug\EventDay.pdb
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\obj\Debug\EventDay.Migrations.up.resources
+D:\!!Studia\!UG\PROJEKT ZESPOL\PROJEKT\EventDay\EventDay\obj\Debug\EventDay.Migrations.up1.resources
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\EventDay.dll
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\EventDay.pdb
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\EntityFramework.dll
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\System.Web.Helpers.dll
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\System.Web.Mvc.dll
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\System.Web.Providers.dll
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\System.Web.Razor.dll
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\System.Web.WebPages.dll
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\System.Web.WebPages.Razor.dll
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\EntityFramework.xml
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\System.Web.Helpers.xml
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\System.Web.Mvc.xml
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\System.Web.Razor.xml
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\System.Web.WebPages.xml
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\System.Web.WebPages.Razor.xml
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\bin\pl\System.Web.Providers.resources.dll
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\obj\Debug\EventDay.csprojResolveAssemblyReference.cache
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\obj\Debug\EventDay.Migrations.initial.resources
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\obj\Debug\EventDay.Migrations.addcomment.resources
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\obj\Debug\EventDay.Migrations.up.resources
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\obj\Debug\EventDay.Migrations.up1.resources
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\obj\Debug\EventDay.csproj.GenerateResource.Cache
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\obj\Debug\EventDay.dll
+C:\Users\Natalia\Documents\Studia\EventDay\EDNEW\EventDay\EventDay\obj\Debug\EventDay.pdb

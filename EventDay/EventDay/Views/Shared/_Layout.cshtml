@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+</head>
+<body>
+    <div class="page">
+        <div id="header">
+            <div id="title">
+                <h1>EventDay</h1>
+                <!--@Html.ActionLink("EventDay", "Index", "Home")-->
+            </div>
+            <div id="logindisplay">
+                @Html.Partial("_LogOnPartial")
+            </div>
+            <div id="menucontainer">
+                <ul id="menu">
+                    <!-- trza odwrotnie dawac bo cos sie wali-->                    
+                    <!--<li>@Html.ActionLink("Profil", "Index", "Home")</li>-->
+                    <li>@Html.ActionLink("Twoje Eventy", "Index", "YourEvents")</li>
+                    <!--<li>@Html.ActionLink("Kalendarz", "Index", "Home")</li>-->
+                    <li>@Html.ActionLink("Szukaj", "Index", "Events")</li>
+                    <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
+                </ul>
+            </div>
+        </div>
+        <div id="main">
+            @RenderBody()
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+</body>
+</html>
+
