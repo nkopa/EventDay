@@ -15,12 +15,13 @@
 
 @foreach (var item in Model) {
     <div class="event">
-        @Html.ActionLink(">>", "Details", new { id = item.EventId })
-        <div>
-            Tytuł: @Html.DisplayFor(modelItem => item.Title)
-            Data wydarzenia: @Html.DisplayFor(modelItem => item.Date)
-            Miasto: @Html.DisplayFor(modelItem => item.City)
+        <a href="@Url.Action("Details", new { id = item.EventId })">
+        <p>
+            Tytuł: @Html.DisplayFor(modelItem => item.Title)<br />
+            Data wydarzenia: @Html.DisplayFor(modelItem => item.Date)<br />
+            Miasto: @Html.DisplayFor(modelItem => item.City)<br />
             Lokalizacja: @Html.DisplayFor(modelItem => item.Locality)
-       </div>
+        </p>
+        </a>
     </div>
 }
