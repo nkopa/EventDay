@@ -19,7 +19,7 @@ namespace EventDay.Controllers
 
         public ViewResult Index()
         {
-            var mEvent = db.Event.Include(e => e.Category);
+            var mEvent = db.Event.Include(e => e.Category).Where(u => u.Username == User.Identity.Name);
             return View(mEvent.ToList());
         }
 
@@ -50,6 +50,7 @@ namespace EventDay.Controllers
             if (ModelState.IsValid)
             {
                 mEvent.DateCreated = DateTime.Now;
+                mEvent.Username = User.Identity.Name;
                 db.Event.Add(mEvent);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
