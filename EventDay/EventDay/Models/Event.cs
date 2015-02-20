@@ -30,9 +30,13 @@ namespace EventDay.Models
         [StringLength(100)]
         public string Title { get; set; }
 
-        [DisplayName("Data wydarzenia")]
+        [DisplayName("Data rozpoczęcia wydarzenia")]
         [Required(ErrorMessage = "Data jest wymagana")]
-        public DateTime Date { get; set; }
+        public DateTime DateBegin { get; set; }
+
+        [DisplayName("Data zakończenia wydarzenia")]
+        [Required(ErrorMessage = "Data jest wymagana")]
+        public DateTime DateEnd { get; set; }
 
         [DisplayName("Opis")]
         [Required(ErrorMessage = "Opis jest wymagany")]

@@ -128,3 +128,4 @@ C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.u
 C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.csproj.GenerateResource.Cache
 C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.dll
 C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.pdb
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.updateDates.resources

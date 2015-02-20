@@ -119,6 +119,10 @@
     <Compile Include="Migrations\201501261802565_up1.Designer.cs">
       <DependentUpon>201501261802565_up1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502200853233_updateDates.cs" />
+    <Compile Include="Migrations\201502200853233_updateDates.Designer.cs">
+      <DependentUpon>201502200853233_updateDates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -255,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201501261802565_up1.resx">
       <DependentUpon>201501261802565_up1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502200853233_updateDates.resx">
+      <DependentUpon>201502200853233_updateDates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

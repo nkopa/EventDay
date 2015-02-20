@@ -19,9 +19,14 @@
         @Html.DisplayFor(model => model.Event.Title)
     </div>
 
-     <div class="display-label">Data wydarzenia:</div>
+    <div class="display-label">Data początku wydarzenia:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Date)
+        @Html.DisplayFor(model => model.Event.DateBegin)
+    </div>
+
+    <div class="display-label">Data końca wydarzenia:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Event.DateEnd)
     </div>
 
      <div class="display-label">Miasto:</div>

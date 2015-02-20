@@ -25,7 +25,7 @@ namespace EventDay.Controllers
 
             //var books = from s in db.Books
             //  select s;
-            var events = db.Event.Select(b => b);
+            var events = db.Event.Select(b => b).Where(e => e.DateEnd >= DateTime.Today);
 
 
            //if (!String.IsNullOrEmpty(search))

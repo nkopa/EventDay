@@ -32,11 +32,19 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Date)
+            @Html.LabelFor(model => model.DateBegin)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Date)
-            @Html.ValidationMessageFor(model => model.Date)
+            @Html.EditorFor(model => model.DateBegin)
+            @Html.ValidationMessageFor(model => model.DateBegin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateEnd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateEnd)
+            @Html.ValidationMessageFor(model => model.DateEnd)
         </div>
 
         <div class="editor-label">
