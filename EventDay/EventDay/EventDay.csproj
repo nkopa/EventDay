@@ -123,10 +123,15 @@
     <Compile Include="Migrations\201502200853233_updateDates.Designer.cs">
       <DependentUpon>201502200853233_updateDates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502221726115_ocenki.cs" />
+    <Compile Include="Migrations\201502221726115_ocenki.Designer.cs">
+      <DependentUpon>201502221726115_ocenki.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\CommentCategory.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventHelper.cs" />
     <Compile Include="Models\EventContext.cs" />
@@ -242,6 +247,8 @@
     <Content Include="Views\Comments\Details.cshtml" />
     <Content Include="Views\Comments\AddComment.cshtml" />
     <Content Include="Views\Shared\EventComments.cshtml" />
+    <Content Include="Views\Comments\SumNegative.cshtml" />
+    <Content Include="Views\Comments\SumPositive.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -262,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502200853233_updateDates.resx">
       <DependentUpon>201502200853233_updateDates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502221726115_ocenki.resx">
+      <DependentUpon>201502221726115_ocenki.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -11,5 +11,6 @@ namespace EventDay.Models
         public DbSet<Event> Event { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Comment> Comment { get; set; }
+        public DbSet<CommentCategory> CommentCategory { get; set; }
     }
 }

@@ -44,6 +44,11 @@
         @Html.DisplayFor(model => model.Event.Description)
     </div>
 
+    
+    <div id="sump"> @{Html.RenderAction("SumPositive", "Comments", new { id = Model.EventId });}</div>
+   
+    <div id="sumn">@{Html.RenderAction("SumNegative", "Comments", new { id = Model.EventId });}</div>
+
      @Html.Partial("EventComments", Model.Comments)
 </fieldset>
 

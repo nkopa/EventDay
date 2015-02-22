@@ -368,3 +368,16 @@ div#title {
 .tri-state {
     width: 6em;
 }
+
+/*nowe*/
+
+#sump{
+    display:inline-block;
+    font-weight: bold;
+    padding:10px 10px 0 0;
+}
+#sumn{
+     display:inline-block;
+      padding:10px 10px 0 0;
+    font-weight: bold;
+}

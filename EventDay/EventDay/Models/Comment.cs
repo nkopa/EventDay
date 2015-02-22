@@ -27,10 +27,10 @@ namespace EventDay.Models
 
         public int EventId { get; set; }
 
-        //public int CommentCategoryId { get; set; }
+        public int CommentCategoryId { get; set; }
 
         public virtual Event Event { get; set; }
 
-        //public virtual CommentCategory CommentCategory { get; set; }
+        public virtual CommentCategory CommentCategory { get; set; }
     }
 }

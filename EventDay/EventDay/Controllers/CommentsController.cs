@@ -20,7 +20,7 @@ namespace EventDay.Controllers
         [Authorize]
         public ActionResult AddComment(int id)
         {
-            //ViewBag.CommentCategoryId = new SelectList(db.CommentCategories, "CommentCategoryId", "Name");
+            ViewBag.CommentCategoryId = new SelectList(db.CommentCategory, "CommentCategoryId", "Name");
             var comment = new Comment();
             comment.EventId = id;
 
@@ -53,6 +53,26 @@ namespace EventDay.Controllers
             var comments = db.Comment.Where(c => c.EventId.Equals(id));
 
             return View(comments.ToList());
+
+        }
+
+        public ActionResult SumNegative(int id)
+        {
+
+            int sum = db.Comment.Where(c => c.CommentCategoryId == 3 && c.EventId == id).Count();
+            ViewData["Negative"] = sum;
+
+            return PartialView("SumNegative");
+
+        }
+
+        public ActionResult SumPositive(int id)
+        {
+
+            int sum = db.Comment.Where(c => c.CommentCategoryId == 2 && c.EventId == id).Count();
+            ViewData["Positive"] = sum;
+
+            return PartialView("SumPositive");
 
         }
 
