@@ -15,19 +15,19 @@
         <legend>Event</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.CategoryId, "Kategoria")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("CategoryId", String.Empty)
-            @Html.ValidationMessageFor(model => model.CategoryId)
-        </div>
-
-        <div class="editor-label">
             @Html.LabelFor(model => model.Title)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Title)
             @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CategoryId, "Kategoria")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CategoryId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CategoryId)
         </div>
 
         <div class="editor-label">

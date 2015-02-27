@@ -142,6 +142,7 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventHelper.cs" />
     <Compile Include="Models\EventContext.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
