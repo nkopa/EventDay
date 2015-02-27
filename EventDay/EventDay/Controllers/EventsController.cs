@@ -54,7 +54,7 @@ namespace EventDay.Controllers
    
         }
 
-        public ActionResult JoinToEvent(int id)
+        public ActionResult JoinEvent(int id)
         {
             Event mEvent = db.Event.Find(id);
             if (mEvent == null) return HttpNotFound();
@@ -68,7 +68,7 @@ namespace EventDay.Controllers
             db.JoinEvent.Add(join);
             db.SaveChanges();
 
-            return RedirectToAction("Details", "Event", new { id = id });
+            return RedirectToAction("Details", "Events", new { id = id });
         }
 
     }
