@@ -1,0 +1,62 @@
+﻿@model EventDay.Models.EventHelper
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Event</legend>
+
+   <div class="display-label">Kategoria:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Event.Category.Name)
+    </div>
+
+    <div class="display-label">Tytuł:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Event.Title)
+    </div>
+
+    <div class="display-label">Data początku wydarzenia:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Event.DateBegin)
+    </div>
+
+    <div class="display-label">Data końca wydarzenia:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Event.DateEnd)
+    </div>
+
+     <div class="display-label">Miasto:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Event.City)
+    </div>
+
+     <div class="display-label">Lokalizacja:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Event.Locality)
+    </div>
+
+     <div class="display-label">Opis:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Event.Description)
+    </div>
+
+    
+    <div id="sump"> @{Html.RenderAction("SumPositive", "Comments", new { id = Model.EventId });}</div>
+   
+    <div id="sumn">@{Html.RenderAction("SumNegative", "Comments", new { id = Model.EventId });}</div>
+
+     @Html.Partial("EventComments", Model.Comments)
+</fieldset>
+
+<ul id="button">
+   <li>@Html.ActionLink("Dodaj komenatrz", "AddComment", "Comments",new {id = Model.EventId},null)   </li> 
+    <!-- controlname, actionmethod,null bo do innego widoku, jak bez null to idzie do BOOKS, zla metoda-->
+</ul>
+
+<ul id="buttonBack">
+    <li>@Html.ActionLink("<< Wroc", "Index")</li>
+</ul>

@@ -1,0 +1,22 @@
+﻿@model EventDay.Models.Event
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Event</legend>
+
+    <div class="display-label">Category</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.Name)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+

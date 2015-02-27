@@ -1,0 +1,45 @@
+﻿@model EventDay.Models.Event
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Event</legend>
+
+    <div class="display-label">Kategoria:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.Name)
+    </div>
+
+    <div class="display-label">Tytuł:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+     <div class="display-label">Data wydarzenia:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+     <div class="display-label">Miasto:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+
+     <div class="display-label">Lokalizacja:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Locality)
+    </div>
+
+     <div class="display-label">Opis:</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.EventId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

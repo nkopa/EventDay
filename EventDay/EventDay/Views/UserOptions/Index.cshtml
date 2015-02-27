@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Kalendarz";
+}
+
+<script type="text/javascript" src="/Scripts/Calendar.js"></script>
+
+  <div id="divKalendarz">
+    <script type="text/javascript">
+        var data = new Date();
+        wyświetlKalendarz(data.getFullYear(), data.getMonth(), data.getDate(), 'divKalendarz');
+    </script>
+  </div>

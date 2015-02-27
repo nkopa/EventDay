@@ -1,0 +1,28 @@
+﻿@model IEnumerable<EventDay.Models.Event>
+           <!--ten widok dotyczy modelu Category -->
+           <!-- IEnumerable pozwala zmienic potem typ na dowolny-->
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    <p>
+        Category: @Html.DropDownList("eventCategory", "All")
+       
+        <input type="submit" value="Search" /></p>
+}
+
+@foreach (var item in Model) {
+    <div class="event">
+        <a href="@Url.Action("Details", new { id = item.EventId })">
+        <p>
+            Tytuł: @Html.DisplayFor(modelItem => item.Title)<br />
+            Data początku wydarzenia: @Html.DisplayFor(modelItem => item.DateBegin)<br />
+            Data końca wydarzenia: @Html.DisplayFor(modelItem => item.DateEnd)<br />
+            Miasto: @Html.DisplayFor(modelItem => item.City)<br />
+            Lokalizacja: @Html.DisplayFor(modelItem => item.Locality)
+        </p>
+        </a>
+    </div>
+}
