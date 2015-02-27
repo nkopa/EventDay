@@ -134,6 +134,10 @@
     <Compile Include="Migrations\201502221726115_ocenki.Designer.cs">
       <DependentUpon>201502221726115_ocenki.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502270934545_addJoinEvent.cs" />
+    <Compile Include="Migrations\201502270934545_addJoinEvent.Designer.cs">
+      <DependentUpon>201502270934545_addJoinEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -143,6 +147,7 @@
     <Compile Include="Models\EventHelper.cs" />
     <Compile Include="Models\EventContext.cs" />
     <Compile Include="Models\Image.cs" />
+    <Compile Include="Models\JoinEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -282,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502221726115_ocenki.resx">
       <DependentUpon>201502221726115_ocenki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201502270934545_addJoinEvent.resx">
+      <DependentUpon>201502270934545_addJoinEvent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
