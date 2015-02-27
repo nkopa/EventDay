@@ -234,6 +234,13 @@ ul#button li a {
 
 }
 
+ul#button li a:hover {
+ 
+	text-decoration: none;
+
+      color: #330000;
+
+}
 /*USERY*/
 #comment{
    
