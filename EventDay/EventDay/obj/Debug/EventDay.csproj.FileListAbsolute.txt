@@ -218,3 +218,4 @@ C:\Users\Natalia\MGit\NowyED\EventDay\EventDay\EventDay\bin\System.Web.WebPages.
 C:\Users\Natalia\MGit\NowyED\EventDay\EventDay\EventDay\bin\System.Web.WebPages.Razor.xml
 C:\Users\Natalia\MGit\NowyED\EventDay\EventDay\EventDay\bin\pl\System.Web.Providers.resources.dll
 C:\Users\Natalia\MGit\NowyED\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addJoinEvent.resources
+D:\!!Studia\!UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addJoinEvent.resources

@@ -381,3 +381,25 @@ div#title {
       padding:10px 10px 0 0;
     font-weight: bold;
 }
+
+
+.event {
+    background-color: #d3d3d3;
+    width:350px;    
+}
+
+.event p { 
+    padding:10px;
+    margin-bottom: 10px;    
+}
+
+.event a {
+     text-decoration: none;
+     color:#333333;
+}
+
+.event a:hover {
+    color: #330000;
+    text-decoration: none;
+}
+
