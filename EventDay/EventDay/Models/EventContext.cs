@@ -12,5 +12,6 @@ namespace EventDay.Models
         public DbSet<Category> Category { get; set; }
         public DbSet<Comment> Comment { get; set; }
         public DbSet<CommentCategory> CommentCategory { get; set; }
+        public DbSet<JoinEvent> JoinEvent { get; set; }
     }
 }
