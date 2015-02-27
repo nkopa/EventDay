@@ -54,5 +54,22 @@ namespace EventDay.Controllers
    
         }
 
+        public ActionResult JoinToEvent(int id)
+        {
+            Event mEvent = db.Event.Find(id);
+            if (mEvent == null) return HttpNotFound();
+
+            JoinEvent join = new JoinEvent();
+            join.EventId = mEvent.EventId;
+            join.Username = User.Identity.Name;
+            join.JoinDate = DateTime.Now;
+            join.Status = 0;
+
+            db.JoinEvent.Add(join);
+            db.SaveChanges();
+
+            return RedirectToAction("Details", "Event", new { id = id });
+        }
+
     }
 }
