@@ -44,15 +44,13 @@
         @Html.DisplayFor(model => model.Event.Description)
     </div>
 
-    @Html.ActionLink("Dołącz do wydarzenia", "JoinEvent", "Events",new {id = Model.EventId},null)
+     <ul id="button">
+        <li> @Html.ActionLink("DOŁĄCZ DO WYDARZENIA", "JoinEvent", "Events",new {id = Model.EventId},null)</li>
 
-    <ul id="button">
-       <li>@Html.ActionLink("Dodaj komenatrz", "AddComment", "Comments",new {id = Model.EventId},null)   </li> 
+   
+       <li>@Html.ActionLink("DODAJ KOMENTARZ", "AddComment", "Comments",new {id = Model.EventId},null)   </li> 
         <!-- controlname, actionmethod,null bo do innego widoku, jak bez null to idzie do BOOKS, zla metoda-->
-    </ul>
-
-    <ul id="buttonBack">
-        <li>@Html.ActionLink("<< Wroc", "Index")</li>
+   
     </ul>
 
     <div id="sump"> @{Html.RenderAction("SumPositive", "Comments", new { id = Model.EventId });}</div>
