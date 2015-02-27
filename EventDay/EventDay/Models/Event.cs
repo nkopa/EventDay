@@ -51,7 +51,8 @@ namespace EventDay.Models
         public string Locality { get; set; }
 
          [DisplayName("Kategoria")]
-        public virtual Category Category { get; set; } /*wirtualna sprawia ze dodaje sie kategoria*/
+         public virtual Category Category { get; set; } /*wirtualna sprawia ze dodaje sie kategoria*/
+
     }
 }
 

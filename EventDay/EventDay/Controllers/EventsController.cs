@@ -50,8 +50,7 @@ namespace EventDay.Controllers
             var mevent = db.Event.Where(e => e.EventId == id).First();
             var comments = db.Comment.Where(c => c.EventId.Equals(id)).ToList();
             return View(new EventHelper {EventId=id, Event = mevent, Comments = comments});
-
-   
+  
         }
 
     }
