@@ -1,0 +1,10 @@
+﻿@model IEnumerable<EventDay.Models.Message>
+
+@foreach (var item in Model)
+{
+    <p>
+        <div class="date">@item.SendDate</div>
+        <div class="title">@Html.ActionLink(item.Title, "MessageDetails", new { id = item.MessageId })</div>
+        <div class="user">@item.ToUser</div>
+    </p>
+}

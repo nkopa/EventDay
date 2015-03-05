@@ -1,0 +1,16 @@
+﻿@model IEnumerable<EventDay.Models.Message>
+
+@{
+    ViewBag.Title = "Wiadomości " + ViewBag.TypeBox;
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.ActionLink("Odebrane", "Index", new { box = "received" })
+@Html.ActionLink("Wysłane", "Index", new { box = "sent" })
+@Html.ActionLink("Nowa wiadomość", "NewMessage")
+
+
+<div id="messageBoard">
+    @if (ViewBag.TypeBox == "received") { Html.Partial("~/Views/Message/_ReceivedMessagePartial.cshtml"); } else { Html.Partial("~/Views/Message/_SentMessagePartial.cshtml"); }
+</div>

@@ -24,6 +24,11 @@ namespace EventDay.Models
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime SendDate { get; set; }
 
+        [DisplayName("Tytuł")]
+        [Required(ErrorMessage = "Tytuł jest wymagany.")]
+        [MaxLength(100)]
+        public string Title { get; set; }
+
         [DisplayName("Wiadomość")]
         [Required(ErrorMessage = "Wiadomość jest wymagana.")]
         public string MessageText { get; set; }
