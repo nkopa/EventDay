@@ -138,6 +138,10 @@
     <Compile Include="Migrations\201502270934545_addJoinEvent.Designer.cs">
       <DependentUpon>201502270934545_addJoinEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503051740111_addMessageModel.cs" />
+    <Compile Include="Migrations\201503051740111_addMessageModel.Designer.cs">
+      <DependentUpon>201503051740111_addMessageModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -148,6 +152,7 @@
     <Compile Include="Models\EventContext.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\JoinEvent.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -290,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201502270934545_addJoinEvent.resx">
       <DependentUpon>201502270934545_addJoinEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503051740111_addMessageModel.resx">
+      <DependentUpon>201503051740111_addMessageModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

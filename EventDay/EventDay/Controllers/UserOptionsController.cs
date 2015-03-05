@@ -16,10 +16,12 @@ namespace EventDay.Controllers
         public ActionResult Index(int UserId)
         {
             
+            //NIEPOPRAWNE UŻYCIE AuthorId - MODEL Event NIE MA TAKIEGO POLA. TO TRZEBA POPRAWIC!
+
             //AuthorId w nowym formularzu jeszcze nie załączonym 
-            var userEvents = db.Event.Where(b => b.AuthorId == UserId).OrderBy(x => x.DateBeginEvent).OrderBy(x => x.HourBeginEvent);
-            
-            return View(userEvents);
+            //var userEvents = db.Event.Where(b => b.AuthorId == UserId).OrderBy(x => x.DateBeginEvent).OrderBy(x => x.HourBeginEvent);
+            return View();
+            //return View(userEvents);
         }
 
     }
