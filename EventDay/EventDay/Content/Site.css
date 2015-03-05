@@ -383,8 +383,9 @@ div#title {
 
 
 .event {
-    background-color: #d3d3d3;
-    width:350px;    
+    background-color: #C9A3A3;
+    width:350px; 
+    transition-duration:1s;   
 }
 
 .event p { 
@@ -394,11 +395,12 @@ div#title {
 
 .event a {
      text-decoration: none;
-     color:#333333;
+     color:white;
 }
 
-.event a:hover {
-    color: #330000;
+.event:hover, .event a:hover {
+
+    color: #efefef;
     text-decoration: none;
+    background-color:#999999;
 }
-

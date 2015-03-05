@@ -252,3 +252,4 @@ C:\Users\Natalia\MGit\NowyED2\EventDay\EventDay\EventDay\obj\Debug\EventDay.pdb
 C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.ocenki.resources
 C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addJoinEvent.resources
 C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addMessageModel.resources
+D:\!!Studia\!UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addMessageModel.resources
