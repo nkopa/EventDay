@@ -254,3 +254,4 @@ C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.a
 C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addMessageModel.resources
 D:\!!Studia\!UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addMessageModel.resources
 C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addColumtTitleToMessageModel.resources
+D:\!!Studia\!UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addColumtTitleToMessageModel.resources

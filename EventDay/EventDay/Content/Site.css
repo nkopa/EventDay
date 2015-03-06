@@ -61,6 +61,7 @@ h2 {
 
 h3 {
     font-size: 1.2em;
+    color: #051d51
 }
 
 h4 {
@@ -257,12 +258,14 @@ ul#button li a:hover {
    
      font-size: 1.0em;
     margin: 1em 0 0 0;
+   
  
  }
 
 #username{
     font-style: italic;
-    color: black;
+     color: #2f2f2f;
+    
     margin: 1em 0 0 0;
     font-size: .9em;
 
