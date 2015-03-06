@@ -13,69 +13,9 @@ namespace EventDay.Models
         [Key]
         [ScaffoldColumn(false)]
         public int EventId { get; set; }
-
+        
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
-
-        [ScaffoldColumn(false)]
-        public string Username { get; set; }
-
-        [ScaffoldColumn(false)]
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
-        public System.DateTime DateCreated { get; set; }
-
-        [DisplayName("Tytuł")]
-        [Required(ErrorMessage = "Tytuł jest wymagany")]
-        [StringLength(100)]
-        public string Title { get; set; }
-
-        [DisplayName("Data rozpoczęcia wydarzenia")]
-        [Required(ErrorMessage = "Data jest wymagana")]
-        public DateTime DateBegin { get; set; }
-
-        [DisplayName("Data zakończenia wydarzenia")]
-        [Required(ErrorMessage = "Data jest wymagana")]
-        public DateTime DateEnd { get; set; }
-
-        [DisplayName("Opis")]
-        [Required(ErrorMessage = "Opis jest wymagany")]
-        //[StringLength(100)]
-        public string Description { get; set; }
-
-        [DisplayName("Miasto")]
-        [Required(ErrorMessage = "City is required")]
-        public string City { get; set; }
-
-        [DisplayName("Lokalizacja")]
-        [Required(ErrorMessage = "Locality is required")]
-        public string Locality { get; set; }
-
-         [DisplayName("Kategoria")]
-         public virtual Category Category { get; set; } /*wirtualna sprawia ze dodaje sie kategoria*/
-
-         public virtual IList<JoinEvent> JoinedUsers { get; set; }
-    }
-}
-
-/*
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
-
-namespace EventDay.Models
-{
-    public class Event
-    {
-        [Key]
-        [ScaffoldColumn(false)]
-        public int EventId { get; set; }
-
-        [ForeignKey("Author")]
-        public int AuthorId { get; set; }
 
         [DisplayName("Widoczne/Prywatne")]
         public string AccessId { get; set; }
@@ -83,21 +23,21 @@ namespace EventDay.Models
         [DisplayName("Otwarte/Zamknięte")]
         public string RecruitmentId { get; set; }
 
+        [ScaffoldColumn(false)]
+        public string Username { get; set; }
+
         [DisplayName("Tytuł")]
         [Required(ErrorMessage = "Tytuł jest wymagany")]
         [StringLength(100)]
         public string Title { get; set; }
 
-        [ForeignKey("Category")]
-        public int CategoryId { get; set; }
-
-        [DisplayName("ilosc miejsc")]
-        public int AccessId { get; set; }
-
         [DisplayName("Opis")]
         [Required(ErrorMessage = "Opis jest wymagany")]
-        //[StringLength(100)]
+        [StringLength(1000)]
         public string Description { get; set; }
+
+        [DisplayName("ilosc miejsc")]
+        public int Capacity { get; set; }
 
         [DisplayName("Regulamin")]
         //[StringLength(100)]
@@ -112,36 +52,36 @@ namespace EventDay.Models
         //[StringLength(100)]
         public decimal Price { get; set; }
 
-        [ScaffoldColumn(false)]
-        public string Username { get; set; }
-
         [DisplayName("Numer kontaktowy")]
         public string ContactNumber { get; set; }
 
         [DisplayName("Email")]
         public string ContactEmail { get; set; }
 
+        //DATY***********************
         [ScaffoldColumn(false)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public System.DateTime DateCreated { get; set; }
 
-        //DATY 
-
         [DisplayName("Data rozpoczęcia wydarzenia")]
         [Required(ErrorMessage = "Data jest wymagana")]
-        public DateTime DateBeginEvent { get; set; }
+        public DateTime DateBegin { get; set; }
+
+        [DisplayName("Data zakończenia wydarzenia")]
+        [Required(ErrorMessage = "Data jest wymagana")]
+        public DateTime DateEnd { get; set; }
 
         [DisplayName("Godzina rozpoczęcia wydarzenia")]
-        public DateTime HourBeginEvent { get; set; }
+        public DateTime HourBegin { get; set; }
 
-        [DisplayName("Przybliżona długość wydarzenia")]
-        public string TimeEvent { get; set; }
+        [DisplayName("Godzina zakończenia wydarzenia")]
+        public DateTime HourEnd { get; set; }
 
         [DisplayName("Data rozpoczęcia rejestracji")]
         [Required(ErrorMessage = "Data jest wymagana")]
         public DateTime DateBeginRegistation { get; set; }
 
-        [DisplayName("Godzina rozpoczęcia wydarzenia")]
+        [DisplayName("Godzina rozpoczęcia rejestracji")]
         public DateTime HourBeginRegistration { get; set; }
 
         [DisplayName("Data zakończenia rejestracji")]
@@ -151,11 +91,16 @@ namespace EventDay.Models
         [DisplayName("Godzina zakończenia wydarzenia")]
         public DateTime HourEndRegistration { get; set; }
 
-        //ADDRESS
- 
+        //ADDRESS*************************
+
         [DisplayName("Miasto")]
+        [Required(ErrorMessage = "Miasto jest wymagane")]
         public string City { get; set; }
- 
+
+        //[DisplayName("Lokalizacja")]
+        //[Required(ErrorMessage = "Lokalizacja jest wymagana")]
+        //public string Locality { get; set; }
+
         [DisplayName("Województwo")]
         public string Voivoweship { get; set; }
 
@@ -170,13 +115,12 @@ namespace EventDay.Models
 
         [DisplayName("Wskazówki dojazdu")]
         public string Directions { get; set; }
- 
-        [DisplayName("Kategoria")]
-        public virtual Category Category { get; set; } //wirtualna sprawia ze dodaje sie kategoria
 
-        public List<Image> Images { get; set; }
-       //public List<Users> Users { get; set; }
+        //VIERUAL**********************
+
+         [DisplayName("Kategoria")]
+         public virtual Category Category { get; set; } /*wirtualna sprawia ze dodaje sie kategoria*/
+
+         public virtual IList<JoinEvent> JoinedUsers { get; set; }
     }
 }
- 
-*/
