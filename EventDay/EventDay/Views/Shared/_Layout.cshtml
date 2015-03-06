@@ -17,7 +17,15 @@
             </div>
             <div id="menucontainer">
                 <ul id="menu">
-                    <!-- trza odwrotnie dawac bo cos sie wali-->                    
+                    <!-- trza odwrotnie dawac bo cos sie wali-->   
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (Roles.IsUserInRole("admin"))
+                        {
+                            <li>@Html.ActionLink("Profil", "Index", "Home")</li>
+                        }
+                        <li>@Html.ActionLink("Profil", "Index", "Home")</li>
+                    }                 
                     <!--<li>@Html.ActionLink("Profil", "Index", "Home")</li>-->
                     <li>@Html.ActionLink("Twoje Eventy", "Index", "YourEvents")</li>
                     <li>@Html.ActionLink("Kalendarz", "Index", "UserOptions")</li>
