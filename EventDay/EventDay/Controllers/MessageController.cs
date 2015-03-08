@@ -39,7 +39,12 @@ namespace EventDay.Controllers
 
             if (message == null || (message.FromUser != User.Identity.Name && message.ToUser != User.Identity.Name)) return HttpNotFound();
 
-            if (message.IsRead == false) message.IsRead = true;
+            if (message.IsRead == false)
+            {
+                message.IsRead = true;
+                db.Entry(message).State = EntityState.Modified;
+                db.SaveChanges();
+            }
             return View(message);
         }
 

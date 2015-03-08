@@ -5,8 +5,8 @@
     var messageClass = "messageIsNotRead";
     if (item.IsRead == true) { messageClass = "messageIsRead"; }
     <p class="@messageClass">
-        <div class="date">@item.SendDate</div>
-        <div class="title">@Html.ActionLink(item.Title, "MessageDetails", new { id = item.MessageId })</div>
-        <div class="user">@item.FromUser</div>
+        <span class="date">@item.SendDate</span>
+        <span class="title">@Html.ActionLink(item.Title, "MessageDetails", new { id = item.MessageId })</span>
+        <span class="user">@item.FromUser</span>
     </p>
 }

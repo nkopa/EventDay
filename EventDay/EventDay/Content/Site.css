@@ -418,3 +418,9 @@ div#title {
     text-decoration: none;
     background-color:#999999;
 }
+
+.messageIsNotRead>.date, .messageIsNotRead>.title>a
+{
+    font-weight: bold;
+    text-decoration: none;
+}
