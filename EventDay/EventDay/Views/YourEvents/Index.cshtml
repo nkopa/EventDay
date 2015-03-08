@@ -7,6 +7,12 @@
 <p>
     @Html.ActionLink("Utwórz event", "Create")
 </p>
+<p>
+    @Html.ActionLink("Wyświetl utworzone eventy", "Index", new { searching = "created" })
+</p>
+<p>
+    @Html.ActionLink("Wyświetl eventy, w których uczestniczysz", "Index", new { searching = "joined" })
+</p>
 <table>
     <tr>
         <th>

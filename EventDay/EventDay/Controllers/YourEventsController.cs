@@ -17,10 +17,26 @@ namespace EventDay.Controllers
         //
         // GET: /Events/
 
-        public ViewResult Index()
+        public ViewResult Index(string searching = "created")
         {
-            var mEvent = db.Event.Include(e => e.Category).Where(u => u.Username == User.Identity.Name);
-            return View(mEvent.ToList());
+            IList<Event> mEvent = null;
+            if (String.Compare(searching, "joined", false) == 0)
+            {
+                var joined = db.JoinEvent.Include(e => e.Event).Where(u => u.Username == User.Identity.Name).ToList();
+
+                mEvent = new List<Event>();
+                foreach (JoinEvent joinedEvent in joined)
+                {
+                    mEvent.Add(joinedEvent.Event);
+                }
+                //mEvent = db.Event.Include(e => e.Category).Where(u => u.Username == User.Identity.Name).ToList();
+            }
+            else
+            {
+                mEvent = db.Event.Include(e => e.Category).Where(u => u.Username == User.Identity.Name).ToList();
+            }
+
+            return View(mEvent);
         }
 
         //
