@@ -29,11 +29,14 @@ namespace EventDay.Controllers
                 {
                     mEvent.Add(joinedEvent.Event);
                 }
+
+                ViewBag.Title = "Twoje eventy - dołączyłaś/eś";
                 //mEvent = db.Event.Include(e => e.Category).Where(u => u.Username == User.Identity.Name).ToList();
             }
             else
             {
                 mEvent = db.Event.Include(e => e.Category).Where(u => u.Username == User.Identity.Name).ToList();
+                ViewBag.Title = "Twoje eventy - stworzone";
             }
 
             return View(mEvent);

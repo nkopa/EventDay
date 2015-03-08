@@ -18,17 +18,16 @@ namespace EventDay.Controllers
         {
             IList<Message> messages = null;
 
-            if (box == "received")
-            {
-                messages = db.Message.Where(m => m.ToUser == User.Identity.Name).OrderBy(m => m.SendDate).ToList();
-                ViewBag.TypeBox = "odebrane";
-            }
-            else if (box == "sent")
+            if (String.Compare(box,"sent",false) == 0)
             {
                 messages = db.Message.Where(m => m.FromUser == User.Identity.Name).OrderBy(m => m.SendDate).ToList();
                 ViewBag.TypeBox = "wysłane";
             }
-            else return HttpNotFound();
+            else 
+            {
+                messages = db.Message.Where(m => m.ToUser == User.Identity.Name).OrderBy(m => m.SendDate).ToList();
+                ViewBag.TypeBox = "odebrane";
+            }
 
             return View(messages);
         }

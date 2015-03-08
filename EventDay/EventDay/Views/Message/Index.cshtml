@@ -12,5 +12,5 @@
 
 
 <div id="messageBoard">
-    @if (ViewBag.TypeBox == "received") { Html.Partial("~/Views/Message/_ReceivedMessagePartial.cshtml"); } else { Html.Partial("~/Views/Message/_SentMessagePartial.cshtml"); }
+    @if (String.Compare(ViewBag.TypeBox,"odebrane",false) == 0) { @Html.Partial("~/Views/Message/_ReceivedMessagePartial.cshtml"); } else { @Html.Partial("~/Views/Message/_SentMessagePartial.cshtml"); }
 </div>
