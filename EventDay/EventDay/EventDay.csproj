@@ -146,6 +146,10 @@
     <Compile Include="Migrations\201503052020158_addColumtTitleToMessageModel.Designer.cs">
       <DependentUpon>201503052020158_addColumtTitleToMessageModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503091702066_Event.cs" />
+    <Compile Include="Migrations\201503091702066_Event.Designer.cs">
+      <DependentUpon>201503091702066_Event.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -311,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503052020158_addColumtTitleToMessageModel.resx">
       <DependentUpon>201503052020158_addColumtTitleToMessageModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503091702066_Event.resx">
+      <DependentUpon>201503091702066_Event.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

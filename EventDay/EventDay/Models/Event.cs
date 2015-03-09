@@ -13,7 +13,7 @@ namespace EventDay.Models
         [Key]
         [ScaffoldColumn(false)]
         public int EventId { get; set; }
-        
+
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
 
@@ -44,9 +44,14 @@ namespace EventDay.Models
         //scierzka do pdf
         public string Regulations { get; set; }
 
-        [DisplayName("Strój")]
+        [DisplayName("Baner")]
         //[StringLength(100)]
-        public string DressCode { get; set; }
+        //scierzka do pliku
+        public string ProfileImage { get; set; }
+
+        //[DisplayName("Strój")]
+        //[StringLength(100)]
+        //public string DressCode { get; set; }
 
         [DisplayName("Bilety")]
         //[StringLength(100)]
@@ -57,6 +62,9 @@ namespace EventDay.Models
 
         [DisplayName("Email")]
         public string ContactEmail { get; set; }
+
+        [DisplayName("Www")]
+        public string Website { get; set; }
 
         //DATY***********************
         [ScaffoldColumn(false)]
@@ -72,24 +80,24 @@ namespace EventDay.Models
         public DateTime DateEnd { get; set; }
 
         [DisplayName("Godzina rozpoczęcia wydarzenia")]
-        public DateTime HourBegin { get; set; }
+        public string HourBegin { get; set; }
 
         [DisplayName("Godzina zakończenia wydarzenia")]
-        public DateTime HourEnd { get; set; }
+        public string HourEnd { get; set; }
 
         [DisplayName("Data rozpoczęcia rejestracji")]
         [Required(ErrorMessage = "Data jest wymagana")]
         public DateTime DateBeginRegistation { get; set; }
 
         [DisplayName("Godzina rozpoczęcia rejestracji")]
-        public DateTime HourBeginRegistration { get; set; }
+        public string HourBeginRegistration { get; set; }
 
         [DisplayName("Data zakończenia rejestracji")]
         [Required(ErrorMessage = "Data jest wymagana")]
         public DateTime DateEndRegistation { get; set; }
 
         [DisplayName("Godzina zakończenia wydarzenia")]
-        public DateTime HourEndRegistration { get; set; }
+        public string HourEndRegistration { get; set; }
 
         //ADDRESS*************************
 
@@ -97,12 +105,15 @@ namespace EventDay.Models
         [Required(ErrorMessage = "Miasto jest wymagane")]
         public string City { get; set; }
 
-        [DisplayName("Lokalizacja")]
-        [Required(ErrorMessage = "Lokalizacja jest wymagana")]
-        public string Locality { get; set; }
+        //[DisplayName("Lokalizacja")]
+        //[Required(ErrorMessage = "Lokalizacja jest wymagana")]
+        //public string Locality { get; set; }
 
         [DisplayName("Województwo")]
         public string Voivoweship { get; set; }
+
+        [DisplayName("Ulica")]
+        public string Street { get; set; }
 
         [DisplayName("Numer domu")]
         public string HouseNumber { get; set; }
@@ -113,14 +124,15 @@ namespace EventDay.Models
         [DisplayName("Kod pocztowy")]
         public string ZipCode { get; set; }
 
+        /*moze zamienic na mape google?*/
         [DisplayName("Wskazówki dojazdu")]
         public string Directions { get; set; }
 
-        //VIERUAL**********************
+        //VIRTUAL**********************
 
-         [DisplayName("Kategoria")]
-         public virtual Category Category { get; set; } /*wirtualna sprawia ze dodaje sie kategoria*/
+        [DisplayName("Kategoria")]
+        public virtual Category Category { get; set; } /*wirtualna sprawia ze dodaje sie kategoria*/
 
-         public virtual IList<JoinEvent> JoinedUsers { get; set; }
+        public virtual IList<JoinEvent> JoinedUsers { get; set; }
     }
 }
