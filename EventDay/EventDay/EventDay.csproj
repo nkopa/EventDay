@@ -150,6 +150,10 @@
     <Compile Include="Migrations\201503091702066_Event.Designer.cs">
       <DependentUpon>201503091702066_Event.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503101503468_Pomocnicza.cs" />
+    <Compile Include="Migrations\201503101503468_Pomocnicza.Designer.cs">
+      <DependentUpon>201503101503468_Pomocnicza.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -283,8 +287,12 @@
     <Content Include="Views\Message\NewMessage.cshtml" />
     <Content Include="Views\Message\_ReceivedMessagePartial.cshtml" />
     <Content Include="Views\Message\_SentMessagePartial.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\Uploads\" />
+    <Folder Include="Content\Uploads\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -318,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503091702066_Event.resx">
       <DependentUpon>201503091702066_Event.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503101503468_Pomocnicza.resx">
+      <DependentUpon>201503101503468_Pomocnicza.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
