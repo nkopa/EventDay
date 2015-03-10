@@ -28,10 +28,10 @@ namespace EventDay.Controllers
             var events = db.Event.Select(b => b).Where(e => e.DateEnd >= DateTime.Today);
 
 
-           //if (!String.IsNullOrEmpty(search))
-           // {
-              //  events = events.Where(b => b.Title.Contains(search));
-           // }
+           if (!String.IsNullOrEmpty(search))
+           {
+               events = events.Where(b => b.City.Contains(search));
+           }
 
             if (!string.IsNullOrEmpty(eventCategory))
             {
