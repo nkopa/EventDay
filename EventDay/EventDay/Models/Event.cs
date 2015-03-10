@@ -105,9 +105,9 @@ namespace EventDay.Models
         [Required(ErrorMessage = "Miasto jest wymagane")]
         public string City { get; set; }
 
-        //[DisplayName("Lokalizacja")]
-        //[Required(ErrorMessage = "Lokalizacja jest wymagana")]
-        //public string Locality { get; set; }
+        [DisplayName("Lokalizacja")]
+        [Required(ErrorMessage = "Lokalizacja jest wymagana")]
+        public string Locality { get; set; }
 
         [DisplayName("Województwo")]
         public string Voivoweship { get; set; }
