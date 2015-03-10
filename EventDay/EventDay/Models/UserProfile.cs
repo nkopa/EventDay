@@ -6,17 +6,20 @@ using System.Web;
 
 namespace EventDay.Models
 {
-    public class User
+    public class UserProfile
     {
         [Key]
+        [Required]
         [ScaffoldColumn(false)]
         public int UserId { get; set; }
 
+        //[Key]
         [Required]
         [Display(Name = "Nazwa użytkownika")]
         public string UserName { get; set; }
 
         /*osobiste/organizacja*/
+        [Required]
         [Display(Name = "Typ konta")]
         public string AccountTypeId { get; set; }
 
@@ -46,10 +49,10 @@ namespace EventDay.Models
         [Display(Name = "Miasto")]
         public string City { get; set; }
 
-        [Display(Name = "Powiadamiaj o eventach smsem")] //Agnieszka -> mialas tu City, popraw nazwe jesli Ci nie odpowiada
+        [Display(Name = "Powiadamiaj o eventach smsem")]
         public string SmsNotification { get; set; }
 
-        [Display(Name = "Numer telefonu")] //Agnieszka -> mialas tu City, popraw nazwe jesli Ci nie odpowiada
+        [Display(Name = "Numer telefonu")]
         public string PhoneNumber { get; set; }
 
         [ScaffoldColumn(false)]

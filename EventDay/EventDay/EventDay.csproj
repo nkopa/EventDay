@@ -150,9 +150,13 @@
     <Compile Include="Migrations\201503091702066_Event.Designer.cs">
       <DependentUpon>201503091702066_Event.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503101503468_Pomocnicza.cs" />
-    <Compile Include="Migrations\201503101503468_Pomocnicza.Designer.cs">
-      <DependentUpon>201503101503468_Pomocnicza.cs</DependentUpon>
+    <Compile Include="Migrations\201503101738333_AddUser.cs" />
+    <Compile Include="Migrations\201503101738333_AddUser.Designer.cs">
+      <DependentUpon>201503101738333_AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503101758230_UserProfile.cs" />
+    <Compile Include="Migrations\201503101758230_UserProfile.Designer.cs">
+      <DependentUpon>201503101758230_UserProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -166,6 +170,7 @@
     <Compile Include="Models\JoinEvent.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -327,8 +332,11 @@
     <EmbeddedResource Include="Migrations\201503091702066_Event.resx">
       <DependentUpon>201503091702066_Event.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503101503468_Pomocnicza.resx">
-      <DependentUpon>201503101503468_Pomocnicza.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201503101738333_AddUser.resx">
+      <DependentUpon>201503101738333_AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503101758230_UserProfile.resx">
+      <DependentUpon>201503101758230_UserProfile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -13,7 +13,7 @@ namespace EventDay.Controllers
         private EventContext db = new EventContext();
 
         [Authorize]
-        public ActionResult Index(int UserId)
+        public ActionResult Index()
         {
             
             //NIEPOPRAWNE UŻYCIE AuthorId - MODEL Event NIE MA TAKIEGO POLA. TO TRZEBA POPRAWIC!

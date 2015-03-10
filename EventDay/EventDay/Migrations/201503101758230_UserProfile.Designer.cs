@@ -5,13 +5,13 @@ namespace EventDay.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class Pomocnicza : IMigrationMetadata
+    public sealed partial class UserProfile : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Pomocnicza));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UserProfile));
         
         string IMigrationMetadata.Id
         {
-            get { return "201503101503468_Pomocnicza"; }
+            get { return "201503101758230_UserProfile"; }
         }
         
         string IMigrationMetadata.Source

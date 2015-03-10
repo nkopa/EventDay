@@ -288,3 +288,6 @@ D:\Uczelnia\Projekt zespołowy\furmanczyk\1\EventDay\EventDay\EventDay\obj\Debug
 D:\Uczelnia\Projekt zespołowy\furmanczyk\1\EventDay\EventDay\EventDay\obj\Debug\EventDay.pdb
 D:\Uczelnia\Projekt zespołowy\furmanczyk\1\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.Event.resources
 D:\Uczelnia\Projekt zespołowy\furmanczyk\1\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.Pomocnicza.resources
+D:\Uczelnia\Projekt zespołowy\furmanczyk\1\EventDay\EventDay\EventDay\obj\Debug\EventDay.csprojResolveAssemblyReference.cache
+D:\Uczelnia\Projekt zespołowy\furmanczyk\1\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.AddUser.resources
+D:\Uczelnia\Projekt zespołowy\furmanczyk\1\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.UserProfile.resources
