@@ -84,6 +84,8 @@ namespace EventDay.Controllers
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+                    //dodaj profil uzytkownika
+                    CreateUserProfile(model.UserName, model.Email, DateTime.Now);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -94,6 +96,27 @@ namespace EventDay.Controllers
 
             // Dotarcie do tego miejsca wskazuje, że wystąpił błąd, wyświetl ponownie formularz
             return View(model);
+        }
+
+        //!!!Uwaga brak obsługi błędów!!! Miejsce newralgiczne
+        private EventContext db = new EventContext();
+        public void CreateUserProfile(string UserName, string Email, DateTime CreateTime)
+        {
+            var newUser = new UserProfile();
+            newUser.UserName = UserName;
+            newUser.CreateTime = CreateTime;
+            newUser.UpdateTime = CreateTime;
+            newUser.Birthday = CreateTime;
+
+            newUser.Email = Email;
+            newUser.StatusId = "Active";
+            newUser.AccountTypeId = "Private";
+
+            //if (ModelState.IsValid)
+            //{
+            db.UserProfile.Add(newUser);
+            db.SaveChanges();
+            //}
         }
 
         //
