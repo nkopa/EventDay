@@ -6,6 +6,12 @@
 
 <fieldset>
     <legend>Event</legend>
+    
+   <div class="display-label">Profilówka:</div>
+    <div class="display-field">
+        <script></script>
+        <img src="@Url.Content("~/Content/Uploads/" + @Html.DisplayFor(model => model.Event.ProfileImage))" alt="brak"/>
+    </div>
 
    <div class="display-label">Kategoria:</div>
     <div class="display-field">

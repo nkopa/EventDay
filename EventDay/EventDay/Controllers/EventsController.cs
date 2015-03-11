@@ -56,9 +56,8 @@ namespace EventDay.Controllers
         public ActionResult Create()
         {
 
-            var categories = new SelectList(db.Category, "CategoryId", "Name");
-            ViewBag.eventCategory = categories; //lista do dropdown
-
+            ViewBag.eventCategory = new SelectList(db.Category, "CategoryId", "Name");
+             
             return View();
         }
 
@@ -70,7 +69,10 @@ namespace EventDay.Controllers
         {
             e.DateCreated = DateTime.Now;
             e.Username = User.Identity.Name;
-
+            e.Locality = "domyslna";
+            
+            if (ModelState.IsValid)
+            {
             string dateCreated = e.DateCreated.ToString().Replace(" ", "").Replace(":", "").Replace("-", "");
 
             if (fileRegulations != null && fileRegulations.ContentLength > 0)
@@ -92,13 +94,15 @@ namespace EventDay.Controllers
                 e.ProfileImage = fileName;
             }
                     
-                       if (ModelState.IsValid)
-                        {
+                       
                             db.Event.Add(e);
-                            db.SaveChanges();                
+                            db.SaveChanges();
+
+                            return RedirectToAction("Index");
                         }
-             
-            return RedirectToAction("Index");
+
+            ViewBag.eventCategory = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
+           return View(e);
         }
 
         //
