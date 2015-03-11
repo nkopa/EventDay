@@ -134,5 +134,8 @@ namespace EventDay.Models
         public virtual Category Category { get; set; } /*wirtualna sprawia ze dodaje sie kategoria*/
 
         public virtual IList<JoinEvent> JoinedUsers { get; set; }
+
+        public virtual ICollection<Image> Image { get; set; }
+        //public virtual IList<Image> Image { get; set; }
     }
 }

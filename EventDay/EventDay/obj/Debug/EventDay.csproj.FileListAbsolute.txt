@@ -326,4 +326,5 @@ D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.dll
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.pdb
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.poprawaUserProfiles.resources
+D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.Image.resources
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.csprojResolveAssemblyReference.cache

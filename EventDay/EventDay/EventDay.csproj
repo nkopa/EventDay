@@ -163,6 +163,10 @@
     <Compile Include="Migrations\201503102008537_poprawaUserProfiles.Designer.cs">
       <DependentUpon>201503102008537_poprawaUserProfiles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503112038297_Image.cs" />
+    <Compile Include="Migrations\201503112038297_Image.Designer.cs">
+      <DependentUpon>201503112038297_Image.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -349,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503102008537_poprawaUserProfiles.resx">
       <DependentUpon>201503102008537_poprawaUserProfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503112038297_Image.resx">
+      <DependentUpon>201503112038297_Image.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -12,7 +12,7 @@ namespace EventDay.Models
     {
         [Key]
         [ScaffoldColumn(false)]
-        public int GalleryId { get; set; }
+        public int ImageId { get; set; }
 
         [DisplayName("Tytuł")]
         public string Name { get; set; }
@@ -22,16 +22,18 @@ namespace EventDay.Models
 
         [ForeignKey("Event")]
         [ScaffoldColumn(false)]
-        public string EventId { get; set; }
+        public int EventId { get; set; }
 
-        [ForeignKey("User")]
+        //pozostalosc po koncepcji wielu moderatorow jednego eventu
         [ScaffoldColumn(false)]
-        public string UserId { get; set; }
+        public int UserId { get; set; }
 
         [ScaffoldColumn(false)]
         public DateTime AddDate { get; set; }
 
         [ScaffoldColumn(false)]
         public string Url { get; set; }
+
+        public virtual Event Event { get; set; }
     }
 }

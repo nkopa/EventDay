@@ -15,5 +15,6 @@ namespace EventDay.Models
         public DbSet<JoinEvent> JoinEvent { get; set; }
         public DbSet<Message> Message { get; set; }
         public DbSet<UserProfile> UserProfile { get; set; }
+        public DbSet<Image> Image { get; set; }
     }
 }

@@ -155,4 +155,8 @@ namespace EventDay.Controllers
             return RedirectToAction("Details", "Events", new { id = id });
         }
     }
+
+    //////////// IMAGE CRUD ///////////////////////////////////////
+
+
 }
