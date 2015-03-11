@@ -37,10 +37,7 @@ namespace EventDay.Controllers
             if (!string.IsNullOrEmpty(eventCategory))
             {
                 events = events.Where(b => b.CategoryId == (db.Category.Where(s => s.Name.Equals(eventCategory)).Select(c => c.CategoryId)).FirstOrDefault());
-
             }
-
-
             return View(events);
         }
 
@@ -76,7 +73,7 @@ namespace EventDay.Controllers
 
             string dateCreated = e.DateCreated.ToString().Replace(" ", "").Replace(":", "").Replace("-", "");
 
-            if (fileProfileImage != null && fileRegulations.ContentLength > 0)
+            if (fileRegulations != null && fileRegulations.ContentLength > 0)
             {     
                 //nazwa plitu == username + data + R dla regulations lub P dla ProfileImage + nazwa pliku;
                 string fileName = e.Username + dateCreated + "R" + Path.GetFileName(fileRegulations.FileName);
@@ -86,17 +83,15 @@ namespace EventDay.Controllers
                 e.Regulations = fileName;
             }
             
-
             if (fileProfileImage != null && fileProfileImage.ContentLength > 0)
             {
-                string fileName = e.Username + dateCreated + "P" + Path.GetFileName(fileRegulations.FileName);
+                string fileName = e.Username + dateCreated + "P" + Path.GetFileName(fileProfileImage.FileName);
                 string path = Path.Combine(Server.MapPath("~/Content/Uploads"), fileName);
                 fileProfileImage.SaveAs(path);
 
                 e.ProfileImage = fileName;
             }
-            
-           
+                    
                        if (ModelState.IsValid)
                         {
                             db.Event.Add(e);
@@ -106,7 +101,37 @@ namespace EventDay.Controllers
             return RedirectToAction("Index");
         }
 
+        //
+        // GET: /BeadMenager/Edit/5
 
+        public ActionResult Edit(int id)
+        {
+            Event e = db.Event.Find(id);
+
+            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
+            
+            return View(e);
+        }
+
+        //
+        // POST: /BeadMenager/Edit/5
+
+        [HttpPost]
+        public ActionResult Edit(Event e)
+        {
+            //Event ev = db.Event.Find(e.EventId);
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(e).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
+
+            return View(e);
+        }
 
 
         public ActionResult JoinEvent(int id)
@@ -125,6 +150,5 @@ namespace EventDay.Controllers
 
             return RedirectToAction("Details", "Events", new { id = id });
         }
-
     }
 }

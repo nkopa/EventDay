@@ -1,0 +1,69 @@
+﻿@model EventDay.Models.UserProfile
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>UserProfile</legend>
+
+    <div class="display-label">UserName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">AccountTypeId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AccountTypeId)
+    </div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Surname</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Surname)
+    </div>
+
+    <div class="display-label">SexId</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SexId)
+    </div>
+
+    <div class="display-label">Birthday</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Birthday)
+    </div>
+
+    <div class="display-label">Interest</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Interest)
+    </div>
+
+    <div class="display-label">Voivodeship</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Voivodeship)
+    </div>
+
+    <div class="display-label">City</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+
+    <div class="display-label">
+        Zdjęcie profilowe
+    </div>
+
+    <div class="display-label">
+        Ostatnie Eventy // zdjecia z ostatnic eventow 
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.UserId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

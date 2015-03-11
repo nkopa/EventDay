@@ -310,7 +310,6 @@ D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\bin\Syste
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\bin\System.Web.WebPages.Deployment.xml
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\bin\System.Web.WebPages.Razor.xml
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\bin\pl\System.Web.Providers.resources.dll
-D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.csprojResolveAssemblyReference.cache
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.initial.resources
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addcomment.resources
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.up.resources
@@ -327,3 +326,4 @@ D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.dll
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.pdb
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.poprawaUserProfiles.resources
+D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.csprojResolveAssemblyReference.cache

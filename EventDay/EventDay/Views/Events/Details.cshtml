@@ -139,5 +139,7 @@
    
     <div id="sumn">@{Html.RenderAction("SumNegative", "Comments", new { id = Model.EventId });}</div>
 
+    <div>@Html.ActionLink("Edit", "Edit", new { id=Model.EventId }) </div>
+
      @Html.Partial("EventComments", Model.Comments)
 </fieldset>
