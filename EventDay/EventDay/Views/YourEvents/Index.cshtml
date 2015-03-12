@@ -48,9 +48,15 @@
             @Html.DisplayFor(modelItem => item.Locality)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
+            @if (String.Compare(ViewBag.Type,"created",false) == 0) {
+                @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) 
+                <text> | </text>
+                @Html.ActionLink("Details", "Details", new { id=item.EventId }) 
+                <text> | </text>
+                @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
+            } else {
+                @Html.ActionLink("Rezygnuj z uczestnictwa", "LeafeEvent", new { id=item.EventId })
+            }
         </td>
     </tr>
 }

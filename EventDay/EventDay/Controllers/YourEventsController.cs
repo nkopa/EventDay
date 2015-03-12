@@ -31,12 +31,14 @@ namespace EventDay.Controllers
                 }
 
                 ViewBag.Title = "Twoje eventy - dołączyłaś/eś";
+                ViewBag.Type = "joined";
                 //mEvent = db.Event.Include(e => e.Category).Where(u => u.Username == User.Identity.Name).ToList();
             }
             else
             {
                 mEvent = db.Event.Include(e => e.Category).Where(u => u.Username == User.Identity.Name).ToList();
                 ViewBag.Title = "Twoje eventy - stworzone";
+                ViewBag.Type = "created";
             }
 
             return View(mEvent);
@@ -132,5 +134,17 @@ namespace EventDay.Controllers
             base.Dispose(disposing);
         }
 
+        public ActionResult LeafeEvent(int id)
+        {
+            Event mEvent = db.Event.Find(id);
+            if (mEvent == null) return HttpNotFound();
+
+            var joinedFindedEvent = db.JoinEvent.Include(e => e.Event).Where(u => u.Username == User.Identity.Name).Where(e => e.Event.EventId == id).ToList();
+            if (joinedFindedEvent.Count != 1) return HttpNotFound();
+
+            db.JoinEvent.Remove(joinedFindedEvent[0]);
+            db.SaveChanges();
+            return RedirectToAction("Index", new { searching = "joined" });
+        }
     }
 }
