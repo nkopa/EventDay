@@ -1,14 +1,11 @@
 ﻿@model IEnumerable<EventDay.Models.UserProfile>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Użytkownicy";
 }
 
-<h2>Index</h2>
+<h2>Użytkownicy</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table>
     <tr>
         <th>
@@ -19,9 +16,6 @@
         </th>
         <th>
             Interest
-        </th>
-        <th>
-            Voivodeship
         </th>
         <th>
             City
@@ -41,15 +35,10 @@
             @Html.DisplayFor(modelItem => item.Interest)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Voivodeship)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.City)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+            @Html.ActionLink("Delete", "User", new { id = item.UserId })
         </td>
     </tr>
 }

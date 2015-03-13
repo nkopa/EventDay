@@ -98,6 +98,12 @@ namespace EventDay.Controllers
             return View(model);
         }
 
+        public ActionResult Delete(string username)
+        {
+            System.Web.Security.Membership.DeleteUser(username);
+            return RedirectToAction("Index","Home");
+        }
+
         //!!!Uwaga brak obsługi błędów!!! Miejsce newralgiczne
         private EventContext db = new EventContext();
         public void CreateUserProfile(string UserName, string Email, DateTime CreateTime)

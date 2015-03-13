@@ -60,25 +60,24 @@ namespace EventDay.Controllers
         // GET: /User/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var userToDelete = db.UserProfile.Find(id);
+            if (userToDelete == null) return HttpNotFound();
+            return View(userToDelete);
         }
 
         //
         // POST: /User/Delete/5
 
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var userToDelete = db.UserProfile.Find(id);
+            if (userToDelete == null) return HttpNotFound();
+
+            db.UserProfile.Remove(userToDelete);
+            db.SaveChanges();
+
+            return RedirectToAction("Delete", "Account", new { username = userToDelete.UserName });
         }
     }
 }
