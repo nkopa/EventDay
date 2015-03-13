@@ -8,21 +8,23 @@
 <body>
     <div class="page">
         <div id="header">
-            <div id="title">
-                <h1>EventDay</h1>
-                <!--@Html.ActionLink("EventDay", "Index", "Home")-->
-            </div>
+           
             <div id="logindisplay">
                 @Html.Partial("_LogOnPartial")
             </div>
             <div id="menucontainer">
+                 <div id="title">                  
+                    <h1>EventDay</h1>
+                    <!--@Html.ActionLink("EventDay", "Index", "Home")-->
+                     
+                </div>
                 <ul id="menu">
                     <!-- trza odwrotnie dawac bo cos sie wali-->   
                     @if (User.Identity.IsAuthenticated)
                     {
                         if (Roles.IsUserInRole("admin"))
                         {
-                            <li>@Html.ActionLink("Profil administratora", "Index", "AdminProfile")</li>
+                            <li>@Html.ActionLink("Profil", "Index", "Home")</li>
                         }
                         <li>@Html.ActionLink("Profil użytkownika", "Index", "UserProfile")</li>
                     }                 
@@ -30,10 +32,11 @@
                     <li>@Html.ActionLink("Twoje Eventy", "Index", "YourEvents")</li>
                     <li>@Html.ActionLink("Kalendarz", "Index", "UserOptions")</li>
                     <li>@Html.ActionLink("Szukaj", "Index", "Events")</li>
-                    <!--<li>@Html.ActionLink("Strona główna", "Index", "Home")</li>-->
-                </ul>
+                    <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
+                </ul>                
             </div>
         </div>
+        @Html.Partial("_LogOnPartial")
         <div id="box">
         <div id="main">
             @RenderBody()
