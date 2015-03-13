@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace EventDay.Controllers
 {
@@ -73,6 +74,8 @@ namespace EventDay.Controllers
         {
             var userToDelete = db.UserProfile.Find(id);
             if (userToDelete == null) return HttpNotFound();
+
+            if (String.Compare(userToDelete.UserName, User.Identity.Name, true) == 0) FormsAuthentication.SignOut();
 
             db.UserProfile.Remove(userToDelete);
             db.SaveChanges();

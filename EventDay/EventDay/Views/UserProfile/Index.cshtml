@@ -5,3 +5,4 @@
 <h2>Profil użytkownika @User.Identity.Name</h2>
 
 @Html.ActionLink("Skrzynka pocztowa","Index","Message")
+@Html.ActionLink("Usuń konto", "Delete", new { name = @User.Identity.Name})
