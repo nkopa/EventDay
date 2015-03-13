@@ -1,28 +1,41 @@
-﻿@model IEnumerable<EventDay.Models.Event>
-           <!--ten widok dotyczy modelu Category -->
-           <!-- IEnumerable pozwala zmienic potem typ na dowolny-->
-@{
-    ViewBag.Title = "Index";
-}
+﻿@model PagedList.IPagedList<EventDay.Models.Event>
+@using PagedList.Mvc;
 
-@using (Html.BeginForm())
-{
-    <p>
-        Kategoria: @Html.DropDownList("eventCategory", "All")
-        Miasto: @Html.TextBox("Search") 
-        <input type="submit" value="Search" /></p>
-}
+    <!--ten widok dotyczy modelu Category -->
+    <!-- IEnumerable pozwala zmienic potem typ na dowolny-->
+    @{
+        ViewBag.Title = "Index";
+    }
 
-@foreach (var item in Model) {
-    <div class="event">
-        <a href="@Url.Action("Details", new { id = item.EventId })">
-        <p>
-            Tytuł: @Html.DisplayFor(modelItem => item.Title)<br />
-            Data początku wydarzenia: @Html.DisplayFor(modelItem => item.DateBegin)<br />
-            Data końca wydarzenia: @Html.DisplayFor(modelItem => item.DateEnd)<br />
-            Miasto: @Html.DisplayFor(modelItem => item.City)<br />
-            Lokalizacja: @Html.DisplayFor(modelItem => item.City)
-        </p>
-        </a>
+    <div class="wyszukiwarka">
+        @using (Html.BeginForm("Index", "Events", System.Web.Mvc.FormMethod.Get))
+        {
+            <p>Kategoria:</p>
+            <p> @Html.DropDownList("eventCategory", "All")</p>
+            <p>Miasto: </p>
+            <p>@Html.TextBox("Search", ViewBag.CurrentFilter as string) </p>
+            <p><input type="submit" value="Wyszukaj" /></p>
+        }
     </div>
-}
+
+ @Html.ActionLink("Data wydarzenia", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+
+
+    @foreach (var item in Model)
+    {
+        <div class="event">
+            <a href="@Url.Action("Details", new { id = item.EventId })">
+                <p>
+                    Tytuł: @Html.DisplayFor(modelItem => item.Title)<br />
+                    Data początku wydarzenia: @Html.DisplayFor(modelItem => item.DateBegin)<br />
+                    Data końca wydarzenia: @Html.DisplayFor(modelItem => item.DateEnd)<br />
+                    Miasto: @Html.DisplayFor(modelItem => item.City)<br />
+                    Lokalizacja: @Html.DisplayFor(modelItem => item.City)
+                </p>
+            </a>
+        </div>
+    }
+
+    <br />
+    Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
