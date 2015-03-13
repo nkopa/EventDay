@@ -328,3 +328,12 @@ D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.poprawaUserProfiles.resources
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.Image.resources
 D:\Uczelnia\Projekt zespołowy\furmanczyk\2\EventDay\EventDay\EventDay\obj\Debug\EventDay.csprojResolveAssemblyReference.cache
+D:\!!Studia\!UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.Event.resources
+D:\!!Studia\!UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.AddUser.resources
+D:\!!Studia\!UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.UserProfile.resources
+D:\!!Studia\!UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.poprawaUserProfiles.resources
+D:\!!Studia\!UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.Image.resources
+D:\!!Studia\!UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.dll
+D:\!!Studia\!UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.Mvc.dll
+D:\!!Studia\!UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.xml
+D:\!!Studia\!UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.Mvc.xml
