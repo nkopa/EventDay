@@ -5,7 +5,6 @@
 }
 
 @using (Html.BeginForm()) {
-    @Html.HiddenFor(u => u.UserId)
     <p>Czy napewno chcesz usuną uzytkownika @User.Identity.Name?</p>
     <input type="submit" value="Usuń" />
     @Html.ActionLink("Wróć do listy","Index")
