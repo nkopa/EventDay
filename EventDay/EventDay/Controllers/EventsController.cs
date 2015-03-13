@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using EventDay.Models;
 using System.IO;
 using System.Web.Security;
+using PagedList;
 
 namespace EventDay.Controllers
 { 
@@ -18,12 +19,24 @@ namespace EventDay.Controllers
         //
         // GET: /Events/
 
-        public ViewResult Index(string search, string eventCategory)
+        public ViewResult Index(string sortOrder, string search, string currentFilter, string eventCategory, int? page)
         {
             var categories = db.Category.Select(c => c.Name).Distinct().ToList();
-
+            ViewBag.CurrentSort = sortOrder;
+            //ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "DateEnd" ? "dateend_desc" : "DateEnd";
             ViewBag.eventCategory = new SelectList(categories); //lista do dropdown        
 
+            if (search != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                search = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = search;
             //var books = from s in db.Books
             //  select s;
             var events = db.Event.Select(b => b).Where(e => e.DateEnd >= DateTime.Today);
@@ -38,7 +51,23 @@ namespace EventDay.Controllers
             {
                 events = events.Where(b => b.CategoryId == (db.Category.Where(s => s.Name.Equals(eventCategory)).Select(c => c.CategoryId)).FirstOrDefault());
             }
-            return View(events);
+
+            switch (sortOrder)
+            {
+               case "DateEnd":
+                    events = events.OrderBy(s => s.DateEnd);
+                    break;
+                case "DateEnd_desc":
+                    events = events.OrderByDescending(s => s.DateEnd);
+                    break;
+                default:  // Name ascending 
+                    events = events.OrderBy(s => s.Title);
+                    break;
+            }
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(events.ToPagedList(pageNumber, pageSize));
         }
 
          //GET: /Books/Details
