@@ -11,7 +11,7 @@ using System.Web.Security;
 using PagedList;
 
 namespace EventDay.Controllers
-{ 
+{
     public class EventsController : Controller
     {
         private EventContext db = new EventContext();
@@ -42,10 +42,10 @@ namespace EventDay.Controllers
             var events = db.Event.Select(b => b).Where(e => e.DateEnd >= DateTime.Today);
 
 
-           if (!String.IsNullOrEmpty(search))
-           {
-               events = events.Where(b => b.City.Contains(search));
-           }
+            if (!String.IsNullOrEmpty(search))
+            {
+                events = events.Where(b => b.City.Contains(search));
+            }
 
             if (!string.IsNullOrEmpty(eventCategory))
             {
@@ -54,7 +54,7 @@ namespace EventDay.Controllers
 
             switch (sortOrder)
             {
-               case "DateEnd":
+                case "DateEnd":
                     events = events.OrderBy(s => s.DateEnd);
                     break;
                 case "DateEnd_desc":
@@ -68,29 +68,30 @@ namespace EventDay.Controllers
             int pageSize = 5;
             int pageNumber = (page ?? 1);
             return View(events.ToPagedList(pageNumber, pageSize));
+            //return View(events);
         }
 
-         //GET: /Books/Details
+        //GET: /Books/Details
         public ActionResult Details(int id)
         {
 
             var mevent = db.Event.Where(e => e.EventId == id).First();
             var comments = db.Comment.Where(c => c.EventId.Equals(id)).ToList();
-            return View(new EventHelper {EventId=id, Event = mevent, Comments = comments});
-  
+            return View(new EventHelper { EventId = id, Event = mevent, Comments = comments });
+
         }
 
         //
         // GET: /Events/Create
         public ActionResult Create()
         {
-
+            ViewBag.ViowodeshipList = CreateViowodeshipList();
             ViewBag.eventCategory = new SelectList(db.Category, "CategoryId", "Name");
-             
+
             return View();
         }
 
-      
+
         //
         // POST: /Events/Create
         [HttpPost]
@@ -99,39 +100,39 @@ namespace EventDay.Controllers
             e.DateCreated = DateTime.Now;
             e.Username = User.Identity.Name;
             e.Locality = "domyslna";
-            
+
             if (ModelState.IsValid)
             {
-            string dateCreated = e.DateCreated.ToString().Replace(" ", "").Replace(":", "").Replace("-", "");
+                string dateCreated = e.DateCreated.ToString().Replace(" ", "").Replace(":", "").Replace("-", "");
 
-            if (fileRegulations != null && fileRegulations.ContentLength > 0)
-            {     
-                //nazwa plitu == username + data + R dla regulations lub P dla ProfileImage + nazwa pliku;
-                string fileName = e.Username + dateCreated + "R" + Path.GetFileName(fileRegulations.FileName);
-                string path = Path.Combine(Server.MapPath("~/Content/Uploads"), fileName);
-                fileRegulations.SaveAs(path);
+                if (fileRegulations != null && fileRegulations.ContentLength > 0)
+                {
+                    //nazwa plitu == username + data + R dla regulations lub P dla ProfileImage + nazwa pliku;
+                    string fileName = e.Username + dateCreated + "R" + Path.GetFileName(fileRegulations.FileName);
+                    string path = Path.Combine(Server.MapPath("~/Content/Uploads"), fileName);
+                    fileRegulations.SaveAs(path);
 
-                e.Regulations = fileName;
+                    e.Regulations = fileName;
+                }
+
+                if (fileProfileImage != null && fileProfileImage.ContentLength > 0)
+                {
+                    string fileName = e.Username + dateCreated + "P" + Path.GetFileName(fileProfileImage.FileName);
+                    string path = Path.Combine(Server.MapPath("~/Content/Uploads"), fileName);
+                    fileProfileImage.SaveAs(path);
+
+                    e.ProfileImage = fileName;
+                }
+
+
+                db.Event.Add(e);
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
             }
-            
-            if (fileProfileImage != null && fileProfileImage.ContentLength > 0)
-            {
-                string fileName = e.Username + dateCreated + "P" + Path.GetFileName(fileProfileImage.FileName);
-                string path = Path.Combine(Server.MapPath("~/Content/Uploads"), fileName);
-                fileProfileImage.SaveAs(path);
-
-                e.ProfileImage = fileName;
-            }
-                    
-                       
-                            db.Event.Add(e);
-                            db.SaveChanges();
-
-                            return RedirectToAction("Index");
-                        }
 
             ViewBag.eventCategory = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
-           return View(e);
+            return View(e);
         }
 
         //
@@ -142,7 +143,7 @@ namespace EventDay.Controllers
             Event e = db.Event.Find(id);
 
             ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
-            
+
             return View(e);
         }
 
@@ -183,9 +184,37 @@ namespace EventDay.Controllers
 
             return RedirectToAction("Details", "Events", new { id = id });
         }
+
+
+
+        //////////// OTHER     ///////////////////////////////////
+
+        public List<SelectListItem> CreateViowodeshipList()
+        {
+            List<SelectListItem> Viowodeship = new List<SelectListItem>();
+
+            Viowodeship.Add(new SelectListItem { Text = "dolnośląskie", Value = "dolnośląskie" });
+            Viowodeship.Add(new SelectListItem { Text = "kujawsko-pomorskie", Value = "kujawsko-pomorskie" });
+            Viowodeship.Add(new SelectListItem { Text = "lubelskie", Value = "lubelskie" });
+            Viowodeship.Add(new SelectListItem { Text = "lubuskie", Value = "lubuskie" });
+            Viowodeship.Add(new SelectListItem { Text = "łódzkie", Value = "łódzkie" });
+            Viowodeship.Add(new SelectListItem { Text = "małopolskie", Value = "małopolskie" });
+            Viowodeship.Add(new SelectListItem { Text = "mazowieckie", Value = "mazowieckie" });
+            Viowodeship.Add(new SelectListItem { Text = "opolskie", Value = "opolskie" });
+            Viowodeship.Add(new SelectListItem { Text = "podkarpackie", Value = "podkarpackie" });
+            Viowodeship.Add(new SelectListItem { Text = "podlaskie", Value = "podlaskie" });
+            Viowodeship.Add(new SelectListItem { Text = "pomorskie", Value = "pomorskie", Selected = true });
+            Viowodeship.Add(new SelectListItem { Text = "śląskie", Value = "śląskie" });
+            Viowodeship.Add(new SelectListItem { Text = "świętokrzyskie", Value = "świętokrzyskie" });
+            Viowodeship.Add(new SelectListItem { Text = "warmińsko-mazurskie", Value = "warmińsko-mazurskie" });
+            Viowodeship.Add(new SelectListItem { Text = "wielkopolskie", Value = "wielkopolskie" });
+            Viowodeship.Add(new SelectListItem { Text = "zachodniopomorskie", Value = "zachodniopomorskie" });
+
+            //ViewBag.ViowodeshipList = Viowodeship;
+            return Viowodeship;
+        }
+
+        //////////// IMAGE CRUD ///////////////////////////////////////
+
     }
-
-    //////////// IMAGE CRUD ///////////////////////////////////////
-
-
 }
