@@ -1,10 +1,165 @@
-﻿@{
+﻿@model IEnumerable<EventDay.Models.Event>
+
+@{
     ViewBag.Title = "Kalendarz";
 }
 
-<script type="text/javascript" src="/Scripts/Calendar.js"></script>
+<script>
+    var events = [];
+</script>
+ @foreach (var item in Model) 
+      {
+    <script>
+        var event = {
+            EventId: '@Html.DisplayFor(modelItem => item.EventId)',
+            CategoryId: '@Html.DisplayFor(modelItem => item.CategoryId)',
+            AccessId: '@Html.DisplayFor(modelItem => item.AccessId)',
+            RecruitmentId: '@Html.DisplayFor(modelItem => item.RecruitmentId)',
+            Username: '@Html.DisplayFor(modelItem => item.Username)',
+            Title: '@Html.DisplayFor(modelItem => item.Title)',
+            Description: '@Html.DisplayFor(modelItem => item.Description)',
+            Capacity: '@Html.DisplayFor(modelItem => item.Capacity)',
+            Regulations: '@Html.DisplayFor(modelItem => item.Regulations)',
+            ProfileImage: '@Html.DisplayFor(modelItem => item.ProfileImage)',
+            Price: '@Html.DisplayFor(modelItem => item.Price)',
+            ContactNumber: '@Html.DisplayFor(modelItem => item.ContactNumber)',
+            ContactEmail: '@Html.DisplayFor(modelItem => item.ContactEmail)',
+            Website: '@Html.DisplayFor(modelItem => item.Website)',
+            DateCreated: '@Html.DisplayFor(modelItem => item.DateCreated)',
+            DateBegin: '@Html.DisplayFor(modelItem => item.DateBegin)',
+            DateEnd: '@Html.DisplayFor(modelItem => item.DateEnd)',
+            HourBegin: '@Html.DisplayFor(modelItem => item.HourBegin)',
+            HourEnd: '@Html.DisplayFor(modelItem => item.HourEnd)',
+            DateBeginRegistation: '@Html.DisplayFor(modelItem => item.DateBeginRegistation)',
+            HourBeginRegistration: '@Html.DisplayFor(modelItem => item.HourBeginRegistration)',
+            DateEndRegistation: '@Html.DisplayFor(modelItem => item.DateEndRegistation)',
+            HourEndRegistration: '@Html.DisplayFor(modelItem => item.HourEndRegistration)',
+            City: '@Html.DisplayFor(modelItem => item.City)',
+            Locality: '@Html.DisplayFor(modelItem => item.Locality)',
+            Voivoweship: '@Html.DisplayFor(modelItem => item.Voivoweship)',
+            Street: '@Html.DisplayFor(modelItem => item.Street)',
+            HouseNumber: '@Html.DisplayFor(modelItem => item.HouseNumber)',
+            ApartmentNumber: '@Html.DisplayFor(modelItem => item.ApartmentNumber)',
+            ZipCode: '@Html.DisplayFor(modelItem => item.ZipCode)',
+            Directions: '@Html.DisplayFor(modelItem => item.Directions)'
+        };
+        events[events.length] = event;
+    </script>  
+}   
 
-  <div id="divKalendarz">
+<script>
+    //budowa kalendarza
+    function rokPrzestepny(rok) {
+        return ((rok % 4 == 0) && ((rok % 100 != 0) || (rok % 400 == 0)));
+    }
+    function wyświetlKalendarz(r, m, d, el, ev) {
+        var data = new Date(r, m, d);
+        if (data == "Invalid date") data = new Date();
+
+        var rok = data.getFullYear();
+        var miesiac = data.getMonth() + 1;
+        var dzienTygodnia = data.getDay();
+        var dzienMiesiaca = data.getDate();
+
+        var tempDate = new Date(rok, miesiac - 1, 1);
+        var pierwszyDzienMiesiaca = tempDate.getDay();
+
+        if (dzienTygodnia == 0) dzienTygodnia = 7;
+        if (pierwszyDzienMiesiaca == 0) pierwszyDzienMiesiaca = 7;
+
+
+        var monthNames = new Array(
+        "Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec",
+        "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"
+        );
+        var monthDays = new Array(31, rokPrzestepny(rok) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+        var shortDayNames = new Array("Nd", "Pn", "Wt", "Śr", "Cz", "Pt", "So");
+
+        nazwaMiesiaca = monthNames[miesiac - 1];
+        dniWMiesiacu = monthDays[miesiac - 1];
+
+        var str = "";
+
+        str += "<table>";
+        str += "<tr>";
+        str += "<th class='tdNaglowek' colspan='7'>";
+        str += "<span class='clickable' onclick='wyświetlKalendarz(" + rok + "," + (miesiac - 2) + "," + dzienMiesiaca + ",\"" + el + "\" );'>";
+        str += "&lt;&lt;<\/span>&nbsp;&nbsp;" + nazwaMiesiaca + " " + rok + "&nbsp;&nbsp;";
+
+        str += "<span class='clickable' onclick='wyświetlKalendarz(" + rok + "," + (miesiac) + "," + dzienMiesiaca + ",\"" + el + "\" );'>&gt;&gt;<\/span>";
+        str += "<\/th>";
+        str += "</tr>";
+
+        var j = dniWMiesiacu + pierwszyDzienMiesiaca - 1;
+
+        for (var i = 0; i < j; i++) {
+            if (i < pierwszyDzienMiesiaca - 1) {
+                continue;
+            }
+
+            str += "<tr>";
+
+            var klasa = "tdDzien";
+            var dzien = i - pierwszyDzienMiesiaca + 2;
+            var name;
+
+            name = shortDayNames[(i + 1) % 7];
+
+            if (dzien == dzienMiesiaca &&
+                 (new Date()).toDateString() == data.toDateString()) {
+                klasa = "tdBiezacyDzien";
+            }
+
+            str += "<td class='" + klasa + "'>";
+            str += dzien;
+            str += "</br>";
+            str += name;
+            str += "<\/td>";
+
+            str += "<td id=\"" + rok + "-" + miesiac + "-" + dzien + "\">";
+
+            str += c(events, rok, miesiac, dzien);
+
+            str += "<\/td>";
+
+        }
+        str += "<\/tr><\/table>";
+
+        document.getElementById(el).innerHTML = str;
+
+    }
+
+    //zawartosc kalendarza
+    function c(ev, rok, miesiac, dzien) {
+        var text = "";
+        var data = rok + "-" + miesiac + "-" + dzien + " ";
+
+        for (i = 0; i < ev.length; i++) {
+            if (ev[i].DateBegin.indexOf(data) === 0) {
+
+
+                text += '<div class="event">';
+
+                text += '<a href="Events/Details/' + ev[i].EventId + '">';
+
+                text += '<div>';
+                text += '<img id="Image" src="/Content/Uploads/' + ev[i].ProfileImage + '"/>';
+                text += '<p id="Title">' + ev[i].Title + '</p>';
+                text += '<p id="Time">' + ev[i].HourBegin + '</p>';
+                text += '<p id="Description">' + ev[i].Description + '</p>';
+                text += '</div>';
+
+                text += '</a>';
+
+                text += '</div>';
+            }
+        }
+        return text;
+    }
+</script>
+
+
+ <div id="divKalendarz">
     <script type="text/javascript">
         var data = new Date();
         wyświetlKalendarz(data.getFullYear(), data.getMonth(), data.getDate(), 'divKalendarz');
