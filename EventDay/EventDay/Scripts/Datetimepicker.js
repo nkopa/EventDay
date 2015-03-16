@@ -8,7 +8,7 @@
 
 
 $(function () {
-    $('[onclick="f4()"]').daterangepicker({
+    $('[onclick="datetimerange()"]').daterangepicker({
         timePicker: true,
         format: 'H:mm DD/MM/YYYY',
         timePickerIncrement: 1,
@@ -33,7 +33,7 @@ $(function () {
 });
 
 $(function () {
-    $('[name="datetime"]').daterangepicker({
+    $('[onclick="datetime()"]').daterangepicker({
         timePicker: true,
         format: 'H:mm DD/MM/YYYY',
         timePickerIncrement: 1,
@@ -59,7 +59,7 @@ $(function () {
 });
 
 $(function () {
-    $('input[name="daterange"]').daterangepicker({
+    $('[onclick="daterange()"]').daterangepicker({
         timePicker: false,
         format: 'DD/MM/YYYY',
         startDate: moment(),
@@ -81,7 +81,7 @@ $(function () {
 });
 
 $(function () {
-    $('input[name="date"]').daterangepicker({
+    $('[onclick="date()"]').daterangepicker({
         timePicker: false,
         format: 'DD/MM/YYYY',
         startDate: moment(),
@@ -98,7 +98,7 @@ $(function () {
 });
 
 $(function () {
-    $('input[name="timerange"]').daterangepicker({
+    $('[onclick="timerange()"]').daterangepicker({
         timePicker: true,
         format: 'H:mm',
         timePickerIncrement: 1,
@@ -110,7 +110,7 @@ $(function () {
 });
 
 $(function () {
-    $('input[name="time"]').daterangepicker({
+    $('[onclick="time()"]').daterangepicker({
         timePicker: true,
         format: 'H:mm',
         timePickerIncrement: 1,
