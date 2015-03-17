@@ -378,3 +378,9 @@ D:\!!Studia\!UG\GitHub\p2\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migratio
 D:\!!Studia\!UG\GitHub\p2\EventDay\EventDay\EventDay\obj\Debug\EventDay.csproj.GenerateResource.Cache
 D:\!!Studia\!UG\GitHub\p2\EventDay\EventDay\EventDay\obj\Debug\EventDay.dll
 D:\!!Studia\!UG\GitHub\p2\EventDay\EventDay\EventDay\obj\Debug\EventDay.pdb
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.Event.resources
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.AddUser.resources
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.UserProfile.resources
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.poprawaUserProfiles.resources
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.Image.resources
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.someMigration.resources

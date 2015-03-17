@@ -29,5 +29,12 @@ namespace EventDay.Controllers
             return RedirectToAction("Delete", "User", new { id = userToDelete.UserId });
         }
 
+        public ActionResult Details(string name)
+        {
+            var userToShow = db.UserProfile.Where(u => u.UserName == name).First();
+            if (userToShow == null) return HttpNotFound();
+            return RedirectToAction("Details", "User", new { id = userToShow.UserId });
+        }
+
     }
 }

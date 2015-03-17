@@ -64,6 +64,7 @@
 
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.UserId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if (User.Identity.IsAuthenticated && String.Compare(User.Identity.Name,Model.UserName,true) == 0) {
+        @Html.ActionLink("Edytuj", "Edit", new { id=Model.UserId })
+    }
 </p>

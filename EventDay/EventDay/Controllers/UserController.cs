@@ -27,7 +27,7 @@ namespace EventDay.Controllers
 
         public ActionResult Details(int id)
         {
-            var user = db.UserProfile.Where(e => e.UserId == id);
+            var user = db.UserProfile.Where(e => e.UserId == id).First();
             return View(user);
         }
        

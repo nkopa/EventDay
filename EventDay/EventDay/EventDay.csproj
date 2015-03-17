@@ -109,10 +109,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminProfileController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserOptionsController.cs" />
+    <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Controllers\YourEventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -173,6 +175,10 @@
     <Compile Include="Migrations\201503112038297_Image.cs" />
     <Compile Include="Migrations\201503112038297_Image.Designer.cs">
       <DependentUpon>201503112038297_Image.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201503172152021_someMigration.cs" />
+    <Compile Include="Migrations\201503172152021_someMigration.Designer.cs">
+      <DependentUpon>201503172152021_someMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -320,6 +326,8 @@
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\UserProfile\Index.cshtml" />
+    <Content Include="Views\AdminProfile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />
@@ -370,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503112038297_Image.resx">
       <DependentUpon>201503112038297_Image.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503172152021_someMigration.resx">
+      <DependentUpon>201503172152021_someMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
