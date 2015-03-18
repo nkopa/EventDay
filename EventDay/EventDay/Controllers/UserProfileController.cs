@@ -36,5 +36,27 @@ namespace EventDay.Controllers
             return RedirectToAction("Details", "User", new { id = userToShow.UserId });
         }
 
+        public ActionResult Contacts()
+        {
+            UserProfile loggedUser = db.UserProfile.Where(u => u.UserName == User.Identity.Name).First();
+            if (loggedUser == null) return HttpNotFound();
+
+            var contacts = db.UserContact.Include("UserMember").Where(c => c.UserOwnerId == loggedUser.UserId).ToList();
+            if (contacts == null) return HttpNotFound();
+
+            return View(contacts);
+        }
+
+        public ActionResult DeleteContact(int id)
+        {
+            UserContact contact = db.UserContact.Find(id);
+            if (contact == null) return HttpNotFound();
+
+            db.UserContact.Remove(contact);
+            db.SaveChanges();
+
+            return RedirectToAction("Contacts");
+        }
+
     }
 }
