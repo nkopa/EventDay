@@ -384,3 +384,47 @@ C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.U
 C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.poprawaUserProfiles.resources
 C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.Image.resources
 C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.someMigration.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\EventDay.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\EventDay.pdb
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\EntityFramework.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\Microsoft.Web.Infrastructure.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\PagedList.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\PagedList.Mvc.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\System.Web.Helpers.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\System.Web.Mvc.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\System.Web.Providers.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\System.Web.Razor.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\System.Web.WebPages.Deployment.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\System.Web.WebPages.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\System.Web.WebPages.Razor.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\PagedList.xml
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\PagedList.Mvc.xml
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\EntityFramework.xml
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\System.Web.Helpers.xml
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\System.Web.Mvc.xml
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\System.Web.Razor.xml
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\System.Web.WebPages.xml
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\System.Web.WebPages.Deployment.xml
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\System.Web.WebPages.Razor.xml
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\pl\System.Web.Providers.resources.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.csprojResolveAssemblyReference.cache
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.initial.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addcomment.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.up.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.up1.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.updateDates.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.ocenki.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addJoinEvent.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addMessageModel.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.addColumtTitleToMessageModel.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.Event.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.AddUser.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.UserProfile.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.poprawaUserProfiles.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.Image.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.someMigration.resources
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.csproj.GenerateResource.Cache
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.dll
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\obj\Debug\EventDay.pdb
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\PagedList.pdb
+D:\Uczelnia\Projekt zespołowy\5\EventDay\EventDay\EventDay\bin\PagedList.Mvc.pdb

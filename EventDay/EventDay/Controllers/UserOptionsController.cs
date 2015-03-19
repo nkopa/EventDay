@@ -15,13 +15,12 @@ namespace EventDay.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            
-            //NIEPOPRAWNE UŻYCIE AuthorId - MODEL Event NIE MA TAKIEGO POLA. TO TRZEBA POPRAWIC!
 
-            //AuthorId w nowym formularzu jeszcze nie załączonym 
-            //var userEvents = db.Event.Where(b => b.AuthorId == UserId).OrderBy(x => x.DateBeginEvent).OrderBy(x => x.HourBeginEvent);
-            return View();
-            //return View(userEvents);
+
+           var events = db.Event.Where(b => b.Username == User.Identity.Name).OrderBy(x => x.DateBegin).OrderBy(x => x.HourBegin);
+            //ViewBag.userEventsCreate = db.Event.Where(b => b.Username == User.Identity.Name).OrderBy(x => x.DateBegin).OrderBy(x => x.HourBegin);
+
+           return View(events);
         }
 
     }

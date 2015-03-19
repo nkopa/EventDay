@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>PagedList.Mvc</id>
-    <version>3.18.0.0</version>
+    <version>3.0.0.0</version>
     <title>PagedList.Mvc</title>
     <authors>Troy Goode</authors>
     <owners>Troy Goode</owners>
@@ -10,10 +10,12 @@
     <projectUrl>http://github.com/TroyGoode/PagedList</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Asp.Net MVC HtmlHelper method for generating paging control for use with PagedList library.</description>
-    <language>en-US</language>
-    <tags>paging pager page infinitescroll ajax mvc</tags>
+    <summary>Asp.Net MVC HtmlHelper method for generating paging control for use with PagedList library.</summary>
     <dependencies>
-      <dependency id="PagedList" version="1.15" />
+      <dependency id="PagedList" version="1.2" />
     </dependencies>
+    <references>
+      <reference file="PagedList.Mvc.dll" />
+    </references>
   </metadata>
 </package>

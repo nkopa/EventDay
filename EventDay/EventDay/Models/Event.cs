@@ -85,6 +85,7 @@ namespace EventDay.Models
         [DisplayName("Godzina zakończenia wydarzenia")]
         public string HourEnd { get; set; }
 
+        //litorwka DateBeginRegist(r)ation
         [DisplayName("Data rozpoczęcia rejestracji")]
         [Required(ErrorMessage = "Data jest wymagana")]
         public DateTime DateBeginRegistation { get; set; }
@@ -92,6 +93,7 @@ namespace EventDay.Models
         [DisplayName("Godzina rozpoczęcia rejestracji")]
         public string HourBeginRegistration { get; set; }
 
+        //litorwka DateBeginRegist(r)ation
         [DisplayName("Data zakończenia rejestracji")]
         [Required(ErrorMessage = "Data jest wymagana")]
         public DateTime DateEndRegistation { get; set; }

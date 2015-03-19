@@ -46,25 +46,25 @@ namespace EventDay.Controllers
 
         //
         // GET: /Events/Details/5
-
-        public ViewResult Details(int id)
+        /*
+       public ViewResult Details(int id)
         {
             Event mEvent = db.Event.Find(id);
             return View(mEvent);
         }
-
+        */
         //
         // GET: /Events/Create
-
+        /*
         public ActionResult Create()
         {
             ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name");
             return View();
         } 
-
+        */
         //
         // POST: /Events/Create
-
+        /*
         [HttpPost]
         public ActionResult Create(Event mEvent)
         {
@@ -75,25 +75,25 @@ namespace EventDay.Controllers
                 db.Event.Add(mEvent);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
-            }
-
+           }
+        
             ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", mEvent.CategoryId);
             return View(mEvent);
         }
-        
+        */
         //
         // GET: /Events/Edit/5
- 
+ /*
         public ActionResult Edit(int id)
         {
             Event mEvent = db.Event.Find(id);
             ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", mEvent.CategoryId);
             return View(mEvent);
         }
-
+*/
         //
         // POST: /Events/Edit/5
-
+/*
         [HttpPost]
         public ActionResult Edit(Event mEvent)
         {
@@ -106,34 +106,37 @@ namespace EventDay.Controllers
             ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", mEvent.CategoryId);
             return View(mEvent);
         }
-
+*/
         //
         // GET: /Events/Delete/5
- 
+ /*
         public ActionResult Delete(int id)
         {
             Event mEvent = db.Event.Find(id);
             return View(mEvent);
         }
-
+*/
         //
         // POST: /Events/Delete/5
 
+        /*
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            Event mEvent = db.Event.Find(id);
-            db.Event.Remove(mEvent);
+           Event mEvent = db.Event.Find(id);
+           db.Event.Remove(mEvent);
             db.SaveChanges();
             return RedirectToAction("Index");
-        }
-
+       }
+        */
+        /*
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
             base.Dispose(disposing);
         }
-
+        */
+        /*
         public ActionResult LeafeEvent(int id)
         {
             Event mEvent = db.Event.Find(id);
@@ -146,5 +149,6 @@ namespace EventDay.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", new { searching = "joined" });
         }
+         */
     }
 }
