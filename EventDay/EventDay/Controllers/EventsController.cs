@@ -130,27 +130,17 @@ namespace EventDay.Controllers
             e.Username = User.Identity.Name;
             e.Locality = "domyslna";
             
-            ////konwertowanie daty
-            /*e.HourBegin = DateSplit(e.HourBegin, "H","B").ToString();
-            e.HourBeginRegistration = DateSplit(e.HourBeginRegistration, "H","B").ToString();
-            e.HourEnd = DateSplit(e.HourBegin, "H","E").ToString();           
-            e.HourEndRegistration = DateSplit(e.HourBeginRegistration, "H", "E").ToString();
-            
-
+            ////konwertowanie daty                     
             e.DateBegin = DateSplit(e.HourBegin, "d","B");
             e.DateBeginRegistation = DateSplit(e.HourBeginRegistration, "d", "B");
-            e.DateEnd = DateSplit(e.HourBegin, "d", "e");
-            e.DateEndRegistation = DateSplit(e.HourBeginRegistration, "d", "e");
-            */
-            e.DateBegin = DateTime.Now;
-            e.DateBeginRegistation = DateTime.Now;
-            e.DateEnd = DateTime.Now;
-            e.DateEndRegistation = DateTime.Now;
+            e.DateEnd = DateSplit(e.HourBegin, "D", "E");
+            e.DateEndRegistation = DateSplit(e.HourBeginRegistration, "D", "E");
+            e.HourEnd = DateSplit(e.HourBegin, "H", "E").ToString();
+            e.HourEndRegistration = DateSplit(e.HourBeginRegistration, "H", "E").ToString();
 
-            e.HourEnd = e.HourBegin;
-            e.HourEnd = e.HourBeginRegistration;
+            e.HourBegin = DateSplit(e.HourBegin, "H", "B").ToString();
+            e.HourBeginRegistration = DateSplit(e.HourBeginRegistration, "H", "B").ToString();
 
-            e.Voivoweship = "asdfasdf";
             ////Ładowanie plików
             //nazwa plitu == username + DateCreated + R dla regulations lub P dla ProfileImage + nazwa pliku;
 
@@ -176,16 +166,13 @@ namespace EventDay.Controllers
                 }
 
             ////aktualizowanie bazy
-                if (ModelState.IsValid)
-                    {
                 db.Event.Add(e);
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
-            }
 
-            ViewBag.eventCategory = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
-            return View(e);
+            //ViewBag.eventCategory = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
+            //return View(e);
         }
 
         //
@@ -307,6 +294,15 @@ namespace EventDay.Controllers
             //ViewBag.ViowodeshipList = Viowodeship;
             return Viowodeship;
         }
+        public static string DateSplit2(string toSplit, string HourDate, string BeginEnd)
+        {
+            string[] split = toSplit.Split(new Char[] { ' ', '-' });
+
+            string a = "";
+            int i = 0;
+           
+            return a;
+        }
 
         public static DateTime DateSplit(string toSplit, string HourDate, string BeginEnd)
         {
@@ -316,11 +312,11 @@ namespace EventDay.Controllers
 
             if (Regex.IsMatch(HourDate + BeginEnd, @"[TtHh0(Hour)]{1}[Bb0(Begin)]{1}"))
             {
-                return Convert.ToDateTime("0001/01/01 " + split[0].Trim()); // HourBegin
+                return Convert.ToDateTime("0001/01/01 " + split[0]); // HourBegin
             }
             if (Regex.IsMatch(HourDate + BeginEnd, @"[TtHh0(Hour)]{1}[Ee1(End)]{1}"))
             {
-                return Convert.ToDateTime("0001/01/01 " + split[4].Trim()); // HourEnd 
+                return Convert.ToDateTime("0001/01/01 " + split[4]); // HourEnd 
             }
             if (Regex.IsMatch(HourDate + BeginEnd, @"[Dd1(Date)]{1}[Bb0(Begin)]{1}"))
             {
