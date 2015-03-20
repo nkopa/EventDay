@@ -26,19 +26,24 @@
     {
         <div class="event">
             <a href="@Url.Action("Details", new { id = item.EventId })">
-                <p>
-                    Tytuł: @Html.DisplayFor(modelItem => item.Title)<br />
-                    Data początku wydarzenia: @Html.DisplayFor(modelItem => item.DateBegin)<br />
-                    Data końca wydarzenia: @Html.DisplayFor(modelItem => item.DateEnd)<br />
-                    Miasto: @Html.DisplayFor(modelItem => item.City)<br />
-                    Lokalizacja: @Html.DisplayFor(modelItem => item.City)
-                </p>
+                <dl>
+                    <dt>Tytuł</dt> 
+                    <dd>@Html.DisplayFor(modelItem => item.Title)</dd>
+                   <dt> Data początku wydarzenia</dt> 
+                    <dd>@Html.DisplayFor(modelItem => item.DateBegin)</dd>
+                   <dt> Data końca wydarzenia</dt> 
+                    <dd>@Html.DisplayFor(modelItem => item.DateEnd)</dd>
+                  <dt>  Miasto</dt> 
+                    <dd>@Html.DisplayFor(modelItem => item.City)</dd>
+                  <dt>  Lokalizacja</dt> 
+                    <dd>@Html.DisplayFor(modelItem => item.City)</dd>
+               </dl>
             </a>
         </div>
     }
 <br />
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
 
-@Html.PagedListPager(Model, page => Url.Action("Index", 
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), new PagedListRenderOptions {LinkToPreviousPageFormat = String.Format("<< Poprzednia"), LinkToNextPageFormat = String.Format("Następna >>") })
  
