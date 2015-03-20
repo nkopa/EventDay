@@ -29,14 +29,14 @@
         <legend>Event</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.CategoryId)
+            @Html.LabelFor(model => model.Category.Name)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
              @Html.DropDownListFor(model => model.CategoryId,(IEnumerable<SelectListItem>)ViewBag.eventCategory, "Wybierz kategorię", new { @class="form-control"})
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.AccessId)
+            @Html.LabelFor(model => model.AccessId)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
             <label>Widoczne</label>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.RecruitmentId)
+            @Html.LabelFor(model => model.RecruitmentId)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
             <label>Wstęp wolny</label>
@@ -58,7 +58,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Title)
+            @Html.LabelFor(model => model.Title)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Title)
@@ -66,7 +66,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Description)
+            @Html.LabelFor(model => model.Description)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
             @Html.TextAreaFor(model => model.Description)
@@ -74,7 +74,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Capacity)
+            @Html.LabelFor(model => model.Capacity)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Capacity)
@@ -97,7 +97,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Price)
+            @Html.LabelFor(model => model.Price)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Price)
@@ -129,25 +129,33 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.HourBegin)
+            @Html.LabelFor(model => model.HourBegin)/zakończenia wydarzenia<text style="color:red">*</text>
         </div>
         <div class="editor-field">
             <input class="text-box single-line" id="HourBegin" name="HourBegin" type="text" value="" onclick="datetimerange()" />
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.HourBeginRegistration)
+            @Html.LabelFor(model => model.HourBeginRegistration)/zakończenia rejestracji<text style="color:red">*</text>
         </div>
         <div class="editor-field">
             <input class="text-box single-line" id="HourBeginRegistration" name="HourBeginRegistration" type="text" value="" onclick="datetimerange()" />         
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.City)
+            @Html.LabelFor(model => model.City)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.City)
             @Html.ValidationMessageFor(model => model.City)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ZipCode)<text style="color:red">*</text>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ZipCode)
+            @Html.ValidationMessageFor(model => model.ZipCode)
         </div>
 
         <!--tu literowka do poprawienia na bazie Voivo(w)eship-->
@@ -183,24 +191,21 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ZipCode)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ZipCode)
-            @Html.ValidationMessageFor(model => model.ZipCode)
-        </div>
-
-        <div class="editor-label">
             @Html.LabelFor(model => model.Directions)
         </div>
         <div class="editor-field">
             @Html.TextAreaFor(model => model.Directions, new { @rows = 5 })
             @Html.ValidationMessageFor(model => model.Directions)
         </div>
-
+        <p>
+            <text style="color:red">*</text>Wymagane
+        </p>
         <p>
             <input type="submit" value="Create" />
         </p>
+        
+      
+
     </fieldset>
 }
 

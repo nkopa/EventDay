@@ -72,7 +72,7 @@ namespace EventDay.Controllers
         {
             e.DateCreated = DateTime.Now;
             e.Username = User.Identity.Name;
-            e.Locality = "domyslna";
+            //e.Locality = "domyslna";
 
             ////konwertowanie daty                     
             e.DateBegin = DateSplit(e.HourBegin, "d", "B");
@@ -108,7 +108,14 @@ namespace EventDay.Controllers
 
                 e.ProfileImage = fileName;
             }
-
+            //wartosci domyslne, musza byc bo sie wtedy details widok rozwala
+           if (e.ContactNumber == null) e.ContactNumber = "brak";
+           if (e.ContactEmail == null) e.ContactEmail = "brak";
+           if (e.Website == null) e.Website = "brak";
+           if (e.Street == null) e.Street = "brak";
+           if (e.HouseNumber == null) e.HouseNumber = "brak";
+           if (e.ApartmentNumber == null) e.ApartmentNumber = "brak";
+           if (e.Directions == null) e.Directions = "brak";
             ////aktualizowanie bazy
             db.Event.Add(e);
             db.SaveChanges();

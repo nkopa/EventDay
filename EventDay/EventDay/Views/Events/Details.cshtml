@@ -62,10 +62,15 @@
              @Html.DisplayFor(model => model.Event.Description)
            </dd>
 
-     
-        <dt>Miasto: </dt>
+     <p>LOKALIZACJA:</p>
+        <dt>Miejscowość: </dt>
             <dd>
                @Html.DisplayFor(model => model.Event.City)
+            </dd>
+              
+        <dt>Kod pocztowy: </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Event.ZipCode)
             </dd>
         
         <dt>Województwo: </dt>
@@ -87,18 +92,14 @@
             <dd>
             @Html.DisplayFor(model => model.Event.ApartmentNumber)
             </dd>
-      
-        <dt>Kod pocztowy: </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Event.ZipCode)
-            </dd>
+
         
         <dt>Jak dojechać: </dt>
             <dd>
                 @Html.DisplayFor(model => model.Event.Directions)
             </dd>
 
-    
+       <p>INFO DODATKOWE:</p>
        <dt>Telefon kontaktowy: </dt>
             <dd>
              @Html.DisplayFor(model => model.Event.ContactNumber)

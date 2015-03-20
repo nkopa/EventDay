@@ -18,9 +18,11 @@ namespace EventDay.Models
         public int CategoryId { get; set; }
 
         [DisplayName("Widoczne/Prywatne")]
+        [Required(ErrorMessage = "Wymagane")]
         public string AccessId { get; set; }
 
         [DisplayName("Otwarte/Zamknięte")]
+        [Required(ErrorMessage = "Wymagane")]
         public string RecruitmentId { get; set; }
 
         [ScaffoldColumn(false)]
@@ -53,17 +55,21 @@ namespace EventDay.Models
         //[StringLength(100)]
         //public string DressCode { get; set; }
 
-        [DisplayName("Bilety")]
+        [DisplayName("Cena biletu")]
         //[StringLength(100)]
         public decimal Price { get; set; }
 
         [DisplayName("Numer kontaktowy")]
+        [StringLength(7)]
         public string ContactNumber { get; set; }
 
         [DisplayName("Email")]
+        [StringLength(25)]
+        //[RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail nieprawidłowy format")]
         public string ContactEmail { get; set; }
 
         [DisplayName("Www")]
+        [StringLength(30)]
         public string Website { get; set; }
 
         //DATY***********************
@@ -80,9 +86,11 @@ namespace EventDay.Models
         public DateTime DateEnd { get; set; }
 
         [DisplayName("Godzina rozpoczęcia wydarzenia")]
+        [Required(ErrorMessage = "Godzina jest wymagana")]
         public string HourBegin { get; set; }
 
         [DisplayName("Godzina zakończenia wydarzenia")]
+        [Required(ErrorMessage = "Godzina jest wymagana")]
         public string HourEnd { get; set; }
 
         //litorwka DateBeginRegist(r)ation
@@ -91,6 +99,7 @@ namespace EventDay.Models
         public DateTime DateBeginRegistation { get; set; }
 
         [DisplayName("Godzina rozpoczęcia rejestracji")]
+        [Required(ErrorMessage = "Godzina jest wymagana")]
         public string HourBeginRegistration { get; set; }
 
         //litorwka DateBeginRegist(r)ation
@@ -98,36 +107,45 @@ namespace EventDay.Models
         [Required(ErrorMessage = "Data jest wymagana")]
         public DateTime DateEndRegistation { get; set; }
 
-        [DisplayName("Godzina zakończenia wydarzenia")]
+        [DisplayName("Godzina zakończenia rejestracji")]
+        [Required(ErrorMessage = "Godzina jest wymagana")]
         public string HourEndRegistration { get; set; }
 
         //ADDRESS*************************
 
         [DisplayName("Miasto")]
-        [Required(ErrorMessage = "Miasto jest wymagane")]
+        [Required(ErrorMessage = "Miejscowosc jest wymagana")]
         public string City { get; set; }
 
-        [DisplayName("Lokalizacja")]
+       /* [DisplayName("Lokalizacja")]
         [Required(ErrorMessage = "Lokalizacja jest wymagana")]
-        public string Locality { get; set; }
+        public string Locality { get; set; }*/
 
         [DisplayName("Województwo")]
+        [StringLength(20)]
         public string Voivoweship { get; set; }
 
         [DisplayName("Ulica")]
+        [StringLength(20)]
         public string Street { get; set; }
 
         [DisplayName("Numer domu")]
+        [StringLength(20)]
         public string HouseNumber { get; set; }
 
         [DisplayName("Numer lokalu")]
+        [StringLength(20)]
         public string ApartmentNumber { get; set; }
 
         [DisplayName("Kod pocztowy")]
+        [StringLength(6)]
+        [RegularExpression("[0-9][0-9]-[0-9][0-9][0-9]$", ErrorMessage = "Kod pocztowy nieprawidłowy format")]
+        [Required(ErrorMessage = "Kod pocztowy jest wymagany")]
         public string ZipCode { get; set; }
 
         /*moze zamienic na mape google?*/
         [DisplayName("Wskazówki dojazdu")]
+        [StringLength(300)]
         public string Directions { get; set; }
 
         //VIRTUAL**********************

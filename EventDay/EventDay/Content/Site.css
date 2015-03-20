@@ -31,8 +31,12 @@ a:active {
 }
 
 p, ul {
-    margin-bottom: 20px;
     line-height: 1.6em;
+}
+
+.detale p {
+font-weight:bold;
+text-decoration:underline;
 }
 
 header,

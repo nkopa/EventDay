@@ -7,128 +7,141 @@
 <fieldset>
     <legend>Event</legend>
     
-   <div class="display-label">Profilówka:</div>
-    <div class="display-field">
-        <script></script>
-        <img src="@Url.Content("~/Content/Uploads/" + @Html.DisplayFor(model => model.ProfileImage))" alt="brak"/>
-    </div>
+   <div class="detale">
+    <dl>
+         <dt>Profilówka: </dt>
+            <dd>
+              <script></script>
+             <img src="@Url.Content("~/Content/Uploads/" + @Html.DisplayFor(model => model.ProfileImage))" alt="brak"/>
+          </dd>
 
-   <div class="display-label">Kategoria:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Category.Name)
-    </div>
+        <dt>Kategoria: </dt>
+            <dd>
+            @Html.DisplayFor(model => model.Category.Name)
+            </dd>
 
-    <div class="display-label">Tytuł:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Title)
-    </div>
+        <dt>Tytuł: </dt>
+            <dd>
+              @Html.DisplayFor(model => model.Title)
+            </dd>
 
-    <div class="display-label">Start:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DateBegin)
-        <span> </span>
-        @Html.DisplayFor(model => model.HourBegin)
-    </div>
-    <div class="display-label">Meta:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DateEnd)
-        <span> </span>
-        @Html.DisplayFor(model => model.HourEnd)
-    </div>
+        <dt>Start: </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DateBegin)
+                <span> </span>
+                @Html.DisplayFor(model => model.HourBegin)
+            </dd>
+      
+        <dt>Meta: </dt>
+             <dd>
+                @Html.DisplayFor(model => model.DateEnd)
+                <span> </span>
+                @Html.DisplayFor(model => model.HourEnd)
+            </dd>
 
-    <div class="display-label">Rekrutacja:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DateEnd)
-        <span> </span>
-        @Html.DisplayFor(model => model.HourEnd)
-      <span> - </span>
-        @Html.DisplayFor(model => model.DateEnd)
-        <span> </span>
-        @Html.DisplayFor(model => model.HourEnd)
-    </div>
-    <div class="display-field">       
-        <span>tu zegar odliczajacy czas</span>
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.RecruitmentId)
-    </div>
+        <dt>Rekrutacja: </dt>
+            <dd>
+                 @Html.DisplayFor(model => model.DateEnd)
+                    <span> </span>
+                @Html.DisplayFor(model => model.HourEnd)
+                    <span> - </span>
+                @Html.DisplayFor(model => model.DateEnd)
+                    <span> </span>
+                   @Html.DisplayFor(model => model.HourEnd)
+            </dd>
+        
+       <!-- <span>tu zegar odliczajacy czas</span>-->
+  
+      <dt>Dostępność: </dt>
+           <dd>
+             @Html.DisplayFor(model => model.RecruitmentId)
+           </dd>
    
 
-    <div class="display-label">Opis:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Description)
-    </div>
+      <dt>Opis: </dt>
+           <dd>
+             @Html.DisplayFor(model => model.Description)
+           </dd>
+           
+        <p>LOKALIZACJA:</p>
+        <dt>Miejscowość: </dt>
+            <dd>
+               @Html.DisplayFor(model => model.City)
+            </dd>
+              
+        <dt>Kod pocztowy: </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ZipCode)
+            </dd>
+        
+        
+        <dt>Województwo: </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Voivoweship )
+            </dd>
+      
+        <dt>Ulica: </dt>
+            <dd>
+              @Html.DisplayFor(model => model.Street)
+            </dd>
+         
+        <dt>Numer Domu: </dt>
+            <dd>
+               @Html.DisplayFor(model => model.HouseNumber)
+            </dd>
+        
+        <dt>Numer lokalu: </dt>
+            <dd>
+            @Html.DisplayFor(model => model.ApartmentNumber)
+            </dd>
 
-    <div class="display-label">Lokalizacja:</div>
-    <div class="display-label">Miasto:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.City)
-    </div>
-    <div class="display-label">Województwo:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Voivoweship )
-    </div>
-    <div class="display-label">Ulica:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Street)
-    </div>
-        <div class="display-label">Numer Domu:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.HouseNumber)
-    </div>
-    <div class="display-label">Numer lokalu:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ApartmentNumber)
-    </div>
-    <div class="display-label">Kod pocztowy:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ZipCode)
-    </div>
-    <div class="display-label">Jak dojechać:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Directions)
-    </div>
+        <dt>Jak dojechać: </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Directions)
+            </dd>
 
-     <div class="display-label">Masz wątpliwości?</div>
-     <div class="display-label">Telefon kontaktowy:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ContactNumber)
-    </div>
-     <div class="display-label">Email:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ContactEmail)
-    </div>
-    <div class="display-label">Www:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Website)
-    </div>
+     <p>INFO DODATKOWE:</p>
+       <dt>Telefon kontaktowy: </dt>
+            <dd>
+             @Html.DisplayFor(model => model.ContactNumber)
+            </dd>
+      
+         <dt>Email: </dt>
+             <dd>
+                @Html.DisplayFor(model => model.ContactEmail)
+            </dd>
+      
+        <dt>Www: </dt>
+            <dd>
+                 @Html.DisplayFor(model => model.Website)
+            </dd>
 
-    <div class="display-label">Wstęp:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Price)
-    </div>
+         <dt>Cena wstępu: </dt>
+            <dd>
+             @Html.DisplayFor(model => model.Price)
+            </dd>
 
-    <div class="display-label">Ilość miejsc:</div>
-    <div class="display-field">
-       <span>tu dostępne /</span>
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Capacity)
-    </div>
+        <dt>Ilość miejsc: </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Capacity)
+            </dd>
 
-    <div class="display-label">Regulamin:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Price)
-    </div>
+      <dt>Regulamin: </dt>
+            <dd>
+             @Html.DisplayFor(model => model.Price)
+            </dd>
 
-    <div class="display-label">Data publikacji:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.DateCreated)
-    </div>
+      <dt>Data publikacji: </dt>
+                <dd>
+                @Html.DisplayFor(model => model.DateCreated)
+             </dd>
 
-    <div class="display-label">Autor publikacji:</div>
-    <div class="display-field">
+      <dt>Autor publikacji: </dt>
+            <dd>
         @Html.DisplayFor(model => model.Username)
+            </dd>
+   </dl>  
+
     </div>
      
   </fieldset>

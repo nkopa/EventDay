@@ -470,3 +470,5 @@ D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.pdb
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.Mvc.xml
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.pdb
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.Mvc.pdb
+D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.events.resources
+D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.poprawkievents2.resources

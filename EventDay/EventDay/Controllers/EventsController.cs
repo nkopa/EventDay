@@ -104,7 +104,7 @@ namespace EventDay.Controllers
         {
             e.DateCreated = DateTime.Now;
             e.Username = User.Identity.Name;
-            e.Locality = "domyslna";
+           // e.Locality = "domyslna";
 
             if (ModelState.IsValid)
             {
