@@ -1,3 +1,8 @@
+INFO:
+AGNIESZKA CREATE EVENT itp DODAWAJ DO WIDOKOW I KONTROLEROW YOUREVENTS,BO ON ODPOWIADA ZA TWORZENIE, A EVENTS ZA WYSZUKIWANIE, PRZENIOSLAM TO CO DODALAS DO EVENTS -->DO YOUREVENTS, ALE NIE WIEM CZY WSZYSTKO DZIALA POPRAWNIE SPRAWDZ.
+Staraj sie dokladnie sprawdzac nazwy widokow,kontrolerow i sprawdzac czy cos juz istenieje, bo narobilo to troche dodatkowej pracy z przenoszeniem.
+---------------------
+
 EventDay
 ========
 
