@@ -79,14 +79,17 @@ namespace EventDay.Models
 
         [DisplayName("Data rozpoczęcia wydarzenia")]
         [Required(ErrorMessage = "Data jest wymagana")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime DateBegin { get; set; }
 
         [DisplayName("Data zakończenia wydarzenia")]
         [Required(ErrorMessage = "Data jest wymagana")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime DateEnd { get; set; }
 
         [DisplayName("Godzina rozpoczęcia wydarzenia")]
         [Required(ErrorMessage = "Godzina jest wymagana")]
+        [DisplayFormat(DataFormatString = "{0:hh:mm tt}")]
         public string HourBegin { get; set; }
 
         [DisplayName("Godzina zakończenia wydarzenia")]
@@ -96,15 +99,18 @@ namespace EventDay.Models
         //litorwka DateBeginRegist(r)ation
         [DisplayName("Data rozpoczęcia rejestracji")]
         [Required(ErrorMessage = "Data jest wymagana")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime DateBeginRegistation { get; set; }
 
         [DisplayName("Godzina rozpoczęcia rejestracji")]
         [Required(ErrorMessage = "Godzina jest wymagana")]
+        [DisplayFormat(DataFormatString = "{0:hh:mm tt}")]
         public string HourBeginRegistration { get; set; }
 
         //litorwka DateBeginRegist(r)ation
         [DisplayName("Data zakończenia rejestracji")]
         [Required(ErrorMessage = "Data jest wymagana")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime DateEndRegistation { get; set; }
 
         [DisplayName("Godzina zakończenia rejestracji")]
