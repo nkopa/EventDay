@@ -433,7 +433,6 @@ D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\EventDay.pdb
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\EntityFramework.dll
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\Microsoft.Web.Infrastructure.dll
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.dll
-D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.Mvc.dll
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\System.Web.Helpers.dll
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\System.Web.Mvc.dll
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\System.Web.Providers.dll
@@ -441,10 +440,7 @@ D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\System.Web.Razor.dll
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\System.Web.WebPages.Deployment.dll
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\System.Web.WebPages.dll
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\System.Web.WebPages.Razor.dll
-D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.pdb
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.xml
-D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.Mvc.pdb
-D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.Mvc.xml
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\EntityFramework.xml
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\System.Web.Helpers.xml
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\System.Web.Mvc.xml
@@ -472,3 +468,5 @@ D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.csproj.GenerateResource.Cache
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.dll
 D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\obj\Debug\EventDay.pdb
+D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.Mvc.dll
+D:\11Studia\1UG\GitHub\EventDay\EventDay\EventDay\bin\PagedList.Mvc.xml

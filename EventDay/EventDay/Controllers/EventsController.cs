@@ -23,7 +23,7 @@ namespace EventDay.Controllers
         {
             var categories = db.Category.Select(c => c.Name).Distinct().ToList();
             ViewBag.CurrentSort = sortOrder;
-            //ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+          //  ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             ViewBag.DateSortParm = sortOrder == "DateEnd" ? "dateend_desc" : "DateEnd";
             ViewBag.eventCategory = new SelectList(categories); //lista do dropdown        
 
@@ -35,8 +35,10 @@ namespace EventDay.Controllers
             {
                 search = currentFilter;
             }
-
+            
             ViewBag.CurrentFilter = search;
+            
+            
             //var books = from s in db.Books
             //  select s;
             var events = db.Event.Select(b => b).Where(e => e.DateEnd >= DateTime.Today);
@@ -65,10 +67,11 @@ namespace EventDay.Controllers
                     break;
             }
 
-            int pageSize = 5;
+            int pageSize = 3;
             int pageNumber = (page ?? 1);
+           
             return View(events.ToPagedList(pageNumber, pageSize));
-            //return View(events);
+           // return View(events);
         }
 
         //GET: /Books/Details
