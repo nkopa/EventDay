@@ -6,131 +6,141 @@
 
 <fieldset>
     <legend>Event</legend>
-    
-   <div class="display-label">Profilówka:</div>
-    <div class="display-field">
-        <script></script>
-        <img src="@Url.Content("~/Content/Uploads/" + @Html.DisplayFor(model => model.Event.ProfileImage))" alt="brak"/>
-    </div>
+    <div class="detale">
+    <dl>
+         <dt>Profilówka: </dt>
+            <dd>
+              <script></script>
+             <img src="@Url.Content("~/Content/Uploads/" + @Html.DisplayFor(model => model.Event.ProfileImage))" alt="brak"/>
+          </dd>
 
-   <div class="display-label">Kategoria:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Category.Name)
-    </div>
+        <dt>Kategoria: </dt>
+            <dd>
+            @Html.DisplayFor(model => model.Event.Category.Name)
+            </dd>
 
-    <div class="display-label">Tytuł:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Title)
-    </div>
+        <dt>Tytuł: </dt>
+            <dd>
+              @Html.DisplayFor(model => model.Event.Title)
+            </dd>
 
-    <div class="display-label">Start:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.DateBegin)
-        <span> </span>
-        @Html.DisplayFor(model => model.Event.HourBegin)
-    </div>
-    <div class="display-label">Meta:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.DateEnd)
-        <span> </span>
-        @Html.DisplayFor(model => model.Event.HourEnd)
-    </div>
+        <dt>Start: </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Event.DateBegin)
+                <span> </span>
+                @Html.DisplayFor(model => model.Event.HourBegin)
+            </dd>
+      
+        <dt>Meta: </dt>
+             <dd>
+                @Html.DisplayFor(model => model.Event.DateEnd)
+                <span> </span>
+                @Html.DisplayFor(model => model.Event.HourEnd)
+            </dd>
 
-    <div class="display-label">Rekrutacja:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.DateEnd)
-        <span> </span>
-        @Html.DisplayFor(model => model.Event.HourEnd)
-      <span> - </span>
-        @Html.DisplayFor(model => model.Event.DateEnd)
-        <span> </span>
-        @Html.DisplayFor(model => model.Event.HourEnd)
-    </div>
-    <div class="display-field">       
-        <span>tu zegar odliczajacy czas</span>
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.RecruitmentId)
-    </div>
+        <dt>Rekrutacja: </dt>
+            <dd>
+                 @Html.DisplayFor(model => model.Event.DateEnd)
+                    <span> </span>
+                @Html.DisplayFor(model => model.Event.HourEnd)
+                    <span> - </span>
+                @Html.DisplayFor(model => model.Event.DateEnd)
+                    <span> </span>
+                   @Html.DisplayFor(model => model.Event.HourEnd)
+            </dd>
+        
+       <!-- <span>tu zegar odliczajacy czas</span>-->
+  
+      <dt>Dostępność: </dt>
+           <dd>
+             @Html.DisplayFor(model => model.Event.RecruitmentId)
+           </dd>
    
 
-    <div class="display-label">Opis:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Description)
-    </div>
+      <dt>Opis: </dt>
+           <dd>
+             @Html.DisplayFor(model => model.Event.Description)
+           </dd>
 
-    <div class="display-label">Lokalizacja:</div>
-    <div class="display-label">Miasto:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.City)
-    </div>
-    <div class="display-label">Województwo:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Voivoweship )
-    </div>
-    <div class="display-label">Ulica:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Street)
-    </div>
-        <div class="display-label">Numer Domu:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.HouseNumber)
-    </div>
-    <div class="display-label">Numer lokalu:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.ApartmentNumber)
-    </div>
-    <div class="display-label">Kod pocztowy:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.ZipCode)
-    </div>
-    <div class="display-label">Jak dojechać:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Directions)
-    </div>
-
-     <div class="display-label">Masz wątpliwości?</div>
-     <div class="display-label">Telefon kontaktowy:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.ContactNumber)
-    </div>
-     <div class="display-label">Email:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.ContactEmail)
-    </div>
-    <div class="display-label">Www:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Website)
-    </div>
-
-    <div class="display-label">Wstęp:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Price)
-    </div>
-
-    <div class="display-label">Ilość miejsc:</div>
-    <div class="display-field">
-       <span>tu dostępne /</span>
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Capacity)
-    </div>
-
-    <div class="display-label">Regulamin:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Price)
-    </div>
-
-    <div class="display-label">Data publikacji:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.DateCreated)
-    </div>
-
-    <div class="display-label">Autor publikacji:</div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Username)
-    </div>
      
+        <dt>Miasto: </dt>
+            <dd>
+               @Html.DisplayFor(model => model.Event.City)
+            </dd>
+        
+        <dt>Województwo: </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Event.Voivoweship )
+            </dd>
+      
+        <dt>Ulica: </dt>
+            <dd>
+              @Html.DisplayFor(model => model.Event.Street)
+            </dd>
+         
+        <dt>Numer Domu: </dt>
+            <dd>
+               @Html.DisplayFor(model => model.Event.HouseNumber)
+            </dd>
+        
+        <dt>Numer lokalu: </dt>
+            <dd>
+            @Html.DisplayFor(model => model.Event.ApartmentNumber)
+            </dd>
+      
+        <dt>Kod pocztowy: </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Event.ZipCode)
+            </dd>
+        
+        <dt>Jak dojechać: </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Event.Directions)
+            </dd>
+
+    
+       <dt>Telefon kontaktowy: </dt>
+            <dd>
+             @Html.DisplayFor(model => model.Event.ContactNumber)
+            </dd>
+      
+         <dt>Email: </dt>
+             <dd>
+                @Html.DisplayFor(model => model.Event.ContactEmail)
+            </dd>
+      
+        <dt>Www: </dt>
+            <dd>
+                 @Html.DisplayFor(model => model.Event.Website)
+            </dd>
+
+         <dt>Cena wstępu: </dt>
+            <dd>
+             @Html.DisplayFor(model => model.Event.Price)
+            </dd>
+
+        <dt>Ilość miejsc: </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Event.Capacity)
+            </dd>
+
+      <dt>Regulamin: </dt>
+            <dd>
+             @Html.DisplayFor(model => model.Event.Price)
+            </dd>
+
+      <dt>Data publikacji: </dt>
+                <dd>
+                @Html.DisplayFor(model => model.Event.DateCreated)
+             </dd>
+
+      <dt>Autor publikacji: </dt>
+            <dd>
+        @Html.DisplayFor(model => model.Event.Username)
+            </dd>
+   </dl>  
+
+    </div>
 
      <ul id="button">
         <li> @Html.ActionLink("Dołącz do wydarzenia", "JoinEvent", "Events",new {id = Model.EventId},null)</li>

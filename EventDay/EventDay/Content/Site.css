@@ -188,7 +188,7 @@ ul#menu li.selected a {
 ----------------------------------------------------------*/
 
 fieldset {
-    border: 1px solid #ddd;
+    border: 1px solid white;
     padding: 0 1.4em 1.4em 1.4em;
     margin: 0 0 1.5em 0;
 }
@@ -379,6 +379,35 @@ div#title {
 }
 
 
+.detale {
+
+}
+
+.detale dl {
+    border: 3px double #ccc; 
+    padding: 1.0em;    
+  
+    padding-bottom:10px;
+}
+
+.detale dt {    
+    float: left; 
+    clear: left; 
+    text-align: right; 
+    font-weight: bold; 
+    color: #696969;
+    padding-bottom:10px;
+}
+.detale dt:after { 
+    content:"\00a0";
+
+} 
+
+.detale dd { 
+  
+    margin: 0 0 0 0px; 
+    padding-bottom:10px;}
+
 .event {
     background-color: #46629e;
     /*width:350px; */
@@ -540,26 +569,19 @@ input[type="submit"]:hover {
     height:30px;
     width:100px;
     }*/
-/*
-ul#button {
 
+ul#button {
     list-style-type: none;
     text-decoration:none;
-
     margin-top:20px;
     margin-bottom:20px;
 }
 
 
-ul#button li { 
-   
+ul#button li {    
     display: inline;   
     text-decoration:none;
-  
-   
-
-
-}*/
+}
 
 
 ul#button li a {
