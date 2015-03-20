@@ -3,11 +3,12 @@
 }
 
 <h2>Profil użytkownika @User.Identity.Name</h2>
+<ul id="button">
+    <li>@Html.ActionLink("Skrzynka pocztowa","Index","Message")</li>
 
-@Html.ActionLink("Skrzynka pocztowa","Index","Message")
-<br />
-@Html.ActionLink("Usuń konto", "Delete", new { name = @User.Identity.Name})
-<br />
-@Html.ActionLink("Pokaż szczegóły profilu", "Details", new { name = @User.Identity.Name})
-<br />
-@Html.ActionLink("Kontakty", "Contacts")
+<li>@Html.ActionLink("Usuń konto", "Delete", new { name = @User.Identity.Name})</li>
+
+<li>@Html.ActionLink("Pokaż szczegóły profilu", "Details", new { name = @User.Identity.Name})</li>
+
+<li>@Html.ActionLink("Kontakty", "Contacts")</li>
+</ul>

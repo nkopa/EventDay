@@ -222,40 +222,7 @@ input[type="submit"] {
     font-size: 1.2em;
     padding: 5px;
 }
-/*BUTTONY*/
 
-ul#button{
-   
-    list-style-type: none;
-    margin:0px;
-    padding:10px 0px 0px 0px;
-
-}
-
-ul#button li {    
-
-    list-style: none;
-    padding:10px; 
-
-
-}
-
-ul#button li a {
-    border: 2px solid #a1a1a1;
-    padding:3px;
-    background-color: #d2d2d2;   
-	text-decoration: none;
-      color:#333333;
-
-}
-
-ul#button li a:hover {
- 
-	text-decoration: none;
-
-      color: #330000;
-
-}
 /*USERY*/
 #comment{
    
@@ -527,6 +494,83 @@ div#title {
     width:100px;
     }
 
+ul#button {
+
+    list-style-type: none;
+    text-decoration:none;
+
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+
+ul#button li { 
+   
+    display: inline;   
+    text-decoration:none;
+  
+   
+
+
+}
+
+
+ul#button li a {
+    border: 2px solid #a1a1a1;
+    padding: 7px; 
+    margin-right:5px;
+    background-color: #d2d2d2;   
+	text-decoration: none;
+    color:#333333;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px; 
+
+
+}
+
+ul#button li a:hover {
+ 
+	text-decoration: none;
+
+      color: #330000;
+
+}
+
+/*BUTTONY*/
+/*
+ul#button{
+   
+    list-style-type: none;
+    margin:0px;
+    padding:10px 0px 0px 0px;
+
+}
+
+ul#button li {    
+
+    list-style: none;
+    padding:10px; 
+
+
+}
+
+ul#button li a {
+    border: 2px solid #a1a1a1;
+    padding:3px;
+    background-color: #d2d2d2;   
+	text-decoration: none;
+      color:#333333;
+
+}
+
+ul#button li a:hover {
+ 
+	text-decoration: none;
+
+      color: #330000;
+
+}*/
 
 /*z boostrapa skopiowane bo przez link dzialac nie chcialo*/
 .clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";}
