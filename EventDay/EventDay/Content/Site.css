@@ -414,9 +414,36 @@ div#title {
 
 .event {
     background-color: #46629e;
-    width:350px; 
-    transition-duration:1s;   
+    /*width:350px; */
+    transition-duration:1s; 
+     -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px; 
+   
 }
+.event dl { 
+    border: 3px double #ccc; 
+    padding: 0.5em;    
+    -webkit-border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;  
+} 
+
+.event dt { 
+    float: left; 
+    clear: left; 
+    text-align: right; 
+    font-weight: bold; 
+    color: white; 
+
+} 
+.event dt:after { 
+    content: " : "; 
+
+} 
+.event dd { 
+    margin: 0 0 0 0px; 
+    padding: 0 0 0.5em 0; }
 
 .event p { 
     padding:10px;
@@ -462,10 +489,16 @@ div#title {
 .wyszukiwarka select {
     width:150px;
     height:30px;
+     -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .wyszukiwarka input[type="text"]  {
     width:145px;
+     -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
 }
 .wyszukiwarka input[type="submit"]  {
     margin-left:30px;
@@ -477,6 +510,9 @@ div#title {
     text-align:center;
     height:30px;
     width:100px;
+     -webkit-border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px; 
     }
 
 .wyszukiwarka input[type="submit"]:hover  {
