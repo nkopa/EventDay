@@ -22,7 +22,7 @@
 
 <script type="text/javascript" src="@Url.Content("~/Scripts/Main.js")"></script>
 
-@using (Html.BeginForm("Create", "Events", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "YourEvents", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true)
     <fieldset>
@@ -204,8 +204,8 @@
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+<ul id="button">
+   <li> @Html.ActionLink("<< Wróć", "Index")</li>
+</ul>
 
 
