@@ -176,14 +176,19 @@ namespace EventDay.Controllers
             Event mEvent = db.Event.Find(id);
             if (mEvent == null) return HttpNotFound();
 
-            JoinEvent join = new JoinEvent();
-            join.EventId = mEvent.EventId;
-            join.Username = User.Identity.Name;
-            join.JoinDate = DateTime.Now;
-            join.Status = 0;
+            var joinedFindedEvent = db.JoinEvent.Include(e => e.Event).Where(u => u.Username == User.Identity.Name).Where(e => e.EventId == id).ToList();
 
-            db.JoinEvent.Add(join);
-            db.SaveChanges();
+            if (joinedFindedEvent.Count == 0)
+            {
+                JoinEvent join = new JoinEvent();
+                join.EventId = mEvent.EventId;
+                join.Username = User.Identity.Name;
+                join.JoinDate = DateTime.Now;
+                join.Status = 0;
+
+                db.JoinEvent.Add(join);
+                db.SaveChanges();
+            }
 
             return RedirectToAction("Details", "Events", new { id = id });
         }

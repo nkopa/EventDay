@@ -184,8 +184,8 @@ namespace EventDay.Controllers
             Event mEvent = db.Event.Find(id);
             if (mEvent == null) return HttpNotFound();
 
-            var joinedFindedEvent = db.JoinEvent.Include(e => e.Event).Where(u => u.Username == User.Identity.Name).Where(e => e.Event.EventId == id).ToList();
-            if (joinedFindedEvent.Count != 1) return HttpNotFound();
+            var joinedFindedEvent = db.JoinEvent.Include(e => e.Event).Where(u => u.Username == User.Identity.Name).Where(e => e.EventId == id).ToList();
+            if (joinedFindedEvent.Count == 0) return HttpNotFound();
 
             db.JoinEvent.Remove(joinedFindedEvent[0]);
             db.SaveChanges();
