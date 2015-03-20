@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using EventDay.Models;
@@ -46,97 +48,137 @@ namespace EventDay.Controllers
 
         //
         // GET: /Events/Details/5
-        /*
-       public ViewResult Details(int id)
+
+        public ViewResult Details(int id)
         {
             Event mEvent = db.Event.Find(id);
             return View(mEvent);
         }
-        */
+
         //
         // GET: /Events/Create
-        /*
         public ActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name");
+            ViewBag.ViowodeshipList = CreateViowodeshipList();
+            ViewBag.eventCategory = new SelectList(db.Category, "CategoryId", "Name");
+
             return View();
-        } 
-        */
+        }
+
         //
         // POST: /Events/Create
-        /*
         [HttpPost]
-        public ActionResult Create(Event mEvent)
+        public ActionResult Create(Event e, HttpPostedFileBase fileRegulations, HttpPostedFileBase fileProfileImage)
         {
-            if (ModelState.IsValid)
+            e.DateCreated = DateTime.Now;
+            e.Username = User.Identity.Name;
+            e.Locality = "domyslna";
+
+            ////konwertowanie daty                     
+            e.DateBegin = DateSplit(e.HourBegin, "d", "B");
+            e.DateBeginRegistation = DateSplit(e.HourBeginRegistration, "d", "B");
+            e.DateEnd = DateSplit(e.HourBegin, "D", "E");
+            e.DateEndRegistation = DateSplit(e.HourBeginRegistration, "D", "E");
+            e.HourEnd = DateSplit(e.HourBegin, "H", "E").ToString();
+            e.HourEndRegistration = DateSplit(e.HourBeginRegistration, "H", "E").ToString();
+
+            e.HourBegin = DateSplit(e.HourBegin, "H", "B").ToString();
+            e.HourBeginRegistration = DateSplit(e.HourBeginRegistration, "H", "B").ToString();
+
+            ////Ładowanie plików
+            //nazwa plitu == username + DateCreated + R dla regulations lub P dla ProfileImage + nazwa pliku;
+
+            string dateCreated = e.DateCreated.ToString().Replace(" ", "").Replace(":", "").Replace("-", "");
+
+            if (fileRegulations != null && fileRegulations.ContentLength > 0)
             {
-                mEvent.DateCreated = DateTime.Now;
-                mEvent.Username = User.Identity.Name;
-                db.Event.Add(mEvent);
-                db.SaveChanges();
-                return RedirectToAction("Index");  
-           }
-        
-            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", mEvent.CategoryId);
-            return View(mEvent);
+
+                string fileName = e.Username + dateCreated + "R" + Path.GetFileName(fileRegulations.FileName);
+                string path = Path.Combine(Server.MapPath("~/Content/Uploads"), fileName);
+                fileRegulations.SaveAs(path);
+
+                e.Regulations = fileName;
+            }
+
+            if (fileProfileImage != null && fileProfileImage.ContentLength > 0)
+            {
+                string fileName = e.Username + dateCreated + "P" + Path.GetFileName(fileProfileImage.FileName);
+                string path = Path.Combine(Server.MapPath("~/Content/Uploads"), fileName);
+                fileProfileImage.SaveAs(path);
+
+                e.ProfileImage = fileName;
+            }
+
+            ////aktualizowanie bazy
+            db.Event.Add(e);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+
+            //ViewBag.eventCategory = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
+            //return View(e);
         }
-        */
+
         //
-        // GET: /Events/Edit/5
- /*
+        // GET: /BeadMenager/Edit/5
+
         public ActionResult Edit(int id)
         {
-            Event mEvent = db.Event.Find(id);
-            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", mEvent.CategoryId);
-            return View(mEvent);
+            Event e = db.Event.Find(id);
+
+            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
+
+            return View(e);
         }
-*/
+
         //
-        // POST: /Events/Edit/5
-/*
+        // POST: /BeadMenager/Edit/5
+
         [HttpPost]
-        public ActionResult Edit(Event mEvent)
+        public ActionResult Edit(Event e)
         {
+            //Event ev = db.Event.Find(e.EventId);
+
             if (ModelState.IsValid)
             {
-                db.Entry(mEvent).State = EntityState.Modified;
+                db.Entry(e).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", mEvent.CategoryId);
-            return View(mEvent);
+
+            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
+
+            return View(e);
         }
-*/
+
         //
         // GET: /Events/Delete/5
- /*
+
         public ActionResult Delete(int id)
         {
             Event mEvent = db.Event.Find(id);
             return View(mEvent);
         }
-*/
+
         //
         // POST: /Events/Delete/5
 
-        /*
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
-        {            
-           Event mEvent = db.Event.Find(id);
-           db.Event.Remove(mEvent);
+        {
+            Event mEvent = db.Event.Find(id);
+            db.Event.Remove(mEvent);
             db.SaveChanges();
             return RedirectToAction("Index");
-       }
-        */
-        /*
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
             base.Dispose(disposing);
         }
-        */
-        /*
+
+        //inne
         public ActionResult LeafeEvent(int id)
         {
             Event mEvent = db.Event.Find(id);
@@ -149,6 +191,71 @@ namespace EventDay.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", new { searching = "joined" });
         }
-         */
+
+        //////////// OTHER     ///////////////////////////////////
+
+        public List<SelectListItem> CreateViowodeshipList()
+        {
+            List<SelectListItem> Viowodeship = new List<SelectListItem>();
+
+            Viowodeship.Add(new SelectListItem { Text = "dolnośląskie", Value = "dolnośląskie" });
+            Viowodeship.Add(new SelectListItem { Text = "kujawsko-pomorskie", Value = "kujawsko-pomorskie" });
+            Viowodeship.Add(new SelectListItem { Text = "lubelskie", Value = "lubelskie" });
+            Viowodeship.Add(new SelectListItem { Text = "lubuskie", Value = "lubuskie" });
+            Viowodeship.Add(new SelectListItem { Text = "łódzkie", Value = "łódzkie" });
+            Viowodeship.Add(new SelectListItem { Text = "małopolskie", Value = "małopolskie" });
+            Viowodeship.Add(new SelectListItem { Text = "mazowieckie", Value = "mazowieckie" });
+            Viowodeship.Add(new SelectListItem { Text = "opolskie", Value = "opolskie" });
+            Viowodeship.Add(new SelectListItem { Text = "podkarpackie", Value = "podkarpackie" });
+            Viowodeship.Add(new SelectListItem { Text = "podlaskie", Value = "podlaskie" });
+            Viowodeship.Add(new SelectListItem { Text = "pomorskie", Value = "pomorskie", Selected = true });
+            Viowodeship.Add(new SelectListItem { Text = "śląskie", Value = "śląskie" });
+            Viowodeship.Add(new SelectListItem { Text = "świętokrzyskie", Value = "świętokrzyskie" });
+            Viowodeship.Add(new SelectListItem { Text = "warmińsko-mazurskie", Value = "warmińsko-mazurskie" });
+            Viowodeship.Add(new SelectListItem { Text = "wielkopolskie", Value = "wielkopolskie" });
+            Viowodeship.Add(new SelectListItem { Text = "zachodniopomorskie", Value = "zachodniopomorskie" });
+
+            //ViewBag.ViowodeshipList = Viowodeship;
+            return Viowodeship;
+        }
+        public static string DateSplit2(string toSplit, string HourDate, string BeginEnd)
+        {
+            string[] split = toSplit.Split(new Char[] { ' ', '-' });
+
+            string a = "";
+            int i = 0;
+
+            return a;
+        }
+
+        public static DateTime DateSplit(string toSplit, string HourDate, string BeginEnd)
+        {
+
+            //toSplit == "19:26 10/03/2015 - 19:26 18/03/2015" 
+            string[] split = toSplit.Split(new Char[] { ' ', '-' });
+
+            if (Regex.IsMatch(HourDate + BeginEnd, @"[TtHh0(Hour)]{1}[Bb0(Begin)]{1}"))
+            {
+                return Convert.ToDateTime("0001/01/01 " + split[0]); // HourBegin
+            }
+            if (Regex.IsMatch(HourDate + BeginEnd, @"[TtHh0(Hour)]{1}[Ee1(End)]{1}"))
+            {
+                return Convert.ToDateTime("0001/01/01 " + split[4]); // HourEnd 
+            }
+            if (Regex.IsMatch(HourDate + BeginEnd, @"[Dd1(Date)]{1}[Bb0(Begin)]{1}"))
+            {
+                string[] split2 = split[1].Split(new Char[] { '/' });
+                return new DateTime(Convert.ToInt32(split2[2]), Convert.ToInt32(split2[1]), Convert.ToInt32(split2[0]), 00, 00, 00);
+            }
+            if (Regex.IsMatch(HourDate + BeginEnd, @"[Dd1(Date)]{1}[Ee1(End)]{1}"))
+            {
+                string[] split2 = split[5].Split(new Char[] { '/' });
+                return new DateTime(Convert.ToInt32(split2[2]), Convert.ToInt32(split2[1]), Convert.ToInt32(split2[0]), 00, 00, 00);
+            }
+            return new DateTime(0001, 01, 01, 00, 00, 00);
+        }
+
+        //////////// IMAGE CRUD ///////////////////////////////////////
+
     }
 }

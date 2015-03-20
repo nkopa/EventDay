@@ -1,7 +1,8 @@
-﻿@using PagedList.Mvc;
-@model PagedList.IPagedList<EventDay.Models.Event>
+﻿@model PagedList.IPagedList<EventDay.Models.Event>
+@using PagedList.Mvc;
 
-
+    <!--ten widok dotyczy modelu Category -->
+    <!-- IEnumerable pozwala zmienic potem typ na dowolny-->
     @{
         ViewBag.Title = "Index";
     }
@@ -32,31 +33,9 @@
                     Lokalizacja: @Html.DisplayFor(modelItem => item.City)
                 </p>
             </a>
-
-            <div>
-                @if (String.Compare(ViewBag.Type,"created",false) == 0) {
-                @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) 
-                <text> | </text>
-                @Html.ActionLink("Details", "Details", new { id=item.EventId }) 
-                <text> | </text>
-                @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
-            } else {
-                @Html.ActionLink("Rezygnuj z uczestnictwa", "LeafeEvent", new { id=item.EventId })
-            }
-            </div>
         </div>
     }
 
     <br />
     Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
-
-<p>
-    @Html.ActionLink("Utwórz event", "Create")
-</p>
-<p>
-    @Html.ActionLink("Wyświetl utworzone eventy", "Index", new { searching = "created" })
-</p>
-<p>
-    @Html.ActionLink("Wyświetl eventy, w których uczestniczysz", "Index", new { searching = "joined" })
-</p>

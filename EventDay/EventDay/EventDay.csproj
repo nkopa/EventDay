@@ -116,8 +116,8 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserOptionsController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
-    <Compile Include="Controllers\YourEventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\YourEventsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -305,12 +305,6 @@
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\YourEvents\Index.cshtml" />
-    <Content Include="Views\YourEvents\Details.cshtml" />
-    <Content Include="Views\YourEvents\Create.cshtml" />
-    <Content Include="Views\YourEvents\Edit.cshtml" />
-    <Content Include="Views\YourEvents\Delete.cshtml" />
-    <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Comments\Details.cshtml" />
     <Content Include="Views\Comments\AddComment.cshtml" />
     <Content Include="Views\Shared\EventComments.cshtml" />
@@ -322,16 +316,19 @@
     <Content Include="Views\Message\NewMessage.cshtml" />
     <Content Include="Views\Message\_ReceivedMessagePartial.cshtml" />
     <Content Include="Views\Message\_SentMessagePartial.cshtml" />
-    <Content Include="Views\Events\Create.cshtml" />
-    <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Events\Index.cshtml" />
     <Content Include="Views\UserProfile\Index.cshtml" />
     <Content Include="Views\AdminProfile\Index.cshtml" />
-    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\YourEvents\Create.cshtml" />
+    <Content Include="Views\YourEvents\Delete.cshtml" />
+    <Content Include="Views\YourEvents\Details.cshtml" />
+    <Content Include="Views\YourEvents\Edit.cshtml" />
+    <Content Include="Views\YourEvents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />

@@ -9,8 +9,6 @@ using EventDay.Models;
 using System.IO;
 using System.Web.Security;
 using PagedList;
-using System.Text.RegularExpressions;
-
 
 namespace EventDay.Controllers
 {
@@ -39,8 +37,8 @@ namespace EventDay.Controllers
             }
 
             ViewBag.CurrentFilter = search;
-            
-
+            //var books = from s in db.Books
+            //  select s;
             var events = db.Event.Select(b => b).Where(e => e.DateEnd >= DateTime.Today);
 
 
@@ -70,36 +68,8 @@ namespace EventDay.Controllers
             int pageSize = 5;
             int pageNumber = (page ?? 1);
             return View(events.ToPagedList(pageNumber, pageSize));
+            //return View(events);
         }
-/*
- * // YourEventsController/Index()
-        public ViewResult Index(string searching = "created")
-        {
-            IList<Event> mEvent = null;
-            if (String.Compare(searching, "joined", false) == 0)
-            {
-                var joined = db.JoinEvent.Include(e => e.Event).Where(u => u.Username == User.Identity.Name).ToList();
-
-                mEvent = new List<Event>();
-                foreach (JoinEvent joinedEvent in joined)
-                {
-                    mEvent.Add(joinedEvent.Event);
-                }
-
-                ViewBag.Title = "Twoje eventy - dołączyłaś/eś";
-                ViewBag.Type = "joined";
-                //mEvent = db.Event.Include(e => e.Category).Where(u => u.Username == User.Identity.Name).ToList();
-            }
-            else
-            {
-                mEvent = db.Event.Include(e => e.Category).Where(u => u.Username == User.Identity.Name).ToList();
-                ViewBag.Title = "Twoje eventy - stworzone";
-                ViewBag.Type = "created";
-            }
-
-            return View(mEvent);
-        }
-*/
 
         //GET: /Books/Details
         public ActionResult Details(int id)
@@ -121,6 +91,7 @@ namespace EventDay.Controllers
             return View();
         }
 
+
         //
         // POST: /Events/Create
         [HttpPost]
@@ -129,26 +100,14 @@ namespace EventDay.Controllers
             e.DateCreated = DateTime.Now;
             e.Username = User.Identity.Name;
             e.Locality = "domyslna";
-            
-            ////konwertowanie daty                     
-            e.DateBegin = DateSplit(e.HourBegin, "d","B");
-            e.DateBeginRegistation = DateSplit(e.HourBeginRegistration, "d", "B");
-            e.DateEnd = DateSplit(e.HourBegin, "D", "E");
-            e.DateEndRegistation = DateSplit(e.HourBeginRegistration, "D", "E");
-            e.HourEnd = DateSplit(e.HourBegin, "H", "E").ToString();
-            e.HourEndRegistration = DateSplit(e.HourBeginRegistration, "H", "E").ToString();
 
-            e.HourBegin = DateSplit(e.HourBegin, "H", "B").ToString();
-            e.HourBeginRegistration = DateSplit(e.HourBeginRegistration, "H", "B").ToString();
-
-            ////Ładowanie plików
-            //nazwa plitu == username + DateCreated + R dla regulations lub P dla ProfileImage + nazwa pliku;
-
+            if (ModelState.IsValid)
+            {
                 string dateCreated = e.DateCreated.ToString().Replace(" ", "").Replace(":", "").Replace("-", "");
 
                 if (fileRegulations != null && fileRegulations.ContentLength > 0)
                 {
-                   
+                    //nazwa plitu == username + data + R dla regulations lub P dla ProfileImage + nazwa pliku;
                     string fileName = e.Username + dateCreated + "R" + Path.GetFileName(fileRegulations.FileName);
                     string path = Path.Combine(Server.MapPath("~/Content/Uploads"), fileName);
                     fileRegulations.SaveAs(path);
@@ -165,14 +124,15 @@ namespace EventDay.Controllers
                     e.ProfileImage = fileName;
                 }
 
-            ////aktualizowanie bazy
+
                 db.Event.Add(e);
                 db.SaveChanges();
 
                 return RedirectToAction("Index");
+            }
 
-            //ViewBag.eventCategory = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
-            //return View(e);
+            ViewBag.eventCategory = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
+            return View(e);
         }
 
         //
@@ -207,36 +167,6 @@ namespace EventDay.Controllers
             return View(e);
         }
 
-        //
-        // GET: /Events/Delete/5
-
-        public ActionResult Delete(int id)
-        {
-            Event mEvent = db.Event.Find(id);
-            return View(mEvent);
-        }
-
-        //
-        // POST: /Events/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Event mEvent = db.Event.Find(id);
-            db.Event.Remove(mEvent);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-
-/// ///////////////////////////////////////////////////////
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
-
 
         public ActionResult JoinEvent(int id)
         {
@@ -255,18 +185,7 @@ namespace EventDay.Controllers
             return RedirectToAction("Details", "Events", new { id = id });
         }
 
-        public ActionResult LeafeEvent(int id)
-        {
-            Event mEvent = db.Event.Find(id);
-            if (mEvent == null) return HttpNotFound();
 
-            var joinedFindedEvent = db.JoinEvent.Include(e => e.Event).Where(u => u.Username == User.Identity.Name).Where(e => e.Event.EventId == id).ToList();
-            if (joinedFindedEvent.Count != 1) return HttpNotFound();
-
-            db.JoinEvent.Remove(joinedFindedEvent[0]);
-            db.SaveChanges();
-            return RedirectToAction("Index", new { searching = "joined" });
-        }     
 
         //////////// OTHER     ///////////////////////////////////
 
@@ -293,42 +212,6 @@ namespace EventDay.Controllers
 
             //ViewBag.ViowodeshipList = Viowodeship;
             return Viowodeship;
-        }
-        public static string DateSplit2(string toSplit, string HourDate, string BeginEnd)
-        {
-            string[] split = toSplit.Split(new Char[] { ' ', '-' });
-
-            string a = "";
-            int i = 0;
-           
-            return a;
-        }
-
-        public static DateTime DateSplit(string toSplit, string HourDate, string BeginEnd)
-        {
-
-            //toSplit == "19:26 10/03/2015 - 19:26 18/03/2015" 
-            string[] split = toSplit.Split(new Char[] { ' ', '-' });
-
-            if (Regex.IsMatch(HourDate + BeginEnd, @"[TtHh0(Hour)]{1}[Bb0(Begin)]{1}"))
-            {
-                return Convert.ToDateTime("0001/01/01 " + split[0]); // HourBegin
-            }
-            if (Regex.IsMatch(HourDate + BeginEnd, @"[TtHh0(Hour)]{1}[Ee1(End)]{1}"))
-            {
-                return Convert.ToDateTime("0001/01/01 " + split[4]); // HourEnd 
-            }
-            if (Regex.IsMatch(HourDate + BeginEnd, @"[Dd1(Date)]{1}[Bb0(Begin)]{1}"))
-            {
-                string[] split2 = split[1].Split(new Char[] { '/' });
-                return new DateTime(Convert.ToInt32(split2[2]), Convert.ToInt32(split2[1]), Convert.ToInt32(split2[0]), 00, 00, 00);
-            }
-            if (Regex.IsMatch(HourDate + BeginEnd, @"[Dd1(Date)]{1}[Ee1(End)]{1}"))
-            {
-                string[] split2 = split[5].Split(new Char[] { '/' });
-                return new DateTime(Convert.ToInt32(split2[2]), Convert.ToInt32(split2[1]), Convert.ToInt32(split2[0]), 00, 00, 00);
-            }
-            return new DateTime(0001, 01, 01, 00, 00, 00);
         }
 
         //////////// IMAGE CRUD ///////////////////////////////////////

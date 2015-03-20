@@ -1,6 +1,4 @@
-﻿////////////////NIEUŻYWANE///////////////////////
-
-@model EventDay.Models.Event
+﻿@model EventDay.Models.Event
 
 @{
     ViewBag.Title = "Edit";
@@ -16,21 +14,104 @@
     <fieldset>
         <legend>Event</legend>
 
+        @Html.HiddenFor(model => model.EventId)
+        @Html.HiddenFor(model => model.Username)
+        @Html.HiddenFor(model => model.DateCreated)
+
         <div class="editor-label">
-            @Html.LabelFor(model => model.CategoryId, "Kategoria")
+            @Html.LabelFor(model => model.CategoryId)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("CategoryId", String.Empty)
+            @Html.EditorFor(model => model.CategoryId)
             @Html.ValidationMessageFor(model => model.CategoryId)
         </div>
 
-       
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AccessId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AccessId)
+            @Html.ValidationMessageFor(model => model.AccessId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RecruitmentId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RecruitmentId)
+            @Html.ValidationMessageFor(model => model.RecruitmentId)
+        </div>
+
         <div class="editor-label">
             @Html.LabelFor(model => model.Title)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Title)
             @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Capacity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Capacity)
+            @Html.ValidationMessageFor(model => model.Capacity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Regulations)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Regulations)
+            @Html.ValidationMessageFor(model => model.Regulations)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProfileImage)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProfileImage)
+            @Html.ValidationMessageFor(model => model.ProfileImage)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ContactNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ContactNumber)
+            @Html.ValidationMessageFor(model => model.ContactNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ContactEmail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ContactEmail)
+            @Html.ValidationMessageFor(model => model.ContactEmail)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Website)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Website)
+            @Html.ValidationMessageFor(model => model.Website)
         </div>
 
         <div class="editor-label">
@@ -50,6 +131,54 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.HourBegin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HourBegin)
+            @Html.ValidationMessageFor(model => model.HourBegin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HourEnd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HourEnd)
+            @Html.ValidationMessageFor(model => model.HourEnd)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateBeginRegistation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateBeginRegistation)
+            @Html.ValidationMessageFor(model => model.DateBeginRegistation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HourBeginRegistration)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HourBeginRegistration)
+            @Html.ValidationMessageFor(model => model.HourBeginRegistration)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateEndRegistation)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateEndRegistation)
+            @Html.ValidationMessageFor(model => model.DateEndRegistation)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HourEndRegistration)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HourEndRegistration)
+            @Html.ValidationMessageFor(model => model.HourEndRegistration)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.City)
         </div>
         <div class="editor-field">
@@ -66,16 +195,52 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Description)
+            @Html.LabelFor(model => model.Voivoweship)
         </div>
         <div class="editor-field">
-            @Html.TextAreaFor(model => model.Description,new {style = "width: 300px;"})
-            @Html.ValidationMessageFor(model => model.Description)
+            @Html.EditorFor(model => model.Voivoweship)
+            @Html.ValidationMessageFor(model => model.Voivoweship)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Street)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Street)
+            @Html.ValidationMessageFor(model => model.Street)
+        </div>
 
-        @Html.HiddenFor(model => model.DateCreated)
-        @Html.HiddenFor(model => model.EventId)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HouseNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HouseNumber)
+            @Html.ValidationMessageFor(model => model.HouseNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ApartmentNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApartmentNumber)
+            @Html.ValidationMessageFor(model => model.ApartmentNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ZipCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ZipCode)
+            @Html.ValidationMessageFor(model => model.ZipCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Directions)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Directions)
+            @Html.ValidationMessageFor(model => model.Directions)
+        </div>
 
         <p>
             <input type="submit" value="Save" />
