@@ -1,4 +1,4 @@
-﻿@model EventDay.Models.EventHelper
+﻿@model EventDay.Models.Event
 
 @{
     ViewBag.Title = "Details";
@@ -10,102 +10,102 @@
    <div class="display-label">Profilówka:</div>
     <div class="display-field">
         <script></script>
-        <img src="@Url.Content("~/Content/Uploads/" + @Html.DisplayFor(model => model.Event.ProfileImage))" alt="brak"/>
+        <img src="@Url.Content("~/Content/Uploads/" + @Html.DisplayFor(model => model.ProfileImage))" alt="brak"/>
     </div>
 
    <div class="display-label">Kategoria:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Category.Name)
+        @Html.DisplayFor(model => model.Category.Name)
     </div>
 
     <div class="display-label">Tytuł:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Title)
+        @Html.DisplayFor(model => model.Title)
     </div>
 
     <div class="display-label">Start:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.DateBegin)
+        @Html.DisplayFor(model => model.DateBegin)
         <span> </span>
-        @Html.DisplayFor(model => model.Event.HourBegin)
+        @Html.DisplayFor(model => model.HourBegin)
     </div>
     <div class="display-label">Meta:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.DateEnd)
+        @Html.DisplayFor(model => model.DateEnd)
         <span> </span>
-        @Html.DisplayFor(model => model.Event.HourEnd)
+        @Html.DisplayFor(model => model.HourEnd)
     </div>
 
     <div class="display-label">Rekrutacja:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.DateEnd)
+        @Html.DisplayFor(model => model.DateEnd)
         <span> </span>
-        @Html.DisplayFor(model => model.Event.HourEnd)
+        @Html.DisplayFor(model => model.HourEnd)
       <span> - </span>
-        @Html.DisplayFor(model => model.Event.DateEnd)
+        @Html.DisplayFor(model => model.DateEnd)
         <span> </span>
-        @Html.DisplayFor(model => model.Event.HourEnd)
+        @Html.DisplayFor(model => model.HourEnd)
     </div>
     <div class="display-field">       
         <span>tu zegar odliczajacy czas</span>
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.RecruitmentId)
+        @Html.DisplayFor(model => model.RecruitmentId)
     </div>
    
 
     <div class="display-label">Opis:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Description)
+        @Html.DisplayFor(model => model.Description)
     </div>
 
     <div class="display-label">Lokalizacja:</div>
     <div class="display-label">Miasto:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.City)
+        @Html.DisplayFor(model => model.City)
     </div>
     <div class="display-label">Województwo:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Voivoweship )
+        @Html.DisplayFor(model => model.Voivoweship )
     </div>
     <div class="display-label">Ulica:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Street)
+        @Html.DisplayFor(model => model.Street)
     </div>
         <div class="display-label">Numer Domu:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.HouseNumber)
+        @Html.DisplayFor(model => model.HouseNumber)
     </div>
     <div class="display-label">Numer lokalu:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.ApartmentNumber)
+        @Html.DisplayFor(model => model.ApartmentNumber)
     </div>
     <div class="display-label">Kod pocztowy:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.ZipCode)
+        @Html.DisplayFor(model => model.ZipCode)
     </div>
     <div class="display-label">Jak dojechać:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Directions)
+        @Html.DisplayFor(model => model.Directions)
     </div>
 
      <div class="display-label">Masz wątpliwości?</div>
      <div class="display-label">Telefon kontaktowy:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.ContactNumber)
+        @Html.DisplayFor(model => model.ContactNumber)
     </div>
      <div class="display-label">Email:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.ContactEmail)
+        @Html.DisplayFor(model => model.ContactEmail)
     </div>
     <div class="display-label">Www:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Website)
+        @Html.DisplayFor(model => model.Website)
     </div>
 
     <div class="display-label">Wstęp:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Price)
+        @Html.DisplayFor(model => model.Price)
     </div>
 
     <div class="display-label">Ilość miejsc:</div>
@@ -113,27 +113,27 @@
        <span>tu dostępne /</span>
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Capacity)
+        @Html.DisplayFor(model => model.Capacity)
     </div>
 
     <div class="display-label">Regulamin:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Price)
+        @Html.DisplayFor(model => model.Price)
     </div>
 
     <div class="display-label">Data publikacji:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.DateCreated)
+        @Html.DisplayFor(model => model.DateCreated)
     </div>
 
     <div class="display-label">Autor publikacji:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Event.Username)
+        @Html.DisplayFor(model => model.Username)
     </div>
      
   </fieldset>
        
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.EventId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<ul id="button">
+    <li>@Html.ActionLink("Edytuj", "Edit", new { id=Model.EventId }) </li>
+    <li>@Html.ActionLink("<< Wróć", "Index")</li>
+</ul>

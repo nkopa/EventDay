@@ -24,7 +24,9 @@ namespace EventDay.Controllers
             var categories = db.Category.Select(c => c.Name).Distinct().ToList();
             ViewBag.CurrentSort = sortOrder;
           //  ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
-            ViewBag.DateSortParm = sortOrder == "DateEnd" ? "dateend_desc" : "DateEnd";
+            ViewBag.DateSortParm = sortOrder == "DateCreated" ? "datecreated_desc" : "DateCreated";
+            
+            
             ViewBag.eventCategory = new SelectList(categories); //lista do dropdown        
 
             if (search != null)
@@ -56,14 +58,14 @@ namespace EventDay.Controllers
 
             switch (sortOrder)
             {
-                case "DateEnd":
-                    events = events.OrderBy(s => s.DateEnd);
+                case "DateCreated":
+                    events = events.OrderBy(s => s.DateCreated);
                     break;
-                case "DateEnd_desc":
-                    events = events.OrderByDescending(s => s.DateEnd);
+                case "datecreated_desc":
+                    events = events.OrderByDescending(s => s.DateCreated);
                     break;
                 default:  // Name ascending 
-                    events = events.OrderBy(s => s.Title);
+                    events = events.OrderByDescending(s => s.DateCreated);
                     break;
             }
 
