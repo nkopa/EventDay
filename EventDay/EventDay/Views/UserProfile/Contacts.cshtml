@@ -17,7 +17,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.UserMember.Name)
+            @Html.DisplayFor(modelItem => item.UserMember.UserName)
         </td>
         <td>
             @Html.ActionLink("Usuń kontakt", "DeleteContact", new { id=item.UserContactId })

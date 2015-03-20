@@ -41,8 +41,16 @@ namespace EventDay.Controllers
             UserProfile loggedUser = db.UserProfile.Where(u => u.UserName == User.Identity.Name).First();
             if (loggedUser == null) return HttpNotFound();
 
-            var contacts = db.UserContact.Include("UserMember").Where(c => c.UserOwnerId == loggedUser.UserId).ToList();
+            List<UserContact> contacts = db.UserContact.Include("UserMember").Where(c => c.UserOwnerId == loggedUser.UserId).ToList();
             if (contacts == null) return HttpNotFound();
+
+            //prowizoryczne ale obecnie nie umiem tego obejsc w modelu; jesli macie pomysl - poprawcie
+            foreach (UserContact contact in contacts)
+            {
+                UserProfile user = db.UserProfile.Find(contact.UserMemberId);
+                contact.UserMember = user;
+                //ViewBag.Test = user.UserName;
+            }
 
             return View(contacts);
         }
