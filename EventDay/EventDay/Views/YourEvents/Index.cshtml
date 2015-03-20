@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<EventDay.Models.Event>
 
-<p>
-    @Html.ActionLink("Utwórz event", "Create")
-</p>
-<p>
-    @Html.ActionLink("Wyświetl utworzone eventy", "Index", new { searching = "created" })
-</p>
-<p>
-    @Html.ActionLink("Wyświetl eventy, w których uczestniczysz", "Index", new { searching = "joined" })
-</p>
+<ul id="button">
+   <li> @Html.ActionLink("Utwórz event", "Create")</li>
+
+   <li> @Html.ActionLink("Wyświetl utworzone eventy", "Index", new { searching = "created" })</li>
+
+   <li> @Html.ActionLink("Wyświetl eventy, w których uczestniczysz", "Index", new { searching = "joined" })</li>
+</ul>
 <table>
     <tr>
         <th>

@@ -5,11 +5,11 @@
 }
 
 <h2>@ViewBag.Title</h2>
-
-@Html.ActionLink("Odebrane", "Index", new { box = "received" })
-@Html.ActionLink("Wysłane", "Index", new { box = "sent" })
-@Html.ActionLink("Nowa wiadomość", "NewMessage")
-
+<ul id="button">
+    <li>@Html.ActionLink("Odebrane", "Index", new { box = "received" })</li>
+    <li>@Html.ActionLink("Wysłane", "Index", new { box = "sent" })</li>
+    <li>@Html.ActionLink("Nowa wiadomość", "NewMessage")</li>
+</ul>
 
 <div id="messageBoard">
     @if (String.Compare(ViewBag.TypeBox,"odebrane",false) == 0) { @Html.Partial("~/Views/Message/_ReceivedMessagePartial.cshtml"); } else { @Html.Partial("~/Views/Message/_SentMessagePartial.cshtml"); }
