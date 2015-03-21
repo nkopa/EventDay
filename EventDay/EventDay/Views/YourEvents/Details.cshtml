@@ -28,8 +28,8 @@
         <dt>Start: </dt>
             <dd>
                 @Html.DisplayFor(model => model.DateBegin)
-                <span> </span>
-                @Html.DisplayFor(model => model.HourBegin)
+                <span></span>
+                @Html.DisplayFor(model => model.HourBegin,"0:hh:mm tt")
             </dd>
       
         <dt>Meta: </dt>
@@ -128,7 +128,7 @@
 
       <dt>Regulamin: </dt>
             <dd>
-             @Html.DisplayFor(model => model.Price)
+             @Html.DisplayFor(model => model.Regulations)
             </dd>
 
       <dt>Data publikacji: </dt>
@@ -147,6 +147,6 @@
   </fieldset>
        
 <ul id="button">
+        <li>@Html.ActionLink("<< Wróć", "Index")</li>
     <li>@Html.ActionLink("Edytuj", "Edit", new { id=Model.EventId }) </li>
-    <li>@Html.ActionLink("<< Wróć", "Index")</li>
 </ul>

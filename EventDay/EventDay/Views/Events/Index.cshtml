@@ -13,7 +13,7 @@
         {
             <p>Kategoria:</p>
             <p> @Html.DropDownList("eventCategory", "All")</p>
-            <p>Miasto: </p>
+            <p>Miejscowość: </p>
             <p>@Html.TextBox("Search", ViewBag.CurrentFilter as string) </p>
             <p><input type="submit" value="Wyszukaj" /></p>
         }
@@ -33,10 +33,9 @@
                     <dd>@Html.DisplayFor(modelItem => item.DateBegin)</dd>
                    <dt> Data końca wydarzenia</dt> 
                     <dd>@Html.DisplayFor(modelItem => item.DateEnd)</dd>
-                  <dt>  Miasto</dt> 
+                  <dt>  Miejscowość</dt> 
                     <dd>@Html.DisplayFor(modelItem => item.City)</dd>
-                  <dt>  Lokalizacja</dt> 
-                    <dd>@Html.DisplayFor(modelItem => item.City)</dd>
+
                </dl>
             </a>
         </div>

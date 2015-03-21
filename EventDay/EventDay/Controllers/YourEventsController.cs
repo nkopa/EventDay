@@ -116,6 +116,7 @@ namespace EventDay.Controllers
            if (e.HouseNumber == null) e.HouseNumber = "brak";
            if (e.ApartmentNumber == null) e.ApartmentNumber = "brak";
            if (e.Directions == null) e.Directions = "brak";
+           if (e.Regulations == null) e.Regulations = "brak";
             ////aktualizowanie bazy
             db.Event.Add(e);
             db.SaveChanges();
