@@ -33,6 +33,7 @@ namespace EventDay.Controllers
                 }
 
                 ViewBag.Title = "Twoje eventy - dołączyłaś/eś";
+                ViewBag.Info = "Eventy, w których uczestniczysz";
                 ViewBag.Type = "joined";
                 //mEvent = db.Event.Include(e => e.Category).Where(u => u.Username == User.Identity.Name).ToList();
             }
@@ -40,6 +41,7 @@ namespace EventDay.Controllers
             {
                 mEvent = db.Event.Include(e => e.Category).Where(u => u.Username == User.Identity.Name).ToList();
                 ViewBag.Title = "Twoje eventy - stworzone";
+                ViewBag.Info = "Eventy utworzone";
                 ViewBag.Type = "created";
             }
 
@@ -49,10 +51,11 @@ namespace EventDay.Controllers
         //
         // GET: /Events/Details/5
 
-        public ViewResult Details(int id)
+        public ActionResult Details(int id)
         {
-            Event mEvent = db.Event.Find(id);
-            return View(mEvent);
+            return RedirectToAction("Details", "Events", new { id = id });
+            //Event mEvent = db.Event.Find(id);
+            //return View(mEvent);
         }
 
         //

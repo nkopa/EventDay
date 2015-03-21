@@ -178,6 +178,8 @@ namespace EventDay.Controllers
             Event mEvent = db.Event.Find(id);
             if (mEvent == null) return HttpNotFound();
 
+            if (String.Compare(mEvent.Username,User.Identity.Name,true) == 0) return RedirectToAction("Details", "Events", new { id = id });
+
             var joinedFindedEvent = db.JoinEvent.Include(e => e.Event).Where(u => u.Username == User.Identity.Name).Where(e => e.EventId == id).ToList();
 
             if (joinedFindedEvent.Count == 0)
@@ -195,6 +197,29 @@ namespace EventDay.Controllers
             return RedirectToAction("Details", "Events", new { id = id });
         }
 
+
+        public ActionResult ShowGuests(int id)
+        {
+            Event mEvent = db.Event.Find(id);
+            if (mEvent == null) return HttpNotFound();
+
+            List<JoinEvent> joined = db.JoinEvent.Where(e => e.EventId == id).ToList();
+            if (joined == null) return HttpNotFound();
+
+            return View(joined);
+        }
+
+
+        public ActionResult RemoveFromEvent(int idJoin, int idEvent)
+        {
+            JoinEvent join = db.JoinEvent.Find(idJoin);
+            if (join == null) return HttpNotFound();
+
+            db.JoinEvent.Remove(join);
+            db.SaveChanges();
+
+            return RedirectToAction("ShowGuests", new { id = idEvent });
+        }
 
 
         //////////// OTHER     ///////////////////////////////////
