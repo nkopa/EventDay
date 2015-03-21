@@ -82,6 +82,21 @@ namespace EventDay.Controllers
 
             var mevent = db.Event.Where(e => e.EventId == id).First();
             var comments = db.Comment.Where(c => c.EventId.Equals(id)).ToList();
+
+            //**//
+            DateTime data = Convert.ToDateTime(mevent.HourBegin);
+            mevent.HourBegin = data.ToString("HH:mm");
+
+            data = Convert.ToDateTime(mevent.HourEnd);
+            mevent.HourEnd = data.ToString("HH:mm");
+
+            data = Convert.ToDateTime(mevent.HourBeginRegistration);
+            mevent.HourBeginRegistration = data.ToString("HH:mm");
+
+            data = Convert.ToDateTime(mevent.HourEndRegistration);
+            mevent.HourEndRegistration = data.ToString("HH:mm");
+            //**//
+
             return View(new EventHelper { EventId = id, Event = mevent, Comments = comments });
 
         }
