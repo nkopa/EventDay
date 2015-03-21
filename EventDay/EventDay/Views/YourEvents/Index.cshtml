@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<EventDay.Models.Event>
 
+<h2>@ViewBag.Info</h2>
+
 <ul id="button">
    <li> @Html.ActionLink("Utwórz event", "Create")</li>
 
@@ -33,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.Category.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @Html.ActionLink(item.Title, "Details", new { id = item.EventId })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateBegin)

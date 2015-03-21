@@ -1,0 +1,34 @@
+﻿@model IEnumerable<EventDay.Models.JoinEvent>
+
+@{
+    ViewBag.Title = "Lista Gości";
+}
+
+<h2>Lista Gości</h2>
+
+<table>
+    <tr>
+        <th>
+            Użytkownik
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Wyrzuć z wydarzenia", "RemoveFromEvent", new { idJoin=item.JoinEventId, idEvent=item.EventId })
+        </td>
+    </tr>
+}
+
+</table>
