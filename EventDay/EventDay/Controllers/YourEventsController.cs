@@ -228,40 +228,47 @@ namespace EventDay.Controllers
             //ViewBag.ViowodeshipList = Viowodeship;
             return Viowodeship;
         }
-        public static string DateSplit2(string toSplit, string HourDate, string BeginEnd)
-        {
-            string[] split = toSplit.Split(new Char[] { ' ', '-' });
-
-            string a = "";
-            int i = 0;
-
-            return a;
-        }
 
         public static DateTime DateSplit(string toSplit, string HourDate, string BeginEnd)
         {
 
-            //toSplit == "19:26 10/03/2015 - 19:26 18/03/2015" 
-            string[] split = toSplit.Split(new Char[] { ' ', '-' });
+            if (Regex.IsMatch(toSplit, @"^\d{2}:\d{2}\s+\d{1,2}/\d{1,2}/\d{4}\s*-\s*\d{2}:\d{2}\s+\d{1,2}/\d{1,2}/\d{4}\s*$"))
+            {
+                //toSplit == "19:26 10/03/2015 - 19:26 18/03/2015"
+                //cutDate == [0]=19, [1]=26, [2]=10, [3]=03, [4]=2015, [5]=19, [6]=26, [7]=18, [8]=03, [9]=2015
+             
+                string[] split = toSplit.Split(new Char[] { ' ', '-', ':', '/'});
+                string[] cutDate = new String[10];
+                int i = 0;
 
-            if (Regex.IsMatch(HourDate + BeginEnd, @"[TtHh0(Hour)]{1}[Bb0(Begin)]{1}"))
-            {
-                return Convert.ToDateTime("0001/01/01 " + split[0]); // HourBegin
+                foreach (string s in split)
+                {
+                    if (s.Trim() != "")
+                    {
+                        cutDate[i] = s.Trim();
+                        i++;
+                    }
+                }
+
+                if (Regex.IsMatch(HourDate + BeginEnd, @"[TtHh0(Hour)]{1}[Bb0(Begin)]{1}")) // HourBegin
+                {
+                    return new DateTime(0001, 01, 01, Convert.ToInt32(cutDate[0]), Convert.ToInt32(cutDate[1]), 00);
+                }
+                if (Regex.IsMatch(HourDate + BeginEnd, @"[TtHh0(Hour)]{1}[Ee1(End)]{1}")) // HourEnd 
+                {
+                    return new DateTime(0001, 01, 01, Convert.ToInt32(cutDate[5]), Convert.ToInt32(cutDate[6]), 00); 
+                }
+                if (Regex.IsMatch(HourDate + BeginEnd, @"[Dd1(Date)]{1}[Bb0(Begin)]{1}")) // DateBegin
+                {
+                    return new DateTime(Convert.ToInt32(cutDate[4]), Convert.ToInt32(cutDate[3]), Convert.ToInt32(cutDate[2]), 00, 00, 00);
+                }
+                if (Regex.IsMatch(HourDate + BeginEnd, @"[Dd1(Date)]{1}[Ee1(End)]{1}")) // DateEnd
+                {
+                    return new DateTime(Convert.ToInt32(cutDate[9]), Convert.ToInt32(cutDate[8]), Convert.ToInt32(cutDate[7]), 00, 00, 00);
+                }
             }
-            if (Regex.IsMatch(HourDate + BeginEnd, @"[TtHh0(Hour)]{1}[Ee1(End)]{1}"))
-            {
-                return Convert.ToDateTime("0001/01/01 " + split[4]); // HourEnd 
-            }
-            if (Regex.IsMatch(HourDate + BeginEnd, @"[Dd1(Date)]{1}[Bb0(Begin)]{1}"))
-            {
-                string[] split2 = split[1].Split(new Char[] { '/' });
-                return new DateTime(Convert.ToInt32(split2[2]), Convert.ToInt32(split2[1]), Convert.ToInt32(split2[0]), 00, 00, 00);
-            }
-            if (Regex.IsMatch(HourDate + BeginEnd, @"[Dd1(Date)]{1}[Ee1(End)]{1}"))
-            {
-                string[] split2 = split[5].Split(new Char[] { '/' });
-                return new DateTime(Convert.ToInt32(split2[2]), Convert.ToInt32(split2[1]), Convert.ToInt32(split2[0]), 00, 00, 00);
-            }
+             
+            //gdy toSplit nie jest poprawnym opisem daty i czasu          
             return new DateTime(0001, 01, 01, 00, 00, 00);
         }
 
