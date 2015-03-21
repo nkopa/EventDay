@@ -149,8 +149,10 @@ namespace EventDay.Controllers
         public ActionResult Edit(int id)
         {
             Event e = db.Event.Find(id);
-
             ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
+
+            e.HourBegin = e.HourBegin + " " + e.DateBegin + " - " + e.HourEnd + " " + e.DateEnd;
+            e.HourBegin = e.HourBeginRegistration + " " + e.DateBeginRegistation + " - " + e.HourEndRegistration + " " + e.DateEndRegistation;        
 
             return View(e);
         }
