@@ -53,9 +53,22 @@ namespace EventDay.Controllers
 
         public ActionResult Details(int id)
         {
-            return RedirectToAction("Details", "Events", new { id = id });
-            //Event mEvent = db.Event.Find(id);
-            //return View(mEvent);
+            //return RedirectToAction("Details", "Events", new { id = id });
+            Event mEvent = db.Event.Find(id);
+
+            DateTime data = Convert.ToDateTime(mEvent.HourBegin);
+            mEvent.HourBegin = data.ToString("HH:mm");
+
+            data = Convert.ToDateTime(mEvent.HourEnd);
+            mEvent.HourEnd = data.ToString("HH:mm");
+
+            data = Convert.ToDateTime(mEvent.HourBeginRegistration);
+            mEvent.HourBeginRegistration = data.ToString("HH:mm");
+
+            data = Convert.ToDateTime(mEvent.HourEndRegistration);
+            mEvent.HourEndRegistration = data.ToString("HH:mm");
+
+            return View(mEvent);
         }
 
         //
