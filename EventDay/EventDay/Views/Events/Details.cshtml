@@ -4,159 +4,34 @@
     ViewBag.Title = "Details";
 }
 
-<fieldset>
+ <fieldset>
     <legend>Event</legend>
-    <div class="detale">
-    <dl>
-         <dt>Profilówka: </dt>
-            <dd>
-              <script></script>
-             <img src="@Url.Content("~/Content/Uploads/" + @Html.DisplayFor(model => model.Event.ProfileImage))" alt="brak"/>
-          </dd>
-
-        <dt>Kategoria: </dt>
-            <dd>
-            @Html.DisplayFor(model => model.Event.Category.Name)
-            </dd>
-
-        <dt>Tytuł: </dt>
-            <dd>
-              @Html.DisplayFor(model => model.Event.Title)
-            </dd>
-
-        <dt>Start: </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Event.DateBegin)
-                <span> </span>
-                @Html.DisplayFor(model => model.Event.HourBegin)
-            </dd>
-      
-        <dt>Meta: </dt>
-             <dd>
-                @Html.DisplayFor(model => model.Event.DateEnd)
-                <span> </span>
-                @Html.DisplayFor(model => model.Event.HourEnd)
-            </dd>
-
-        <dt>Rekrutacja: </dt>
-            <dd>
-                 @Html.DisplayFor(model => model.Event.DateEnd)
-                    <span> </span>
-                @Html.DisplayFor(model => model.Event.HourEnd)
-                    <span> - </span>
-                @Html.DisplayFor(model => model.Event.DateEnd)
-                    <span> </span>
-                   @Html.DisplayFor(model => model.Event.HourEnd)
-            </dd>
-        
-       <!-- <span>tu zegar odliczajacy czas</span>-->
-  
-      <dt>Dostępność: </dt>
-           <dd>
-             @Html.DisplayFor(model => model.Event.RecruitmentId)
-           </dd>
-   
-
-      <dt>Opis: </dt>
-           <dd>
-             @Html.DisplayFor(model => model.Event.Description)
-           </dd>
-
-     <p>LOKALIZACJA:</p>
-        <dt>Miejscowość: </dt>
-            <dd>
-               @Html.DisplayFor(model => model.Event.City)
-            </dd>
-              
-        <dt>Kod pocztowy: </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Event.ZipCode)
-            </dd>
-        
-        <dt>Województwo: </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Event.Voivoweship )
-            </dd>
-      
-        <dt>Ulica: </dt>
-            <dd>
-              @Html.DisplayFor(model => model.Event.Street)
-            </dd>
-         
-        <dt>Numer Domu: </dt>
-            <dd>
-               @Html.DisplayFor(model => model.Event.HouseNumber)
-            </dd>
-        
-        <dt>Numer lokalu: </dt>
-            <dd>
-            @Html.DisplayFor(model => model.Event.ApartmentNumber)
-            </dd>
-
-        
-        <dt>Jak dojechać: </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Event.Directions)
-            </dd>
-
-       <p>INFO DODATKOWE:</p>
-       <dt>Telefon kontaktowy: </dt>
-            <dd>
-             @Html.DisplayFor(model => model.Event.ContactNumber)
-            </dd>
-      
-         <dt>Email: </dt>
-             <dd>
-                @Html.DisplayFor(model => model.Event.ContactEmail)
-            </dd>
-      
-        <dt>Www: </dt>
-            <dd>
-                 @Html.DisplayFor(model => model.Event.Website)
-            </dd>
-
-         <dt>Cena wstępu: </dt>
-            <dd>
-             @Html.DisplayFor(model => model.Event.Price)
-            </dd>
-
-        <dt>Ilość miejsc: </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Event.Capacity)
-            </dd>
-
-      <dt>Regulamin: </dt>
-            <dd>
-             @Html.DisplayFor(model => model.Event.Price)
-            </dd>
-
-      <dt>Data publikacji: </dt>
-                <dd>
-                @Html.DisplayFor(model => model.Event.DateCreated)
-             </dd>
-
-      <dt>Autor publikacji: </dt>
-            <dd>
-        @Html.ActionLink(Model.Event.Username, "Details", "Events", new { id = Model.EventId })
-            </dd>
-   </dl>  
-
+    
+   <div class="detale">
+     @Html.Partial("~/Views/YourEvents/_DetailsPartial.cshtml", Model.Event)
     </div>
+     
 
+
+    <div>
      <ul id="button">
+           @if (String.Compare(Model.Event.Username,User.Identity.Name,true) != 0){
         <li> @Html.ActionLink("Dołącz do wydarzenia", "JoinEvent", "Events",new {id = Model.EventId},null)</li>
 
-   
+   }
        <li>@Html.ActionLink("Dodaj komentarz", "AddComment", "Comments",new {id = Model.EventId},null)   </li> 
         <!-- controlname, actionmethod,null bo do innego widoku, jak bez null to idzie do BOOKS, zla metoda-->
 
-         @if (String.Compare(Model.Event.Username,User.Identity.Name,true) == 0) { <li>@Html.ActionLink("Pokaż listę gości", "ShowGuests", new {id = Model.EventId}, null) </li> }
+         @if (String.Compare(Model.Event.Username,User.Identity.Name,true) == 0) { 
+             <li>@Html.ActionLink("Pokaż listę gości", "ShowGuests", new {id = Model.EventId}, null) </li> 
+              <li>@Html.ActionLink("Edytuj", "Edit","YourEvents", new { id=Model.EventId },null) </li>
+         }
     </ul>
+</div>
 
     <div id="sump"> @{Html.RenderAction("SumPositive", "Comments", new { id = Model.EventId });}</div>
    
     <div id="sumn">@{Html.RenderAction("SumNegative", "Comments", new { id = Model.EventId });}</div>
-
 
      @Html.Partial("EventComments", Model.Comments)
 </fieldset>
