@@ -51,7 +51,7 @@
             @if (String.Compare(ViewBag.Type,"created",false) == 0) {
                 @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) 
                 <text> | </text>
-                @Html.ActionLink("Details", "Details", new { id=item.EventId }) 
+                @Html.ActionLink("Details", "Details","Events", new { id=item.EventId },null) 
                 <text> | </text>
                 @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
             } else {
