@@ -187,7 +187,7 @@ namespace EventDay.Controllers
             return View(e);
         }
 
-
+        [Authorize]
         public ActionResult JoinEvent(int id)
         {
             Event mEvent = db.Event.Find(id);

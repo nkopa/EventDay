@@ -487,6 +487,33 @@ div#title {
     text-decoration: none;
 }
 
+.UserContactBox
+{
+    display: block;
+    background-color: lavender;
+    padding: 10px;
+    box-shadow: 0 0 20px 5px lightgray;
+    width: 200px;
+    position: absolute;
+    left: 30px;
+    top: 100px;
+}
+
+.UserContactBox > div
+{
+    display: block;
+    overflow: scroll;
+    width: 200px;
+    height: 300px;
+}
+
+.UserContactBox > div > ul
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .wyszukiwarka {
     background-color: #1a459f;
     position:fixed;

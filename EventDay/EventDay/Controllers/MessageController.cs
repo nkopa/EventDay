@@ -51,6 +51,21 @@ namespace EventDay.Controllers
 
         public ActionResult NewMessage()
         {
+            UserProfile loggedUser = db.UserProfile.Where(u => u.UserName == User.Identity.Name).First();
+            if (loggedUser == null) return HttpNotFound();
+
+            List<UserContact> contacts = db.UserContact.Include("UserMember").Where(c => c.UserOwnerId == loggedUser.UserId).ToList();
+            if (contacts == null) return HttpNotFound();
+
+            List<string> userContacts = new List<string>();
+            //prowizoryczne ale obecnie nie umiem tego obejsc w modelu; jesli macie pomysl - poprawcie
+            foreach (UserContact contact in contacts)
+            {
+                UserProfile user = db.UserProfile.Find(contact.UserMemberId);
+                userContacts.Add(user.UserName);
+            }
+            ViewBag.Contacts = userContacts;
+
             return View();
         }
 

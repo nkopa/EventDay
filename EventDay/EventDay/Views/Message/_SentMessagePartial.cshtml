@@ -1,10 +1,17 @@
 ﻿@model IEnumerable<EventDay.Models.Message>
 
+<table>
+    <tr>
+        <th>Data wysłania</th>
+        <th>Tytuł</th>
+        <th>Odbiorca</th>
+    </tr>
 @foreach (var item in Model)
 {
-    <p>
-        <div class="date">@item.SendDate</div>
-        <div class="title">@Html.ActionLink(item.Title, "MessageDetails", new { id = item.MessageId })</div>
-        <div class="user">@item.ToUser</div>
-    </p>
+    <tr>
+        <td class="date">@item.SendDate</td>
+        <td class="title">@Html.ActionLink(item.Title, "MessageDetails", new { id = item.MessageId })</td>
+        <td class="user">@item.ToUser</td>
+    </tr>
 }
+</table>

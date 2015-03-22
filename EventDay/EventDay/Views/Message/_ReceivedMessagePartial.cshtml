@@ -1,12 +1,19 @@
 ﻿@model IEnumerable<EventDay.Models.Message>
 
+<table>
+    <tr>
+        <th>Data wysłania</th>
+        <th>Tytuł</th>
+        <th>Nadawca</th>
+    </tr>
 @foreach (var item in Model)
 {
     var messageClass = "messageIsNotRead";
     if (item.IsRead == true) { messageClass = "messageIsRead"; }
-    <p class="@messageClass">
-        <span class="date">@item.SendDate</span>
-        <span class="title">@Html.ActionLink(item.Title, "MessageDetails", new { id = item.MessageId })</span>
-        <span class="user">@item.FromUser</span>
-    </p>
+    <tr class="@messageClass">
+        <td class="date">@item.SendDate</td>
+        <td class="title">@Html.ActionLink(item.Title, "MessageDetails", new { id = item.MessageId })</td>
+        <td class="user">@item.FromUser</td>
+    </tr>
 }
+</table>

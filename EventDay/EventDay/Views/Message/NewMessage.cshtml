@@ -41,3 +41,15 @@
         </p>
     </fieldset>
 }
+
+<div class="UserContactBox">
+    <div>
+    <h3>Kontakty</h3>
+    <ul>
+    @foreach (var item in ViewBag.Contacts)
+    {
+        <li>@item</li>
+    }
+    </ul>
+    </div>
+</div>
