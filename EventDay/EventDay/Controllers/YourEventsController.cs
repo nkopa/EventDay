@@ -150,9 +150,23 @@ namespace EventDay.Controllers
         {
             Event e = db.Event.Find(id);
             ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
+            
+            //**//           
+            DateTime data = Convert.ToDateTime(e.HourBegin);
+            e.HourBegin = data.ToString("HH:mm");
 
-            e.HourBegin = e.HourBegin + " " + e.DateBegin + " - " + e.HourEnd + " " + e.DateEnd;
-            e.HourBegin = e.HourBeginRegistration + " " + e.DateBeginRegistation + " - " + e.HourEndRegistration + " " + e.DateEndRegistation;        
+            data = Convert.ToDateTime(e.HourEnd);
+            e.HourEnd = data.ToString("HH:mm");
+
+            data = Convert.ToDateTime(e.HourBeginRegistration);
+            e.HourBeginRegistration = data.ToString("HH:mm");
+
+            data = Convert.ToDateTime(e.HourEndRegistration);
+            e.HourEndRegistration = data.ToString("HH:mm");
+            //**//
+
+            e.HourBegin = e.HourBegin + " " + e.DateBegin.ToString("dd/MM/yyyy") + " - " + e.HourEnd + " " + e.DateEnd.ToString("dd/MM/yyyy");
+            e.HourBeginRegistration = e.HourBeginRegistration + " " + e.DateBeginRegistation.ToString("dd/MM/yyyy") + " - " + e.HourEndRegistration + " " + e.DateEndRegistation.ToString("dd/MM/yyyy");                    
 
             return View(e);
         }
@@ -161,20 +175,59 @@ namespace EventDay.Controllers
         // POST: /BeadMenager/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Event e)
+        public ActionResult Edit(Event e, HttpPostedFileBase fileRegulations, HttpPostedFileBase fileProfileImage)
         {
-            //Event ev = db.Event.Find(e.EventId);
+            ////Ładowanie plików
+            //nazwa plitu == username + DateCreated + R dla regulations lub P dla ProfileImage + nazwa pliku;
 
-            if (ModelState.IsValid)
+            string dateCreated = e.DateCreated.ToString().Replace(" ", "").Replace(":", "").Replace("-", "");
+
+            if (fileRegulations != null && fileRegulations.ContentLength > 0)
             {
-                db.Entry(e).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+                string fileName = e.Username + dateCreated + "R" + Path.GetFileName(fileRegulations.FileName);
+                string path = Path.Combine(Server.MapPath("~/Content/Uploads"), fileName);
+                fileRegulations.SaveAs(path);
+
+                e.Regulations = fileName;
             }
 
-            ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
+            if (fileProfileImage != null && fileProfileImage.ContentLength > 0)
+            {
+                string fileName = e.Username + dateCreated + "P" + Path.GetFileName(fileProfileImage.FileName);
+                string path = Path.Combine(Server.MapPath("~/Content/Uploads"), fileName);
+                fileProfileImage.SaveAs(path);
 
-            return View(e);
+                e.ProfileImage = fileName;
+            }
+
+            //wartosci domyslne, musza byc bo sie wtedy details widok rozwala
+            if (e.ContactNumber == null) e.ContactNumber = "brak";
+            if (e.ContactEmail == null) e.ContactEmail = "brak";
+            if (e.Website == null) e.Website = "brak";
+            if (e.Street == null) e.Street = "brak";
+            if (e.HouseNumber == null) e.HouseNumber = "brak";
+            if (e.ApartmentNumber == null) e.ApartmentNumber = "brak";
+            if (e.Directions == null) e.Directions = "brak";
+            if (e.Regulations == null) e.Regulations = "brak";
+
+            ////konwertowanie daty                     
+            e.DateBegin = DateSplit(e.HourBegin, "d", "B");
+            e.DateBeginRegistation = DateSplit(e.HourBeginRegistration, "d", "B");
+            e.DateEnd = DateSplit(e.HourBegin, "D", "E");
+            e.DateEndRegistation = DateSplit(e.HourBeginRegistration, "D", "E");
+            e.HourEnd = DateSplit(e.HourBegin, "H", "E").ToString();
+            e.HourEndRegistration = DateSplit(e.HourBeginRegistration, "H", "E").ToString();
+
+            e.HourBegin = DateSplit(e.HourBegin, "H", "B").ToString();
+            e.HourBeginRegistration = DateSplit(e.HourBeginRegistration, "H", "B").ToString();
+
+            //if (ModelState.IsValid)
+            //{
+            db.Entry(e).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+            //}
         }
 
         //
