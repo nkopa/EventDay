@@ -150,7 +150,8 @@ namespace EventDay.Controllers
         {
             Event e = db.Event.Find(id);
             ViewBag.CategoryId = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
-            
+            ViewBag.ViowodeshipList = CreateViowodeshipList();
+
             //**//           
             DateTime data = Convert.ToDateTime(e.HourBegin);
             e.HourBegin = data.ToString("HH:mm");

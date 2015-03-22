@@ -9,7 +9,8 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Edit", "YourEvents", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>Event</legend>
@@ -22,7 +23,7 @@
             @Html.LabelFor(model => model.Category.Name)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
-             @Html.DropDownListFor(model => model.CategoryId,(IEnumerable<SelectListItem>)ViewBag.eventCategory, "Wybierz kategorię", new { @class="form-control"})
+             @Html.DropDownListFor(model => model.CategoryId, (IEnumerable<SelectListItem>)ViewBag.eventCategory, "Wybierz kategorię", new { @class = "form-control" })
         </div>
 
         <div class="editor-label">
@@ -145,7 +146,7 @@
             @Html.LabelFor(model => model.Voivoweship)
         </div>
         <div class="editor-field">
-             @Html.DropDownListFor(model => model.Voivoweship,(IEnumerable<SelectListItem>)ViewBag.ViowodeshipList, new { @class="form-control"})
+            @Html.DropDownListFor(model => model.Voivoweship,(IEnumerable<SelectListItem>)ViewBag.ViowodeshipList, new { @class="form-control"})
         </div>
 
         <div class="editor-label">
