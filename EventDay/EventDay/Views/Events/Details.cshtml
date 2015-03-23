@@ -1,11 +1,12 @@
 ﻿@model EventDay.Models.EventHelper
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Szczegóły";
 }
 
  <fieldset>
     <legend>Event</legend>
+     <p class="joinEventError">@ViewBag.ErrorMessage</p>
     
    <div class="detale">
      @Html.Partial("~/Views/YourEvents/_DetailsPartial.cshtml", Model.Event)

@@ -514,6 +514,11 @@ div#title {
     padding: 0;
 }
 
+.joinEventError
+{
+    color: red;
+}
+
 .wyszukiwarka {
     background-color: #1a459f;
     position:fixed;

@@ -79,6 +79,8 @@ namespace EventDay.Controllers
         //GET: /Books/Details
         public ActionResult Details(int id)
         {
+            //jesli przekazano jakis blad z dolaczania
+            if (TempData["ErrorMessage"]!=null) ViewBag.ErrorMessage = TempData["ErrorMessage"].ToString();
 
             var mevent = db.Event.Where(e => e.EventId == id).First();
             var comments = db.Comment.Where(c => c.EventId.Equals(id)).ToList();
@@ -195,9 +197,10 @@ namespace EventDay.Controllers
 
             if (String.Compare(mEvent.Username,User.Identity.Name,true) == 0) return RedirectToAction("Details", "Events", new { id = id });
 
-            var joinedFindedEvent = db.JoinEvent.Include(e => e.Event).Where(u => u.Username == User.Identity.Name).Where(e => e.EventId == id).ToList();
+            var joinedUserEvent = db.JoinEvent.Include(e => e.Event).Where(u => u.Username == User.Identity.Name).Where(e => e.EventId == id).ToList();
+            var joinedFoundEvents = db.JoinEvent.Where(e => e.EventId == id).ToList();
 
-            if (joinedFindedEvent.Count == 0)
+            if (joinedFoundEvents.Count() < mEvent.Capacity && joinedUserEvent.Count == 0)
             {
                 JoinEvent join = new JoinEvent();
                 join.EventId = mEvent.EventId;
@@ -207,7 +210,7 @@ namespace EventDay.Controllers
 
                 db.JoinEvent.Add(join);
                 db.SaveChanges();
-            }
+            }else TempData["ErrorMessage"] = "Nie możesz dołączyć do wydarzenia - nie ma już miejsc albo uczestniczysz już w tym wydarzeniu.";
 
             return RedirectToAction("Details", "Events", new { id = id });
         }

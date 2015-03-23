@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.Category.Name)
         </td>
         <td>
-            @Html.ActionLink(item.Title, "Details", new { id = item.EventId })
+            @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateBegin)
