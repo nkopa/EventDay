@@ -43,7 +43,7 @@ namespace EventDay.Controllers
             
             //var books = from s in db.Books
             //  select s;
-            var events = db.Event.Select(b => b).Where(e => e.DateEnd >= DateTime.Today);
+            var events = db.Event.Select(b => b).Where(e => e.DateEnd >= DateTime.Today).Where(e => String.Compare(e.AccessId,"Widoczne",false) == 0);
 
 
             if (!String.IsNullOrEmpty(search))
