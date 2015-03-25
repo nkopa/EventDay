@@ -57,6 +57,7 @@ namespace EventDay.Models
 
         [DisplayName("Cena biletu")]
         //[StringLength(100)]
+        [RegularExpression("[0-9]*,{0,1}[0-9]{1,2}$", ErrorMessage = "Cena nieprawidłowy format")]
         public decimal Price { get; set; }
 
         [DisplayName("Numer kontaktowy")]

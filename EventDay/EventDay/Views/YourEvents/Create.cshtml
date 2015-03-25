@@ -15,11 +15,21 @@
     <fieldset>
         <legend>Event</legend>
 
+        <div class="editor-field" style="display:none;">
+            <input id="DateEnd" type="text" value="11/11/1111" name="DateEnd" data-val-required="Data jest wymagana" data-val="true" />
+            <input id="DateBegin" type="text" value="11/11/1111" name="DateBegin" data-val-required="Data jest wymagana" data-val="true" />
+            <input id="DateBeginRegistation" type="text" value="11/11/1111" name="DateBeginRegistation" data-val-required="Data jest wymagana" data-val="true" />
+            <input id="DateEndRegistation" type="text" value="11/11/1111" name="DateEndRegistation" data-val-required="Data jest wymagana" data-val="true" />
+            <input id="HourEnd" type="text" value="11/11/1111" name="HourEnd" data-val-required="Data jest wymagana" data-val="true" />
+            <input id="HourEndRegistration" type="text" value="11/11/1111" name="HourEndRegistration" data-val-required="Data jest wymagana" data-val="true" />
+        </div>
+    
         <div class="editor-label">
             @Html.LabelFor(model => model.Category.Name)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
              @Html.DropDownListFor(model => model.CategoryId,(IEnumerable<SelectListItem>)ViewBag.eventCategory, "Wybierz kategorię", new { @class="form-control"})
+         @Html.ValidationMessageFor(model => model.CategoryId)
         </div>
 
         <div class="editor-label">
@@ -73,6 +83,7 @@
         </div>
         <div class="editor-field">
            <input type='file' name='fileRegulations' id='fileRegulations' />
+            @Html.ValidationMessageFor(model => model.Regulations)
         </div>
 
         <!--konstrukcja zastepuje input obrazkiem-->
@@ -87,8 +98,8 @@
             @Html.LabelFor(model => model.Price)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Price)
-            @Html.ValidationMessageFor(model => model.Price)
+            <input id="Price" class="text-box single-line input-validation-error" type="text" value="" name="Price" data-val-required="Pole Cena biletu jest wymagane." data-val-regex-pattern="[0-9]*,{0,1}[0-9]{1,2}$" data-val-regex="Cena nieprawidłowy format" data-val="true"></input>
+            <span class="field-validation-error" data-valmsg-replace="true" data-valmsg-for="Price"></span>
         </div>
 
         <div class="editor-label">
@@ -120,6 +131,7 @@
         </div>
         <div class="editor-field">
             <input class="text-box single-line" id="HourBegin" name="HourBegin" type="text" value="00:00 01/01/2015 - 00:00 01/01/2015" onclick="datetimerange()" />
+          @Html.ValidationMessageFor(model => model.HourBegin)
         </div>
 
         <div class="editor-label">
@@ -127,6 +139,7 @@
         </div>
         <div class="editor-field">
             <input class="text-box single-line" id="HourBeginRegistration" name="HourBeginRegistration" type="text" value="00:00 01/01/2015 - 00:00 01/01/2015" onclick="datetimerange()" />         
+        @Html.ValidationMessageFor(model => model.HourBeginRegistration)
         </div>
 
         <div class="editor-label">
@@ -150,7 +163,8 @@
             @Html.LabelFor(model => model.Voivoweship)
         </div>
         <div class="editor-field">
-             @Html.DropDownListFor(model => model.Voivoweship,(IEnumerable<SelectListItem>)ViewBag.ViowodeshipList, new { @class="form-control"})
+             @Html.DropDownListFor(model => model.Voivoweship,(IEnumerable<SelectListItem>)ViewBag.ViowodeshipList, "Wybierz województwo", new { @class="form-control"})
+            @Html.ValidationMessageFor(model => model.Voivoweship)
         </div>
 
         <div class="editor-label">

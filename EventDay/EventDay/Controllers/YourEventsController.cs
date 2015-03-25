@@ -86,8 +86,12 @@ namespace EventDay.Controllers
         [HttpPost]
         public ActionResult Create(Event e, HttpPostedFileBase fileRegulations, HttpPostedFileBase fileProfileImage)
         {
+            if (ModelState.IsValid)
+            {
+
             e.DateCreated = DateTime.Now;
             e.Username = User.Identity.Name;
+            //e.Price = e.Price.Replace("." , ",");
             //e.Locality = "domyslna";
 
             ////konwertowanie daty                     
@@ -133,14 +137,15 @@ namespace EventDay.Controllers
            if (e.ApartmentNumber == null) e.ApartmentNumber = "brak";
            if (e.Directions == null) e.Directions = "brak";
            if (e.Regulations == null) e.Regulations = "brak";
-            ////aktualizowanie bazy
-            db.Event.Add(e);
-            db.SaveChanges();
+            
+                ////aktualizowanie bazy      
+               db.Event.Add(e);
+               db.SaveChanges();
 
-            return RedirectToAction("Index");
-
-            //ViewBag.eventCategory = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
-            //return View(e);
+               return RedirectToAction("Index");
+           }
+            ViewBag.eventCategory = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
+            return View(e);
         }
 
         //
@@ -178,6 +183,9 @@ namespace EventDay.Controllers
         [HttpPost]
         public ActionResult Edit(Event e, HttpPostedFileBase fileRegulations, HttpPostedFileBase fileProfileImage)
         {
+            if (ModelState.IsValid)
+            {
+
             ////Ładowanie plików
             //nazwa plitu == username + DateCreated + R dla regulations lub P dla ProfileImage + nazwa pliku;
 
@@ -223,12 +231,12 @@ namespace EventDay.Controllers
             e.HourBegin = DateSplit(e.HourBegin, "H", "B").ToString();
             e.HourBeginRegistration = DateSplit(e.HourBeginRegistration, "H", "B").ToString();
 
-            //if (ModelState.IsValid)
-            //{
             db.Entry(e).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
-            //}
+            }
+            ViewBag.eventCategory = new SelectList(db.Category, "CategoryId", "Name", e.CategoryId);
+            return View(e);
         }
 
         //
@@ -288,7 +296,7 @@ namespace EventDay.Controllers
             Viowodeship.Add(new SelectListItem { Text = "opolskie", Value = "opolskie" });
             Viowodeship.Add(new SelectListItem { Text = "podkarpackie", Value = "podkarpackie" });
             Viowodeship.Add(new SelectListItem { Text = "podlaskie", Value = "podlaskie" });
-            Viowodeship.Add(new SelectListItem { Text = "pomorskie", Value = "pomorskie", Selected = true });
+            Viowodeship.Add(new SelectListItem { Text = "pomorskie", Value = "pomorskie"});
             Viowodeship.Add(new SelectListItem { Text = "śląskie", Value = "śląskie" });
             Viowodeship.Add(new SelectListItem { Text = "świętokrzyskie", Value = "świętokrzyskie" });
             Viowodeship.Add(new SelectListItem { Text = "warmińsko-mazurskie", Value = "warmińsko-mazurskie" });
