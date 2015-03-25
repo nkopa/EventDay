@@ -4,4 +4,7 @@
 
 <h2>Profil administratora @User.Identity.Name</h2>
 
-@Html.ActionLink("Lista użytkowników","Index","User")
+<ul id="button">
+    <li>@Html.ActionLink("Lista użytkowników","Index","User")</li>
+    <li>@Html.ActionLink("Kategorie eventów","Index","Category")</li>
+</ul>

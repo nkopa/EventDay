@@ -1,0 +1,32 @@
+﻿@model IEnumerable<EventDay.Models.Category>
+
+@{
+    ViewBag.Title = "Kategorie";
+}
+
+<h2>Kategorie</h2>
+
+<p>
+    @Html.ActionLink("Utwórz nową kategorię", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.CategoryId }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.CategoryId })
+        </td>
+    </tr>
+}
+
+</table>

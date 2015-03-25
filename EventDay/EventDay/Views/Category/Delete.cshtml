@@ -1,0 +1,17 @@
+﻿@model EventDay.Models.Category
+
+@{
+    ViewBag.Title = "Usuwanie kategorii";
+}
+
+@if (@ViewBag.IsError == 0){
+    <h3>Jesteś pewny/a, że chcesz usunąć kategorię @Model.Name?</h3>
+    using (Html.BeginForm()) {
+        <p>
+            <input type="submit" value="Delete" /> |
+            @Html.ActionLink("Wróć do Listy", "Index")
+        </p>
+    }
+} else {
+    <h3>Nie można usunąc kategorii, ponieważ są do niej przypisane eventy.</h3>   
+}
