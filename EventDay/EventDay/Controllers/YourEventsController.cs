@@ -171,8 +171,8 @@ namespace EventDay.Controllers
             e.HourEndRegistration = data.ToString("HH:mm");
             //**//
 
-            e.HourBegin = e.HourBegin + " " + e.DateBegin.ToString("dd/MM/yyyy") + " - " + e.HourEnd + " " + e.DateEnd.ToString("dd/MM/yyyy");
-            e.HourBeginRegistration = e.HourBeginRegistration + " " + e.DateBeginRegistation.ToString("dd/MM/yyyy") + " - " + e.HourEndRegistration + " " + e.DateEndRegistation.ToString("dd/MM/yyyy");                    
+            e.HourBegin = e.HourBegin + " " + e.DateBegin.ToString("dd'/'MM'/'yyyy") + " - " + e.HourEnd + " " + e.DateEnd.ToString("dd'/'MM'/'yyyy");
+            e.HourBeginRegistration = e.HourBeginRegistration + " " + e.DateBeginRegistation.ToString("dd'/'MM'/'yyyy") + " - " + e.HourEndRegistration + " " + e.DateEndRegistation.ToString("dd'/'MM'/'yyyy");                    
 
             return View(e);
         }

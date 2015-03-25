@@ -18,12 +18,21 @@
         @Html.HiddenFor(model => model.EventId)
         @Html.HiddenFor(model => model.Username)
         @Html.HiddenFor(model => model.DateCreated)
+        @Html.HiddenFor(model => model.DateBegin)
+        @Html.HiddenFor(model => model.DateEnd)
+        @Html.HiddenFor(model => model.DateBeginRegistation)
+        @Html.HiddenFor(model => model.DateEndRegistation)
+        @Html.HiddenFor(model => model.HourEndRegistration)
+        @Html.HiddenFor(model => model.HourEnd)
+        @Html.HiddenFor(model => model.Regulations)
+        @Html.HiddenFor(model => model.ProfileImage)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Category.Name)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
-             @Html.DropDownListFor(model => model.CategoryId, (IEnumerable<SelectListItem>)ViewBag.eventCategory, "Wybierz kategorię", new { @class = "form-control" })
+            @Html.DropDownListFor(model => model.CategoryId, (IEnumerable<SelectListItem>)ViewBag.eventCategory, "Wybierz kategorię", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CategoryId)
         </div>
 
         <div class="editor-label">
@@ -91,8 +100,8 @@
             @Html.LabelFor(model => model.Price)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Price)
-            @Html.ValidationMessageFor(model => model.Price)
+            <input id="Price" class="text-box single-line input-validation-error" type="text" value="@Html.DisplayFor(model => model.Price)" name="Price" data-val-required="Pole Cena biletu jest wymagane." data-val-regex-pattern="[0-9]*,{0,1}[0-9]{1,2}$" data-val-regex="Cena nieprawidłowy format" data-val="true"></input>
+            <span class="field-validation-error" data-valmsg-replace="true" data-valmsg-for="Price"></span>
         </div>
 
         <div class="editor-label">
@@ -124,6 +133,7 @@
         </div>
         <div class="editor-field">
             <input class="text-box single-line" id="HourBegin" name="HourBegin" type="text" value="@Html.DisplayFor(model => model.HourBegin)" onclick="datetimerange()" />
+            @Html.ValidationMessageFor(model => model.HourBegin)
         </div>
 
         <div class="editor-label">
@@ -131,6 +141,7 @@
         </div>
         <div class="editor-field">
             <input class="text-box single-line" id="HourBeginRegistration" name="HourBeginRegistration" type="text" value="@Html.DisplayFor(model => model.HourBeginRegistration)" onclick="datetimerange()" />         
+            @Html.ValidationMessageFor(model => model.HourBeginRegistration)
         </div>
 
         <div class="editor-label">
@@ -147,6 +158,7 @@
         </div>
         <div class="editor-field">
             @Html.DropDownListFor(model => model.Voivoweship,(IEnumerable<SelectListItem>)ViewBag.ViowodeshipList, new { @class="form-control"})
+            @Html.ValidationMessageFor(model => model.Voivoweship)
         </div>
 
         <div class="editor-label">
