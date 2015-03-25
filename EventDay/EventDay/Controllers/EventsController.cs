@@ -84,6 +84,8 @@ namespace EventDay.Controllers
 
             var mevent = db.Event.Where(e => e.EventId == id).First();
             var comments = db.Comment.Where(c => c.EventId.Equals(id)).ToList();
+            
+            ViewBag.FreeSeats = mevent.Capacity-db.JoinEvent.Where(c => c.EventId.Equals(id)).Count();
 
             //**//
             DateTime data = Convert.ToDateTime(mevent.HourBegin);

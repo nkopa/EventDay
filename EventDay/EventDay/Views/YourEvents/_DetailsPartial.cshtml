@@ -1,7 +1,5 @@
 ﻿@model EventDay.Models.Event
 
-
-
 <dl>
          <dt>Profilówka: </dt>
             <dd>
@@ -118,6 +116,11 @@
         <dt>Ilość miejsc: </dt>
             <dd>
                 @Html.DisplayFor(model => model.Capacity)
+            </dd>
+
+        <dt>Wolne miejsca: </dt>
+            <dd>
+                @ViewBag.FreeSeats;
             </dd>
 
       <dt>Regulamin: </dt>
