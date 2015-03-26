@@ -131,7 +131,11 @@
     //zawartosc kalendarza
     function c(ev, rok, miesiac, dzien) {
         var text = "";
-        var data = rok + "-" + miesiac + "-" + dzien + " ";
+       // var data = rok + "-" + miesiac + "-" + dzien + " ";
+
+        var m = miesiac < 10 ? "0" + miesiac : "" + miesiac;
+        var d = dzien < 10 ? "0" + dzien : "" + dzien;
+        var data = m + "-" + d + "-" + rok;
 
         for (i = 0; i < ev.length; i++) {
             if (ev[i].DateBegin.indexOf(data) === 0) {
