@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -34,6 +35,7 @@ namespace EventDay.Controllers
         public ActionResult Edit(int id)
         {
             UserProfile userProfile = db.UserProfile.Find(id);
+            ViewBag.VoiwodeshipList = CreateVoiwodeshipList();
             return View(userProfile);
         }
 
@@ -41,15 +43,25 @@ namespace EventDay.Controllers
         // POST: /User/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(UserProfile userProfile)//(int id, FormCollection collection)
+        public ActionResult Edit(UserProfile userProfile, HttpPostedFileBase fileProfileImage)//(int id, FormCollection collection)
         {
             userProfile.UpdateTime = DateTime.Now;
+
+            string dateCreated = userProfile.UpdateTime.ToString().Replace(" ", "").Replace(":", "").Replace("-", "");
+            if (fileProfileImage != null && fileProfileImage.ContentLength > 0)
+            {
+                string fileName = userProfile.UserId + dateCreated + "P" + Path.GetFileName(fileProfileImage.FileName);
+                string path = Path.Combine(Server.MapPath("~/Content/Uploads"), fileName);
+                fileProfileImage.SaveAs(path);
+
+                userProfile.ProfileImage = fileName;
+            }
 
                 if (ModelState.IsValid)
                 {
                     db.Entry(userProfile).State = EntityState.Modified;
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Details/" + userProfile.UserId);
                 }
                 return View(userProfile);
         }
@@ -103,6 +115,32 @@ namespace EventDay.Controllers
             db.SaveChanges();
 
             return RedirectToAction("Details", new { id = id });
+        }
+
+        /**/
+        public List<SelectListItem> CreateVoiwodeshipList()
+        {
+            List<SelectListItem> Voiwodeship = new List<SelectListItem>();
+
+            Voiwodeship.Add(new SelectListItem { Text = "dolnośląskie", Value = "dolnośląskie" });
+            Voiwodeship.Add(new SelectListItem { Text = "kujawsko-pomorskie", Value = "kujawsko-pomorskie" });
+            Voiwodeship.Add(new SelectListItem { Text = "lubelskie", Value = "lubelskie" });
+            Voiwodeship.Add(new SelectListItem { Text = "lubuskie", Value = "lubuskie" });
+            Voiwodeship.Add(new SelectListItem { Text = "łódzkie", Value = "łódzkie" });
+            Voiwodeship.Add(new SelectListItem { Text = "małopolskie", Value = "małopolskie" });
+            Voiwodeship.Add(new SelectListItem { Text = "mazowieckie", Value = "mazowieckie" });
+            Voiwodeship.Add(new SelectListItem { Text = "opolskie", Value = "opolskie" });
+            Voiwodeship.Add(new SelectListItem { Text = "podkarpackie", Value = "podkarpackie" });
+            Voiwodeship.Add(new SelectListItem { Text = "podlaskie", Value = "podlaskie" });
+            Voiwodeship.Add(new SelectListItem { Text = "pomorskie", Value = "pomorskie" });
+            Voiwodeship.Add(new SelectListItem { Text = "śląskie", Value = "śląskie" });
+            Voiwodeship.Add(new SelectListItem { Text = "świętokrzyskie", Value = "świętokrzyskie" });
+            Voiwodeship.Add(new SelectListItem { Text = "warmińsko-mazurskie", Value = "warmińsko-mazurskie" });
+            Voiwodeship.Add(new SelectListItem { Text = "wielkopolskie", Value = "wielkopolskie" });
+            Voiwodeship.Add(new SelectListItem { Text = "zachodniopomorskie", Value = "zachodniopomorskie" });
+
+            //ViewBag.ViowodeshipList = Viowodeship;
+            return Voiwodeship;
         }
 
     }

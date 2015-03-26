@@ -38,6 +38,7 @@ namespace EventDay.Models
         public string SexId { get; set; }
 
         [Display(Name = "Urodziny")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM'/'dd'/'yyyy}")]
         public DateTime Birthday { get; set; }
 
         [Display(Name = "Zainteresowania")]

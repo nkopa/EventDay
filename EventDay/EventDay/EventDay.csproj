@@ -210,6 +210,8 @@
       <DependentUpon>EventDB.mdf</DependentUpon>
     </Content>
     <Content Include="Content\Datetimepicker.css" />
+    <Content Include="Content\female.png" />
+    <Content Include="Content\male.png" />
     <Content Include="Content\no-img.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />

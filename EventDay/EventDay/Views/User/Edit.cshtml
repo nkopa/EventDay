@@ -9,7 +9,8 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm(Html.BeginForm("Edit", "User", FormMethod.Post, new { enctype = "multipart/form-data" })))
+{
     @Html.ValidationSummary(true)
     <fieldset>
         <legend>UserProfile</legend>
@@ -21,16 +22,27 @@
         @Html.HiddenFor(model => model.StatusId)
         @Html.HiddenFor(model => model.UserName)
 
+        <!--konstrukcja zastepuje input obrazkiem-->
+        <div class="editor-field">
+            <label for="fileProfileImage">
+                <img src="@Url.Content("~/Content/Uploads/" + @Html.DisplayFor(model => model.ProfileImage))" alt="nie dodałeś jeszcze zdjęcia profilowego" id="img"/>
+            </label>
+            <input id="fileProfileImage" name='fileProfileImage' type="file" onchange="readURL(this,'img')" style="cursor: pointer;  display: none"/>
+        </div>
+
         <div class="editor-label">
-            @Html.LabelFor(model => model.AccountTypeId)
+            @Html.LabelFor(model => model.AccountTypeId)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.AccountTypeId)
+            <label>Prywatne</label>
+            @Html.RadioButtonFor(model => model.AccountTypeId, "Private")
+            <label>Firma lub organizacja</label>
+            @Html.RadioButtonFor(model => model.AccountTypeId, "Public")           
             @Html.ValidationMessageFor(model => model.AccountTypeId)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
+            @Html.LabelFor(model => model.Email)<text style="color:red">*</text>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Email)
@@ -56,8 +68,11 @@
         <div class="editor-label">
             @Html.LabelFor(model => model.SexId)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.SexId)
+        <div class="editor-field">          
+            <label><img src="@Url.Content("~/Content/female.png")" alt="Kobieta" /></label>           
+            @Html.RadioButtonFor(model => model.SexId, "Female")
+            <label><img src="@Url.Content("~/Content/male.png")" /></label>
+            @Html.RadioButtonFor(model => model.SexId, "Male")           
             @Html.ValidationMessageFor(model => model.SexId)
         </div>
 
@@ -65,15 +80,14 @@
             @Html.LabelFor(model => model.Birthday)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Birthday)
-            @Html.ValidationMessageFor(model => model.Birthday)
+            <input id="Birthday" class="text-box single-line" type="text" value="@Html.DisplayFor(model => model.Birthday)" name="Birthday"  onclick="date()" />
         </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Interest)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Interest)
+            @Html.TextAreaFor(model => model.Interest, new { @rows = 5 })
             @Html.ValidationMessageFor(model => model.Interest)
         </div>
 
@@ -81,7 +95,7 @@
             @Html.LabelFor(model => model.Voivodeship)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Voivodeship)
+            @Html.DropDownListFor(model => model.Voivodeship,(IEnumerable<SelectListItem>)ViewBag.VoiwodeshipList, new { @class="form-control"})
             @Html.ValidationMessageFor(model => model.Voivodeship)
         </div>
 
@@ -97,7 +111,10 @@
             @Html.LabelFor(model => model.SmsNotification)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.SmsNotification)
+            <label><img src="@Url.Content("~/Content/yes.png")" alt="Tak" /></label>
+            @Html.RadioButtonFor(model => model.SmsNotification, "Yes")
+            <label><img src="@Url.Content("~/Content/no.png")" alt="Nie" /></label>
+            @Html.RadioButtonFor(model => model.SmsNotification, "No")           
             @Html.ValidationMessageFor(model => model.SmsNotification)
         </div>
 
