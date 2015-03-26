@@ -21,13 +21,14 @@
             Miejscowość
         </th>
         <th></th>
-        <th></th>
+
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.UserName)
+              @Html.ActionLink(item.UserName, "UserDetails", new { id = item.UserId })
+ 
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.SexId)
@@ -39,11 +40,9 @@
             @Html.DisplayFor(modelItem => item.City)
         </td>
         <td>
-            @Html.ActionLink("Usuń użytkownika", "Delete", new { id = item.UserId })
+                 <a  href="@Url.Action("Delete", new { id = item.UserId })"><img class="trash" src="@Url.Content("~/Content/trash.png")" alt="Usuń" height="20px" width="20px" /></a>
         </td>
-        <td>
-            @Html.ActionLink("Szczegóły", "Details", new { id = item.UserId })
-        </td>
+ 
     </tr>
 }
 

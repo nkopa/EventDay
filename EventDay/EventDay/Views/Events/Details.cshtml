@@ -21,7 +21,6 @@
 
    }
        <li>@Html.ActionLink("Dodaj komentarz", "AddComment", "Comments",new {id = Model.EventId},null)   </li> 
-        <!-- controlname, actionmethod,null bo do innego widoku, jak bez null to idzie do BOOKS, zla metoda-->
 
          @if (String.Compare(Model.Event.Username,User.Identity.Name,true) == 0) {  
              <li>@Html.ActionLink("Pokaż listę gości", "ShowGuests", new {id = Model.EventId}, null) </li> 

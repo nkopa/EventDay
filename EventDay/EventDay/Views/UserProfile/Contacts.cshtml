@@ -20,7 +20,9 @@
             @Html.ActionLink(item.UserMember.UserName, "Details", new { name = item.UserMember.UserName })
         </td>
         <td>
-            @Html.ActionLink("Usuń kontakt", "DeleteContact", new { id=item.UserContactId })
+              <a  href="@Url.Action("DeleteContact", new {  id=item.UserContactId})"><img class="trash" src="@Url.Content("~/Content/cross.png")" alt="Usuń" height="20px" width="20px" /></a>
+        
+         
         </td>
     </tr>
 }

@@ -49,10 +49,9 @@
      
         <td>
             @if (String.Compare(ViewBag.Type,"created",false) == 0) {
-                 <a  href="@Url.Action("Edit", new { id = item.EventId })"> <div class="pencil"></div></a>
-             <br />
-                
-                <a href="@Url.Action("Delete", new { id = item.EventId })"> <div class="close"></div></a>
+                 <a  href="@Url.Action("Edit", new { id = item.EventId })" style="margin-right:10px;"><img class="pencil" src="@Url.Content("~/Content/pencil.png")" alt="Edytuj" height="20px" width="20px" /></a>
+            
+                  <a  href="@Url.Action("Delete", new { id = item.EventId })"><img class="trash" src="@Url.Content("~/Content/trash.png")" alt="Usuń" height="20px" width="20px" /></a>
             } else {
                 @Html.ActionLink("Rezygnuj z uczestnictwa", "LeafeEvent", new { id=item.EventId })
             }

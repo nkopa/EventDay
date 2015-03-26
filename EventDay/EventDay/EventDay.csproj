@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminProfileController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -209,11 +210,14 @@
     <Content Include="App_Data\EventDB_log.ldf">
       <DependentUpon>EventDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\cross.png" />
     <Content Include="Content\Datetimepicker.css" />
     <Content Include="Content\female.png" />
+    <Content Include="Content\like.png" />
     <Content Include="Content\male.png" />
     <Content Include="Content\no-img.png" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\pencil.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -269,6 +273,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\trash.png" />
+    <Content Include="Content\unlike.png" />
     <Content Include="Content\user-img.png" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
@@ -340,6 +346,12 @@
     <Content Include="Views\YourEvents\_DetailsPartial.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\Category\Create.cshtml" />
+    <Content Include="Views\Category\Delete.cshtml" />
+    <Content Include="Views\Category\Edit.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\UserProfile\Contacts.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />
