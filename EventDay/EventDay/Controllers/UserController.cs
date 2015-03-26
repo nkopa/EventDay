@@ -16,6 +16,7 @@ namespace EventDay.Controllers
 
         //
         // GET: /User/
+        [Authorize(Roles="admin")]
         public ActionResult Index()
         {
             var users = db.UserProfile;//.Select(b => b).Where(e => e.StatusId == "Active");

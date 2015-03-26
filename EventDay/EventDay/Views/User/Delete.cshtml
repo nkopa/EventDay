@@ -5,7 +5,7 @@
 }
 
 @using (Html.BeginForm()) {
-    <p>Czy napewno chcesz usuną uzytkownika @User.Identity.Name?</p>
+    <p>Czy napewno chcesz usuną uzytkownika @Model.UserName?</p>
     <input type="submit" value="Usuń" />
     @Html.ActionLink("Wróć do listy","Index")
 }
