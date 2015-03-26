@@ -62,6 +62,7 @@
 
 </fieldset>
 <p>
+    @Html.ActionLink("Pokaż inne eventy tego użytkownika", "ShowUserEvents", new { id=Model.UserId })
     @if (User.Identity.IsAuthenticated && String.Compare(User.Identity.Name,Model.UserName,true) == 0) {
         @Html.ActionLink("Edytuj", "Edit", new { id=Model.UserId })
         <br />

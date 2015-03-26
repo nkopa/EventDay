@@ -118,6 +118,23 @@ namespace EventDay.Controllers
             return RedirectToAction("Details", new { id = id });
         }
 
+        public ActionResult ShowUserEvents(int id)
+        {
+            var user = db.UserProfile.Find(id);
+            if (user == null) return HttpNotFound();
+
+            var userEvents = db.Event.Where(e => String.Compare(e.Username,user.UserName,true) == 0).ToList();
+            if (userEvents == null) return HttpNotFound();
+
+            ViewBag.UserName = user.UserName;
+            return View(userEvents);
+        }
+
+        public ActionResult EventDetails(int id)
+        {
+            return RedirectToAction("Details", "Events", new { id = id });
+        }
+
         /**/
         public List<SelectListItem> CreateVoiwodeshipList()
         {
