@@ -11,4 +11,5 @@
 <li>@Html.ActionLink("Pokaż szczegóły profilu", "Details", new { name = @User.Identity.Name})</li>
 
 <li>@Html.ActionLink("Kontakty", "Contacts")</li>
+<li>@Html.ActionLink("Zmień hasło", "ChangePassword","Account", new { name=@User.Identity.Name},null)</li>
 </ul>
