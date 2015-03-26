@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.Category.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @Html.ActionLink(item.Title, "Details", "Events", new { id= item.EventId },null)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateBegin)
@@ -49,11 +49,10 @@
      
         <td>
             @if (String.Compare(ViewBag.Type,"created",false) == 0) {
-                @Html.ActionLink("Edit", "Edit", new { id=item.EventId }) 
-                <text> | </text>
-                @Html.ActionLink("Details", "Details","Events", new { id=item.EventId },null) 
-                <text> | </text>
-                @Html.ActionLink("Delete", "Delete", new { id=item.EventId })
+                 <a  href="@Url.Action("Edit", new { id = item.EventId })"> <div class="pencil"></div></a>
+             <br />
+                
+                <a href="@Url.Action("Delete", new { id = item.EventId })"> <div class="close"></div></a>
             } else {
                 @Html.ActionLink("Rezygnuj z uczestnictwa", "LeafeEvent", new { id=item.EventId })
             }
