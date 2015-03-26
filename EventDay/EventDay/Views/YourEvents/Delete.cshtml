@@ -8,7 +8,6 @@
 
 <h3>Jesteś pewny że chcesz usunąc ten event?</h3>
 <fieldset>
-    <legend>Event</legend>
 
     <div class="display-label">Kategoria:</div>
     <div class="display-field">
@@ -17,7 +16,7 @@
 
     <div class="display-label">Tytuł:</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Description)
+        @Html.DisplayFor(model => model.Title)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {
