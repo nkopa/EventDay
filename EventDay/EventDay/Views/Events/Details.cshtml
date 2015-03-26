@@ -22,7 +22,8 @@
    }
        <li>@Html.ActionLink("Dodaj komentarz", "AddComment", "Comments",new {id = Model.EventId},null)   </li> 
 
-         @if (String.Compare(Model.Event.Username,User.Identity.Name,true) == 0) {  
+         @if (String.Compare(Model.Event.Username, User.Identity.Name, true) == 0 || User.IsInRole("admin"))
+         {  
              <li>@Html.ActionLink("Pokaż listę gości", "ShowGuests", new {id = Model.EventId}, null) </li> 
               <li>@Html.ActionLink("Edytuj", "Edit","YourEvents", new { id=Model.EventId },null) </li>
          }

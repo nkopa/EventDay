@@ -123,7 +123,9 @@ namespace EventDay.Controllers
             var user = db.UserProfile.Find(id);
             if (user == null) return HttpNotFound();
 
-            var userEvents = db.Event.Where(e => String.Compare(e.Username, user.UserName, true) == 0).Where(e => String.Compare(e.AccessId, "Widoczne", false) == 0).ToList();
+            List<Event> userEvents;
+            if (User.IsInRole("admin")) userEvents = db.Event.Where(e => String.Compare(e.Username, user.UserName, true) == 0).ToList();
+            else userEvents = db.Event.Where(e => String.Compare(e.Username, user.UserName, true) == 0).Where(e => String.Compare(e.AccessId, "Widoczne", false) == 0).ToList();
             if (userEvents == null) return HttpNotFound();
 
             ViewBag.UserName = user.UserName;
