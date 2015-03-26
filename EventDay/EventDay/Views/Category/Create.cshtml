@@ -12,7 +12,7 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Podaj dane</legend>
+        <legend>Podaj dane:</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
@@ -23,11 +23,12 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Utwórz" />
         </p>
     </fieldset>
 }
 
-<div>
-    @Html.ActionLink("Wróć do Listy", "Index")
-</div>
+ <ul id="button">
+               <li>@Html.ActionLink("<< Wróć", "Index")</li>
+            </ul>
+       

@@ -6,24 +6,26 @@
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Jesteś pewny że chcesz usunąc ten event?</h3>
 <fieldset>
     <legend>Event</legend>
 
-    <div class="display-label">Category</div>
+    <div class="display-label">Kategoria:</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Category.Name)
     </div>
 
-    <div class="display-label">Description</div>
+    <div class="display-label">Tytuł:</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Description)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+    
+        <input type="submit" value="Usuń" /> |
+       <ul id="button">
+        <li>@Html.ActionLink("<< Wróć", "Index")</li>
+    </ul>
+    
 }
 
