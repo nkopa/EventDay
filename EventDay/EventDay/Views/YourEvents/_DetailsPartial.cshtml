@@ -135,6 +135,6 @@
 
       <dt>Autor publikacji: </dt>
             <dd>
-        @Html.DisplayFor(model => model.Username)
+        @Html.ActionLink(Model.Username, "UserDetails", new { name = Model.Username })
             </dd>
    </dl>  

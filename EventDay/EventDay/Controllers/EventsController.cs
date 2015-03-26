@@ -241,6 +241,11 @@ namespace EventDay.Controllers
             return RedirectToAction("ShowGuests", new { id = idEvent });
         }
 
+        public ActionResult UserDetails(string name)
+        {
+            return RedirectToAction("Details", "UserProfile", new { name = name });
+        }
+
 
         //////////// OTHER     ///////////////////////////////////
 
