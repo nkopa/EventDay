@@ -5,7 +5,7 @@
 }
 
  <fieldset>
-    <legend>Event</legend>
+    <legend>Event @Model.Event.Title</legend>
      <p class="joinEventError">@ViewBag.ErrorMessage</p>
     
    <div class="detale">
@@ -26,6 +26,7 @@
          {  
              <li>@Html.ActionLink("Pokaż listę gości", "ShowGuests", new {id = Model.EventId}, null) </li> 
               <li>@Html.ActionLink("Edytuj", "Edit","YourEvents", new { id=Model.EventId },null) </li>
+             <li>@Html.ActionLink("Usuń", "Delete","YourEvents", new { id=Model.EventId },null) </li>
          }
     </ul>
 </div>
