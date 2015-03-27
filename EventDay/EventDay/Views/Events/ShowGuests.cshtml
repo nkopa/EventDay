@@ -26,8 +26,8 @@
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.ActionLink("Wyrzuć z wydarzenia", "RemoveFromEvent", new { idJoin=item.JoinEventId, idEvent=item.EventId })
-        </td>
+             <a  href="@Url.Action("RemoveFromEvent", new { idJoin=item.JoinEventId, idEvent=item.EventId })"><img class="trash" src="@Url.Content("~/Content/cross.png")" alt="Wyrzuć z wydarzenia" height="20px" width="20px" /></a>
+         </td>
     </tr>
 }
 
