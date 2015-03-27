@@ -95,11 +95,11 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Price)<text style="color:red">*</text>
+            @Html.LabelFor(model => model.Price)
         </div>
         <div class="editor-field">
-            <input id="Price" class="text-box single-line input-validation-error" type="text" value="" name="Price" data-val-required="Pole Cena biletu jest wymagane." data-val-regex-pattern="[0-9]*,{0,1}[0-9]{1,2}$" data-val-regex="Cena nieprawidłowy format" data-val="true"></input>
-            <span class="field-validation-error" data-valmsg-replace="true" data-valmsg-for="Price"></span>
+          @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
         </div>
 
         <div class="editor-label">
@@ -159,7 +159,7 @@
         </div>
 
         <!--tu literowka do poprawienia na bazie Voivo(w)eship-->
-        <div class="editor-label">
+       <div class="editor-label">
             @Html.LabelFor(model => model.Voivoweship)
         </div>
         <div class="editor-field">

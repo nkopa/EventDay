@@ -56,8 +56,7 @@ namespace EventDay.Models
         //public string DressCode { get; set; }
 
         [DisplayName("Cena biletu")]
-        //[StringLength(100)]
-        [RegularExpression("[0-9]*,{0,1}[0-9]{1,2}$", ErrorMessage = "Cena nieprawidłowy format")]
+        [Required(ErrorMessage = "Cena jest wymagana")]
         public decimal Price { get; set; }
 
         [DisplayName("Numer kontaktowy")]
