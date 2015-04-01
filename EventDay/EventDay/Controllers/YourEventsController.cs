@@ -137,7 +137,7 @@ namespace EventDay.Controllers
            if (e.ApartmentNumber == null) e.ApartmentNumber = "brak";
            if (e.Directions == null) e.Directions = "brak";
            if (e.Regulations == null) e.Regulations = "brak";
-            
+           if (e.Price == 0) e.Price = 0;
                 ////aktualizowanie bazy      
                db.Event.Add(e);
                db.SaveChanges();
@@ -219,7 +219,7 @@ namespace EventDay.Controllers
             if (e.ApartmentNumber == null) e.ApartmentNumber = "brak";
             if (e.Directions == null) e.Directions = "brak";
             if (e.Regulations == null) e.Regulations = "brak";
-
+            if (e.Price == 0) e.Price= 0;
             ////konwertowanie daty                     
             e.DateBegin = DateSplit(e.HourBegin, "d", "B");
             e.DateBeginRegistation = DateSplit(e.HourBeginRegistration, "d", "B");

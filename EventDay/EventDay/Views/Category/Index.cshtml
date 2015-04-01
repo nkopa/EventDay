@@ -6,17 +6,20 @@
 
 <h2>Kategorie</h2>
 
-<ul id="button">
+<ul class="list">
     <li>@Html.ActionLink("Utwórz nową kategorię","Create")</li>
 </ul>
-<table>
-    <tr>
+<div class="table-responsive">
+<table class="table table-hover ">
+   <thead>
+        <tr>
         <th>
             Nazwa
         </th>
         <th></th>
     </tr>
-
+</thead>
+    <tbody>
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -29,5 +32,6 @@
         </td>
     </tr>
 }
-
+</tbody>
 </table>
+</div>

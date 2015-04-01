@@ -2,6 +2,9 @@
 
 @{
     ViewBag.Title = "Szczegóły";
+ 
+    Layout = "~/Views/Shared/_Layout.cshtml";  
+
 }
 
  <fieldset>
@@ -15,7 +18,7 @@
 
 
     <div>
-     <ul id="button">
+    <ul class="list">
            @if (String.Compare(Model.Event.Username,User.Identity.Name,true) != 0){
         <li> @Html.ActionLink("Dołącz do wydarzenia", "JoinEvent", "Events",new {id = Model.EventId},null)</li>
 

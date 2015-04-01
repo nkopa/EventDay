@@ -78,14 +78,14 @@
 @Html.LabelFor(model => model.HourBegin)/zakończenia wydarzenia<text style="color:red">*</text>
 </div>
 <div class="editor-field">
-<input class="text-box single-line" id="HourBegin" name="HourBegin" type="text" value="00:00 01/01/2015 - 00:00 05/04/2015" onclick="datetimerange()" />
+<input class="text-box single-line" id="HourBegin" name="HourBegin" type="text" value="00:00 01/01/2015 - 00:00 01/01/2015" onclick="datetimerange()" />
 @Html.ValidationMessageFor(model => model.HourBegin)
 </div>
 <div class="editor-label">
 @Html.LabelFor(model => model.HourBeginRegistration)/zakończenia rejestracji<text style="color:red">*</text>
 </div>
 <div class="editor-field">
-<input class="text-box single-line" id="HourBeginRegistration" name="HourBeginRegistration" type="text" value="00:00 05/04/2015 - 00:00 01/01/2015" onclick="datetimerange()" />
+<input class="text-box single-line" id="HourBeginRegistration" name="HourBeginRegistration" type="text" value="00:00 01/01/2015 - 00:00 01/01/2015" onclick="datetimerange()" />
 @Html.ValidationMessageFor(model => model.HourBeginRegistration)
 </div>
 
@@ -212,4 +212,5 @@
 <ul id="button">
    <li> @Html.ActionLink("<< Wróć", "Index")</li>
 </ul>
+
 

@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <title>@ViewBag.Title</title> 
+
     <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
     
     <script type="text/javascript" src="@Url.Content("~/Scripts/Main.js")"></script>    
@@ -17,49 +17,49 @@
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Datetimepicker.css")" />
     <script type="text/javascript" src="@Url.Content("~/Scripts/Datetimepicker.js")"></script>
 
+     <link href="@Url.Content("~/Content/bootstrap/css/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap/css/jumbotron-narrow.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap/css/bootstrap-responsive.css")" rel="stylesheet" type="text/css" />
+
+
+
 </head>
 <body>
-    <div class="page">
-        <div id="header">
-           
-            <div id="logindisplay">
-                @Html.Partial("_LogOnPartial")
-            </div>
-            <div id="menucontainer">
-                 <div id="title">                  
-                    <h1>EventDay</h1>
-                    <!--@Html.ActionLink("EventDay", "Index", "Home")-->
-                     
-                </div>
-                <ul id="menu">
-                    <!-- trza odwrotnie dawac bo cos sie wali-->   
-                    @if (User.Identity.IsAuthenticated)
+     <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation">@Html.ActionLink("Szukaj", "Index", "Events")</li>
+            <li role="presentation">@Html.ActionLink("Twoje Eventy", "Index", "YourEvents")</li>
+              
+               @if (User.Identity.IsAuthenticated)
                     {
-                        if (Roles.IsUserInRole("admin"))
+                       
+                       <li role="presentation" >@Html.ActionLink("Profil użytkownika", "Index", "UserProfile")</li>
+                    
+                    if (Roles.IsUserInRole("admin"))
                         {
-                            <li>@Html.ActionLink("Admin", "Index", "AdminProfile")</li>
+                            <li  role="presentation" >@Html.ActionLink("Admin", "Index", "AdminProfile")</li>
                         }
-                        <li>@Html.ActionLink("Profil użytkownika", "Index", "UserProfile")</li>
-                    }                 
-                    <!--<li>@Html.ActionLink("Profil", "Index", "Home")</li>-->
-                   <!-- <li>@Html.ActionLink("Twoje Eventy2", "Index", "Events")</li>-->
-                    <li>@Html.ActionLink("Twoje Eventy", "Index", "YourEvents")</li>
-                    <li>@Html.ActionLink("Kalendarz", "Index", "UserOptions")</li>
-                    <li>@Html.ActionLink("Szukaj", "Index", "Events")</li>
-                    <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
-                </ul>                
-            </div>
-        </div>
-        @Html.Partial("_LogOnPartial")
-        <div id="box">
-        <div id="main">
-            @RenderBody()
-        </div>
-        <div id="footer">
-        </div>
-            </div>
-    </div>
+                    } 
+              @if(Request.IsAuthenticated) {   
+                     <li role="presentation">@Html.ActionLink("Wyloguj", "LogOff", "Account")</li> 
+              }  
+              else{
+                   <li role="presentation">@Html.ActionLink("Dołącz do nas", "LogOn", "Account")</li> 
+              }  
+          </ul>
+        </nav>
+        <h3 class="text-muted"> <a href="@Url.Action("Index","Home")" style="text-decoration:none">EventDay</a></h3>
+      </div>
 
+        <div class="jumbotron">
+        @RenderBody()
+      </div>
+           
+</div>   
+
+ <script src="@Url.Content("~/Scripts/bootstrap/bootstrap.min.js")" type="text/javascript"></script>
 </body>
 </html>
 

@@ -11,11 +11,11 @@
     <div class="wyszukiwarka">
         @using (Html.BeginForm("Index", "Events", System.Web.Mvc.FormMethod.Get))
         {
-            <p>Kategoria:</p>
-            <p> @Html.DropDownList("eventCategory", "All")</p>
-            <p>Miejscowość: </p>
-            <p>@Html.TextBox("Search", ViewBag.CurrentFilter as string) </p>
-            <p><input type="submit" value="Wyszukaj" /></p>
+            <p>Kategoria:
+             @Html.DropDownList("eventCategory", "All")</p>
+            <p>Miejscowość: 
+            @Html.TextBox("Search", ViewBag.CurrentFilter as string) </p>
+            <p><input type="submit" value="Wyszukaj" class="btn btn-default" /></p>
         }
     </div>
 
@@ -26,17 +26,17 @@
     {
         <div class="event">
             <a href="@Url.Action("Details", new { id = item.EventId })">
-                <dl>
-                    <dt>Tytuł</dt> 
-                    <dd>@Html.DisplayFor(modelItem => item.Title)</dd>
-                   <dt> Data początku wydarzenia</dt> 
-                    <dd>@Html.DisplayFor(modelItem => item.DateBegin)</dd>
-                   <dt> Data końca wydarzenia</dt> 
-                    <dd>@Html.DisplayFor(modelItem => item.DateEnd)</dd>
-                  <dt>  Miejscowość</dt> 
-                    <dd>@Html.DisplayFor(modelItem => item.City)</dd>
+                <ul>
+                    <li style="border-bottom:1px solid darkgray;"><p >Tytuł: </p>
+                    @Html.DisplayFor(modelItem => item.Title)</li>
+                   <li > Data początku wydarzenia:
+                   @Html.DisplayFor(modelItem => item.DateBegin)</li> 
+                   <li > Data końca wydarzenia:
+                  @Html.DisplayFor(modelItem => item.DateEnd)</li> 
+                  <li >  Miejscowość:
+                   @Html.DisplayFor(modelItem => item.City)</li> 
 
-               </dl>
+               </ul>
             </a>
         </div>
     }

@@ -210,6 +210,13 @@
     <Content Include="App_Data\EventDB_log.ldf">
       <DependentUpon>EventDB.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\css\jumbotron-narrow.css" />
+    <Content Include="Content\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="Content\cross.png" />
     <Content Include="Content\Datetimepicker.css" />
     <Content Include="Content\female.png" />
@@ -278,6 +285,8 @@
     <Content Include="Content\user-img.png" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\botstrap\bootstrap.js" />
+    <Content Include="Scripts\botstrap\bootstrap.min.js" />
     <Content Include="Scripts\Calendar.js" />
     <Content Include="Scripts\Datetimepicker.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -339,7 +348,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
-    <Content Include="Views\YourEvents\Create.cshtml" />
     <Content Include="Views\YourEvents\Delete.cshtml" />
     <Content Include="Views\YourEvents\Edit.cshtml" />
     <Content Include="Views\YourEvents\Index.cshtml" />
@@ -352,6 +360,10 @@
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\UserProfile\Contacts.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\Shared\Copy of _Layout.cshtml" />
+    <Content Include="Views\Events\detale.cshtml" />
+    <Content Include="Views\YourEvents\create2.cshtml" />
+    <Content Include="Views\YourEvents\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />
@@ -429,7 +441,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>57991</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:49287/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

@@ -1,16 +1,21 @@
 ﻿@model IEnumerable<EventDay.Models.Event>
 
-<h2>@ViewBag.Info</h2>
 
-<ul id="button">
-   <li> @Html.ActionLink("Utwórz event", "Create")</li>
+<ul class="list">
 
-   <li> @Html.ActionLink("Wyświetl utworzone eventy", "Index", new { searching = "created" })</li>
+   <li> @Html.ActionLink("Utwórz", "Create")</li>
 
-   <li> @Html.ActionLink("Wyświetl eventy, w których uczestniczysz", "Index", new { searching = "joined" })</li>
+   <li> @Html.ActionLink("Utworzone", "Index", new { searching = "created" })</li>
+
+   <li> @Html.ActionLink("Uczestniczysz", "Index", new { searching = "joined" })</li>
+   <li> @Html.ActionLink("Kalendarz", "Index", "UserOptions")</li>
 </ul>
-<table>
-    <tr>
+
+<h2>@ViewBag.Info</h2>
+<div class="table-responsive">
+<table class="table table-hover ">
+    <thead>
+        <tr>
         <th>
             Kategoria
         </th>
@@ -28,7 +33,8 @@
         </th>
   <th></th>
     </tr>
-
+</thead>
+       <tbody>
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -58,5 +64,6 @@
         </td>
     </tr>
 }
-
+   </tbody>
 </table>
+</div>

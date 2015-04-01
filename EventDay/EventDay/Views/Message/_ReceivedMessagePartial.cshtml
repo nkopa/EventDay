@@ -1,11 +1,15 @@
 ﻿@model IEnumerable<EventDay.Models.Message>
 
-<table>
+<div class="table-responsive">
+<table class="table table-hover ">
+      <thead>
     <tr>
         <th>Data wysłania</th>
         <th>Tytuł</th>
         <th>Nadawca</th>
     </tr>
+          </thead>
+    <tbody>
 @foreach (var item in Model)
 {
     var messageClass = "messageIsNotRead";
@@ -16,4 +20,7 @@
         <td class="user">@item.FromUser</td>
     </tr>
 }
+        </tbody>
+
 </table>
+        </div>
