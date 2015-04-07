@@ -172,7 +172,9 @@ namespace EventDay.Controllers
             //**//
 
             e.HourBegin = e.HourBegin + " " + e.DateBegin.ToString("dd'/'MM'/'yyyy") + " - " + e.HourEnd + " " + e.DateEnd.ToString("dd'/'MM'/'yyyy");
-            e.HourBeginRegistration = e.HourBeginRegistration + " " + e.DateBeginRegistation.ToString("dd'/'MM'/'yyyy") + " - " + e.HourEndRegistration + " " + e.DateEndRegistation.ToString("dd'/'MM'/'yyyy");                    
+            e.HourBeginRegistration = e.HourBeginRegistration + " " + e.DateBeginRegistation.ToString("dd'/'MM'/'yyyy") + " - " + e.HourEndRegistration + " " + e.DateEndRegistation.ToString("dd'/'MM'/'yyyy");
+
+            ViewBag.Gallery = db.Image.Where(b => b.EventId == id);
 
             return View(e);
         }
@@ -393,5 +395,14 @@ namespace EventDay.Controllers
             //}
         }
 
+        [HttpPost]
+        public void DeleteFile()
+        {
+                var ImageToDelete = System.Web.HttpContext.Current.Request.Form["NameImage"];
+
+                Image Image = db.Image.Where(b => b.Url == ImageToDelete).First();
+                db.Image.Remove(Image);
+                db.SaveChanges();
+        }
     }
 }

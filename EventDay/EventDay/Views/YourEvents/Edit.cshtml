@@ -228,7 +228,17 @@
             <input id="GalleryAccept" type="button" value="zapisz" />
         </div>
 
-        <div id="Gallery"></div>
+        <div id="Gallery">
+
+         @foreach (var image in ViewBag.Gallery)
+         { 
+             <div>
+                 <p>@image.Description</p>
+                 <img src="@Url.Content("~/Content/Uploads/" + @image.Url)" alt="brak"/>
+                 <input id="@image.Url" class="DeleteFromDB" type="image" src="/Content/trash.png" alt="usuń" value="usuń" />;              
+             </div>        
+         }
+        </div>
 
     </fieldset>
 

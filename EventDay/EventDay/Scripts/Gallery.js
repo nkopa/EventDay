@@ -49,6 +49,29 @@ $(document).ready(function () {
 function usun(usun) {
 }
 
+
+$(document).ready(function () {
+    $('.DeleteFromDB').on('click', function () {
+        $(this).parent().remove();
+       
+        var NameImage = new FormData();
+        var Id = $(this).attr('id');
+        NameImage.append("NameImage", Id);
+
+        var ajaxRequest = $.ajax({
+            type: "POST",
+            url: "/YourEvents/DeleteFile",
+            contentType: false,
+            processData: false,
+            data: NameImage
+        });
+
+        ajaxRequest.done(function (xhr, textStatus) {
+            alert("Usunieto poprawnie");
+        });
+});
+})
+
 $(document).ready(function () {
 
     $('#GalleryAccept').on('click', function () {
