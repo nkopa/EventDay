@@ -108,7 +108,7 @@ namespace EventDay.Controllers
             ////Ładowanie plików
             //nazwa plitu == username + DateCreated + R dla regulations lub P dla ProfileImage + nazwa pliku;
 
-            string dateCreated = e.DateCreated.ToString().Replace(" ", "").Replace(":", "").Replace("-", "");
+            string dateCreated = e.DateCreated.ToString().Replace(" ", "").Replace(":", "").Replace("-", "").Replace("/", "").Replace("\\", "");
 
             if (fileRegulations != null && fileRegulations.ContentLength > 0)
             {
@@ -189,7 +189,7 @@ namespace EventDay.Controllers
             ////Ładowanie plików
             //nazwa plitu == username + DateCreated + R dla regulations lub P dla ProfileImage + nazwa pliku;
 
-            string dateCreated = e.DateCreated.ToString().Replace(" ", "").Replace(":", "").Replace("-", "");
+                string dateCreated = e.DateCreated.ToString().Replace(" ", "").Replace(":", "").Replace("-", "").Replace("/", "").Replace("\\", "");
 
             if (fileRegulations != null && fileRegulations.ContentLength > 0)
             {
@@ -351,6 +351,47 @@ namespace EventDay.Controllers
         }
 
         //////////// IMAGE CRUD ///////////////////////////////////////
+
+        [HttpPost]
+        public void UploadFile()
+        {
+            if (System.Web.HttpContext.Current.Request.Files.AllKeys.Any())
+            {
+            
+                var File = System.Web.HttpContext.Current.Request.Files["UploadedImage"];
+                var Description = System.Web.HttpContext.Current.Request.Form["Description"];
+                var IdEvent = System.Web.HttpContext.Current.Request.Form["IdEvent"];
+                var Lp = System.Web.HttpContext.Current.Request.Form["Lp"];
+
+                DateTime dateCreated = DateTime.Now;
+                string dateCreatedSplit = dateCreated.ToString().Replace(" ", "").Replace(":", "").Replace("-", "").Replace("/", "").Replace("\\", "");
+                //string dateCreatedSplit = dateCreated.ToString(@"0:MMddyyyhhmmssfff");
+                var FileName = dateCreatedSplit + Lp + Path.GetExtension(File.FileName);
+
+                if (File != null)
+                {
+                    var fileSavePath = Path.Combine(Server.MapPath("~/Content/Uploads"), FileName);
+                    File.SaveAs(fileSavePath);
+                    UpdateDbGallery(FileName, Description, Convert.ToInt32(IdEvent), dateCreated, FileName);
+                }
+            }
+        }
+
+        public void UpdateDbGallery(string FileName, string Description, int EventId, DateTime CreateTime, string Url)
+        {
+            var newImage = new Image();
+            newImage.Description = Description;
+
+            newImage.EventId = EventId;
+            newImage.AddDate = CreateTime;
+            newImage.Url = Url;
+
+            //if (ModelState.IsValid)
+            //{
+            db.Image.Add(newImage);
+            db.SaveChanges();
+            //}
+        }
 
     }
 }
