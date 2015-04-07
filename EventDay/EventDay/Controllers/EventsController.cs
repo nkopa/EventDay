@@ -101,6 +101,8 @@ namespace EventDay.Controllers
             mevent.HourEndRegistration = data.ToString("HH:mm");
             //**//
 
+            ViewBag.Gallery = db.Image.Where(b => b.EventId == id);//(from f in db.Image where f.EventId == id select f.Url).ToList();
+
             return View(new EventHelper { EventId = id, Event = mevent, Comments = comments });
 
         }

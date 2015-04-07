@@ -30,3 +30,25 @@
         position:relative; 
         left:-20px;
     }
+
+   
+     #GalleryDetails
+         {
+        max-width:650px;
+        height:auto;
+        overflow-x:scroll;
+        white-space: nowrap;
+        padding:10px;
+        margin:10px;
+        border-style:solid;
+        border-color:grey;
+        border-width:1px;
+         }
+
+         #GalleryDetails div
+         {display: inline-block;
+             width:auto;
+             height:auto;       
+                  padding:10px;
+                 margin:10px;
+         }

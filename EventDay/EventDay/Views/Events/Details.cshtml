@@ -7,6 +7,8 @@
 
 }
 
+<link rel="stylesheet" type="text/css" href="/Content/Gallery.css">
+
  <fieldset>
     <legend>Event @Model.Event.Title</legend>
      <p class="joinEventError">@ViewBag.ErrorMessage</p>
@@ -15,6 +17,19 @@
      @Html.Partial("~/Views/YourEvents/_DetailsPartial.cshtml", Model.Event)
     </div>
      
+     <!-- Gallery start -->
+     <div id="GalleryDetails">
+         @foreach (var image in ViewBag.Gallery)
+         { 
+             <div>
+                 <img src="@Url.Content("~/Content/Uploads/" + @image.Url)" alt="brak"/>
+                 <p>@image.Description</p>
+             </div>
+        
+         }
+     </div>
+        <!-- Gallery end -->
+  
 
 
     <div>
