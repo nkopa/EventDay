@@ -8,9 +8,21 @@
 
 
 $(function () {
+
+    var now = new moment();
+            
+    var HBR = document.getElementById('HourBeginRegistration');
+    if (HBR.hasAttribute('onclick') && HBR.value == "") HBR.value = now.format("HH:mm DD/MM/YYYY - HH:mm DD/MM/YYYY");
+
+    var HB = document.getElementById('HourBegin');
+    if (HB.hasAttribute('onclick') && HB.value == "") HB.value = now.format("HH:mm DD/MM/YYYY - HH:mm DD/MM/YYYY");
+
+});
+
+$(function () {
     $('[onclick="datetimerange()"]').daterangepicker({
         timePicker: true,
-        format: 'H:mm DD/MM/YYYY',
+        format: 'HH:mm DD/MM/YYYY',
         timePickerIncrement: 1,
         timePickerSeconds: false,
         startDate: moment(),
@@ -35,7 +47,7 @@ $(function () {
 $(function () {
     $('[onclick="datetime()"]').daterangepicker({
         timePicker: true,
-        format: 'H:mm DD/MM/YYYY',
+        format: 'HH:mm DD/MM/YYYY',
         timePickerIncrement: 1,
         timePickerSeconds: false,
         startDate: moment(),
@@ -100,7 +112,7 @@ $(function () {
 $(function () {
     $('[onclick="timerange()"]').daterangepicker({
         timePicker: true,
-        format: 'H:mm',
+        format: 'HH:mm',
         timePickerIncrement: 1,
         timePickerSeconds: false,
         timePicker12Hour: false,
@@ -112,7 +124,7 @@ $(function () {
 $(function () {
     $('[onclick="time()"]').daterangepicker({
         timePicker: true,
-        format: 'H:mm',
+        format: 'HH:mm',
         timePickerIncrement: 1,
         timePickerSeconds: false,
         timePicker12Hour: false,
