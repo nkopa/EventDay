@@ -1,7 +1,9 @@
-﻿function rokPrzestepny(rok) {
-    return ((rok % 4 == 0) && ((rok % 100 != 0) || (rok % 400 == 0)));
-}
-function wyświetlKalendarz(r, m, d, el) {
+﻿
+    //budowa kalendarza
+    function rokPrzestepny(rok) {
+        return ((rok % 4 == 0) && ((rok % 100 != 0) || (rok % 400 == 0)));
+    }
+function wyświetlKalendarz(r, m, d, el, ev) {
     var data = new Date(r, m, d);
     if (data == "Invalid date") data = new Date();
 
@@ -29,16 +31,13 @@ function wyświetlKalendarz(r, m, d, el) {
 
     var str = "";
 
-    str += "<table>";
+    str += "<table class='table table-hover'>";
     str += "<tr>";
     str += "<th class='tdNaglowek' colspan='7'>";
-    str += "<span class='clickable' onclick='wyświetlKalendarz(";
-    str += rok + "," + (miesiac - 2) + "," + dzienMiesiaca + ",\"";
-    str += el + "\");'>&lt;&lt;<\/span>&nbsp;&nbsp;";
-    str += nazwaMiesiaca + " " + rok + "&nbsp;&nbsp;";
-    str += "<span class='clickable' onclick='wyświetlKalendarz(";
-    str += rok + "," + (miesiac) + "," + dzienMiesiaca + ",\"";
-    str += el + "\");'>&gt;&gt;<\/span>";
+    str += "<span class='clickable' onclick='wyświetlKalendarz(" + rok + "," + (miesiac - 2) + "," + dzienMiesiaca + ",\"" + el + "\" );'>";
+    str += "&lt;&lt;<\/span>&nbsp;&nbsp;" + nazwaMiesiaca + " " + rok + "&nbsp;&nbsp;";
+
+    str += "<span class='clickable' onclick='wyświetlKalendarz(" + rok + "," + (miesiac) + "," + dzienMiesiaca + ",\"" + el + "\" );'>&gt;&gt;<\/span>";
     str += "<\/th>";
     str += "</tr>";
 
@@ -62,40 +61,72 @@ function wyświetlKalendarz(r, m, d, el) {
             klasa = "tdBiezacyDzien";
         }
 
-        //str += "<td class='" + klasa + "' onclick='ustawDate(";
-        //str += rok + "," + miesiac + "," + dzien + ");'>";
         str += "<td class='" + klasa + "'>";
         str += dzien;
         str += "</br>";
         str += name;
         str += "<\/td>";
 
-        str += "<td id=\"" + rok + "," + miesiac + "," + dzien + "\">";
+        str += "<td id=\"" + rok + "-" + miesiac + "-" + dzien + "\">";
+
+        str += c(events, rok, miesiac, dzien);
+
         str += "<\/td>";
 
     }
     str += "<\/tr><\/table>";
 
-
-    var el = document.getElementById(el);
-    if (el) el.innerHTML = str;
-
-    document.getElementById('2015,2,3').innerHTML = "Hello Day.";
+    document.getElementById(el).innerHTML = str;
 
 }
 
+//zawartosc kalendarza
+function c(ev, rok, miesiac, dzien) {
+    var text = "";
+    // var data = rok + "-" + miesiac + "-" + dzien + " ";
 
-function ustawDate(r, m, d) {
-    var tfData = document.getElementById('tfData');
-    if (tfData) {
-        m = m < 10 ? "0" + m : "" + m;
-        d = d < 10 ? "0" + d : "" + d;
-        tfData.value = r + "/" + m + "/" + d;
+    var m = miesiac < 10 ? "0" + miesiac : "" + miesiac;
+    var d = dzien < 10 ? "0" + dzien : "" + dzien;
+    //var data = m + "-" + d + "-" + rok;
+    var data = m + "/" + d + "/" + rok;
+
+    for (i = 0; i < ev.length; i++) {
+        if (ev[i].DateBegin.indexOf(data) === 0) {             
+               
+            if (ev[i].Username === usrName) {
+                text += '<div class="event eventOwner">';
+            }
+            else {
+                text += '<div class="event eventMember">';
+            }
+                
+            text += '<a href="Events/Details/' + ev[i].EventId + '">';
+            text += '<div>';
+            text += '<img id="Image" src="' + image(ev[i].ProfileImage) + '"/>'; 
+            text += '<p id="Title">' + ev[i].Title + '</p>';
+            text += '<p id="Time">' + hour(ev[i].HourBegin) + '</p>';
+            text += '<p id="Description">' + ev[i].Description + '</p>';
+            text += '</div>';
+
+            text += '</a>';
+
+            text += '</div>';
+        }
     }
+    return text;
 }
 
-//  <div>
-//    Podaj datę (RRRR/MM/DD):<br />
-//    <input type="text" id="tfData" />
-//  </div>
+function image(ProfileImage) {
+    if (ProfileImage !== null && ProfileImage.length > 0) {
+        var url = "/Content/Uploads/" + ProfileImage;
+        return url;
+    }
+    else return "/Content/no-img.png";
+}
 
+function hour(myDate) {
+    var getdate = new Date(myDate);
+    var minutes = getdate.getMinutes() < 10 ? "0" + getdate.getMinutes() : "" + getdate.getMinutes();
+    var gethour = getdate.getHours() + ":" + minutes;
+    return gethour;
+}
