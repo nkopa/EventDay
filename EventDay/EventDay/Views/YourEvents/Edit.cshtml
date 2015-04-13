@@ -213,19 +213,23 @@
 }
 
 <!-- GALLERY START -->
+  <p style="font-weight:bold; color:gray; border-bottom:1px solid gray; text-align:center; margin-top:10px;">STWÓRZ GALERIĘ ZDJĘĆ</p>
 
     <fieldset id="fieldsetGallery">
         <div id="Foto">
+            <!--<p>Opis zdjęcia:</p>-->
+            <div id="inputFoto">
+                <input type="text" id="FileGalleryDescription" maxlength="50" value="Opis zdjecia:" /><p></p>
+                <input id="FileGalleryAdd" type="button" value="Dodaj" class="btn btn-default btn-sm" /><p></p>
+                <input id="GalleryAccept" type="button" value="Zapisz" class="btn btn-default btn-sm" /><p></p>
+            </div>
+
             <div class="editor-field">
                 <label for="FileGallerySearch">
                     <img src="/Content/no-img.png" id="FileGallery" />
                 </label>
                 <input id="FileGallerySearch" name='fileUpload' type="file" onchange="readURL(this,'FileGallery')" style="display: none;" />
             </div>
-            <!--<p>Opis zdjęcia:</p>-->
-            <input type="text" id="FileGalleryDescription" maxlength="50" value="Opis zdjecia:" />
-            <input id="FileGalleryAdd" type="button" value="Upload File" />
-            <input id="GalleryAccept" type="button" value="zapisz" />
         </div>
 
         <div id="Gallery">

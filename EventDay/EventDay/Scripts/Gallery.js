@@ -67,7 +67,7 @@ $(document).ready(function () {
         });
 
         ajaxRequest.done(function (xhr, textStatus) {
-            alert("Usunieto poprawnie");
+            //alert("Usunieto poprawnie");
         });
 });
 })
@@ -88,7 +88,7 @@ $(document).ready(function () {
         }
 
         ajaxRequest.done(function (xhr, textStatus) {
-            alert("Zakończono zapis");
+            //alert("Zakończono zapis");
         });
     });
 });

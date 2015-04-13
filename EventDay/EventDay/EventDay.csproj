@@ -220,6 +220,7 @@
     <Content Include="Content\cross.png" />
     <Content Include="Content\Datetimepicker.css" />
     <Content Include="Content\female.png" />
+    <Content Include="Content\Gallery.css" />
     <Content Include="Content\like.png" />
     <Content Include="Content\male.png" />
     <Content Include="Content\no-img.png" />
@@ -289,6 +290,7 @@
     <Content Include="Scripts\botstrap\bootstrap.min.js" />
     <Content Include="Scripts\Calendar.js" />
     <Content Include="Scripts\Datetimepicker.js" />
+    <Content Include="Scripts\Gallery.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
