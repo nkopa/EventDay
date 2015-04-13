@@ -366,6 +366,7 @@
     <Content Include="Views\Events\detale.cshtml" />
     <Content Include="Views\YourEvents\create2.cshtml" />
     <Content Include="Views\YourEvents\Create.cshtml" />
+    <Content Include="Views\User\ShowUserEvents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Uploads\" />

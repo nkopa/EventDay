@@ -8,10 +8,7 @@
     <h3>Jesteś pewny/a, że chcesz usunąć kategorię @Model.Name?</h3>
     using (Html.BeginForm()) {
        
-            <input type="submit" value="Usuń" />
-            <ul id="button">
-               <li>@Html.ActionLink("<< Wróć", "Index")</li>
-            </ul>
+              <button type="submit" class="btn btn-default btn-sm">Usuń</button>
        
     }
 } else {

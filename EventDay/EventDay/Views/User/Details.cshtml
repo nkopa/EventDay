@@ -64,7 +64,7 @@
     </div>
 
 </fieldset>
-<ul id="button">
+<ul class="list">
     <li>@Html.ActionLink("Pokaż eventy tego użytkownika", "ShowUserEvents", new { id=Model.UserId })</li>
     @if (User.Identity.IsAuthenticated && String.Compare(User.Identity.Name,Model.UserName,true) == 0) {
         <li>@Html.ActionLink("Edytuj", "Edit", new { id=Model.UserId })</li>
