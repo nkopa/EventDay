@@ -123,10 +123,9 @@
                 @ViewBag.FreeSeats;
             </dd>
 
-      <dt>Regulamin: </dt>
-            <dd>
-             @Html.DisplayFor(model => model.Regulations)
-            </dd>
+      <!--usuniety regulamin-->
+            @Html.HiddenFor(model => model.Regulations)
+            
 
       <dt>Data publikacji: </dt>
                 <dd>

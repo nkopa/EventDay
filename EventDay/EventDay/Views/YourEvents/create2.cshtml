@@ -108,13 +108,9 @@
         </div>
         <p style="font-weight:bold; color:gray; border-bottom:1px solid gray; text-align:center; margin-top:10px;">DODATKOWE</p>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Regulations)
-        </div>
-        <div class="editor-field">
-           <input type='file' name='fileRegulations' id='fileRegulations' />
-            @Html.ValidationMessageFor(model => model.Regulations)
-        </div>
+        <!-- usuniety regulamin -->
+            @Html.HiddenFor(model => model.Regulations)
+        
 
         <!--konstrukcja zastepuje input obrazkiem-->
         <div class="editor-field">

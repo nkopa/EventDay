@@ -84,20 +84,24 @@
             @Html.ValidationMessageFor(model => model.Capacity)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Regulations)
-        </div>
-        <div class="editor-field">
-           <input type='file' name='fileRegulations' id='fileRegulations' />
-        </div>
+        <!--usunuety regulamin -->
+        @Html.HiddenFor(model => model.Regulations)
 
         <!--konstrukcja zastepuje input obrazkiem-->
         <div class="editor-field">
             <label for="fileProfileImage">
-                <img src="../Content/no-img.png" id="img"/>
+                <img src="/Content/no-img.png" id="img"/>
             </label>
             <input id="fileProfileImage" name='fileProfileImage' type="file" onchange="readURL(this,'img')" style="cursor: pointer;  display: none"/>
         </div>
+
+        <script>
+            function ifFile() {
+                var src = document.getElementById(img);
+                if ('@Html.DisplayFor(model => model.ProfileImage)' === 'brak') src.innerHTML += '../Content/no-img.png';
+                else src.innerHTML += '../Content/Uploads/@Html.DisplayFor(model => model.ProfileImage)';
+    
+}</script>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Price)
