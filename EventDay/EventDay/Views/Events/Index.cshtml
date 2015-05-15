@@ -1,6 +1,6 @@
 ﻿@model PagedList.IPagedList<EventDay.Models.Event>
 @using PagedList.Mvc;
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="~/Content/PagedList.css" property='stylesheet' />
 
     <!--ten widok dotyczy modelu Category -->
     <!-- IEnumerable pozwala zmienic potem typ na dowolny-->
@@ -44,5 +44,5 @@
 Strona @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) z @Model.PageCount
 
 @Html.PagedListPager(Model, page => Url.Action("Index",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), new PagedListRenderOptions {LinkToPreviousPageFormat = String.Format("<< Poprzednia"), LinkToNextPageFormat = String.Format("Następna >>") })
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), new PagedListRenderOptions {LinkToPreviousPageFormat = String.Format("&lt;&lt; Poprzednia"), LinkToNextPageFormat = String.Format("Następna &gt;&gt;") })
  

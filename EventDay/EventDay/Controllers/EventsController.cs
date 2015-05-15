@@ -9,6 +9,7 @@ using EventDay.Models;
 using System.IO;
 using System.Web.Security;
 using PagedList;
+using System.Text.RegularExpressions;
 
 namespace EventDay.Controllers
 {
@@ -200,6 +201,30 @@ namespace EventDay.Controllers
             if (mEvent == null) return HttpNotFound();
 
             if (String.Compare(mEvent.Username,User.Identity.Name,true) == 0) return RedirectToAction("Details", "Events", new { id = id });
+
+            //sprawdzenie daty rejestracji
+            if (DateTime.Compare(DateTime.Now.Date, mEvent.DateBeginRegistation.Date) <= 0 || DateTime.Compare(DateTime.Now.Date,mEvent.DateEndRegistation.Date) >= 0)
+            {
+                /*string timeRegex = "\\d{1,2}:\\d{2}:\\d{2}";
+                var begin = Regex.Match(mEvent.HourBeginRegistration,timeRegex);
+                var end = Regex.Match(mEvent.HourEndRegistration,timeRegex);
+                var beginGroups = Regex.Match(begin.ToString(),"\\d{1,2}:");
+                var endGroups = Regex.Match(end.ToString(), "\\d{1,2}:");
+                var beginH = beginGroups.Groups[0].Value;
+                var beginM = beginGroups.Groups[1].Value;
+                var endH = endGroups.Groups[0].Value;
+                var endM = endGroups.Groups[1].Value;*/
+                DateTime begin = DateTime.Parse(mEvent.HourBeginRegistration);
+                DateTime end = DateTime.Parse(mEvent.HourEndRegistration);
+                //spr. czasu rejestracji
+                //System.Diagnostics.Debug.WriteLine("begin: "+beginGroups.Groups[1]); //"beginH:" + beginH + " beginM:" + beginM + " endH:" + endH + " endM:" + endM
+                System.Diagnostics.Debug.WriteLine(Int32.Parse(DateTime.Now.Hour.ToString()) <= Int32.Parse(begin.Hour.ToString()) && Int32.Parse(DateTime.Now.Minute.ToString()) <= Int32.Parse(begin.Minute.ToString()));
+                if (Int32.Parse(DateTime.Now.Hour.ToString()) <= Int32.Parse(begin.Hour.ToString()) || (Int32.Parse(DateTime.Now.Hour.ToString()) <= Int32.Parse(begin.Hour.ToString()) && Int32.Parse(DateTime.Now.Minute.ToString()) <= Int32.Parse(begin.Minute.ToString())) || Int32.Parse(DateTime.Now.Hour.ToString()) > Int32.Parse(end.Hour.ToString()) || (Int32.Parse(DateTime.Now.Hour.ToString()) > Int32.Parse(end.Hour.ToString()) && Int32.Parse(DateTime.Now.Minute.ToString()) > Int32.Parse(end.Minute.ToString())))
+                {
+                    TempData["ErrorMessage"] = "Nie możesz dołączyć do wydarzenia - rejestracja jest zamknięta.";
+                    return RedirectToAction("Details", "Events", new { id = id });
+                }
+            }
 
             var joinedUserEvent = db.JoinEvent.Include(e => e.Event).Where(u => u.Username == User.Identity.Name).Where(e => e.EventId == id).ToList();
             var joinedFoundEvents = db.JoinEvent.Where(e => e.EventId == id).ToList();

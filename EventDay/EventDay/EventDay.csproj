@@ -189,6 +189,10 @@
     <Compile Include="Migrations\201503202201451_poprawki events2.Designer.cs">
       <DependentUpon>201503202201451_poprawki events2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505071904420_someMig.cs" />
+    <Compile Include="Migrations\201505071904420_someMig.Designer.cs">
+      <DependentUpon>201505071904420_someMig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -426,6 +430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201503202201451_poprawki events2.resx">
       <DependentUpon>201503202201451_poprawki events2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505071904420_someMig.resx">
+      <DependentUpon>201505071904420_someMig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

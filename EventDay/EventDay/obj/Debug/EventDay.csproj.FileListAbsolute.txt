@@ -516,3 +516,10 @@ D:\11Studia\1UG\GitHub\p2\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migratio
 D:\11Studia\1UG\GitHub\p2\EventDay\EventDay\EventDay\obj\Debug\EventDay.csproj.GenerateResource.Cache
 D:\11Studia\1UG\GitHub\p2\EventDay\EventDay\EventDay\obj\Debug\EventDay.dll
 D:\11Studia\1UG\GitHub\p2\EventDay\EventDay\EventDay\obj\Debug\EventDay.pdb
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\bin\PagedList.pdb
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\bin\PagedList.xml
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\bin\PagedList.Mvc.pdb
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\bin\PagedList.Mvc.xml
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.events.resources
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.poprawkievents2.resources
+C:\Users\Natalia\MGit\EventDay\EventDay\EventDay\obj\Debug\EventDay.Migrations.someMig.resources
