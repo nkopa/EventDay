@@ -48,7 +48,7 @@ namespace EventDay.Controllers
         {
             userProfile.UpdateTime = DateTime.Now;
 
-            string dateCreated = userProfile.UpdateTime.ToString().Replace(" ", "").Replace(":", "").Replace("-", "");
+            string dateCreated = userProfile.UpdateTime.ToString().Replace(" ", "").Replace(":", "").Replace("-", "").Replace("/", "");
             if (fileProfileImage != null && fileProfileImage.ContentLength > 0)
             {
                 string fileName = userProfile.UserId + dateCreated + "P" + Path.GetFileName(fileProfileImage.FileName);
